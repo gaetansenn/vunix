@@ -71,3 +71,13 @@ Learn more about the power of Turborepo:
 - [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
 - [Configuration Options](https://turborepo.org/docs/reference/configuration)
 - [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+
+
+
+## Extra
+
+Check if @vitejs/plugin-vue@^2.3.3 is working with other version ?
+
+
+Add dependencies to specific package:
+yarn workspace ui-core add -D vitest @vitejs/plugin-vue@^2.3.3 jsdom c8
