@@ -1,4 +1,4 @@
-import { defineNuxtModule } from '@nuxt/kit'
+import { defineNuxtModule, installModule } from '@nuxt/kit'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export interface ModuleOptions {
@@ -8,21 +8,26 @@ const coreDistPath = require.resolve('ui-core').replace('index.ts', 'dist')
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'dw-ui',
-    configKey: 'dwUi'
+    name: 'ui-nuxt',
+    configKey: 'ui-nuxt',
+    compatibility: {
+      nuxt: '>=3.0.0-rc.9'
+    }
   },
   hooks: {
     // inject components
     'components:dirs': (dirs) => {
-      console.log(require.resolve('ui-core').replace('index.ts', 'dist/runtime/components'))
       dirs.push({
         path: coreDistPath.replace('dist', 'dist/runtime/components'),
         global: true
       })
+    },
+    'build:before': (nuxt, buildOptions) => {
+      buildOptions.transpile.push('ui-core')
     }
   },
   setup (moduleOptions, nuxt) {
-    nuxt.options.app.head.link.push({
+    nuxt.options.app.head.link?.push({
       rel: 'stylesheet',
       href: 'https://rsms.me/inter/inter.css'
     })
@@ -36,5 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.mjs'))
     })
+
+    installModule('@nuxtjs/tailwindcss')
   }
 })

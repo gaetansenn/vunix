@@ -30,7 +30,6 @@ export interface RoundedConfig {
 }
 export const DEFAULT_ROUNDED = RoundedEnum.sm
 export const rounded: ConfigMethodType = ({ props }) => {
-  console.log('rounded value', props.rounded)
   return ({
     xs: 'rounded-sm',
     sm: 'rounded',

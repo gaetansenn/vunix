@@ -26,8 +26,5 @@
     "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
     "test": "vitest run --config vitest.config.ts --coverage",
     "prepare": "unbuild"
-  },
-  "dependencies": {
-    "tailwindcss": "^3.1.8"
   }
 }

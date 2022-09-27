@@ -10,7 +10,7 @@ export type TristateType = typeof tristateTypes[number]
 const booleanWithUndefinedTypes = [...booleanTypes, 'undefined'] as const
 export type BooleanWithUndefinedType = typeof booleanWithUndefinedTypes[number]
 
-export function toAriaBoolean (value: Boolean): String {
+export function toAriaBoolean (value: Boolean | undefined): String {
   return value ? booleanTypes[0] : booleanTypes[1]
 }
 

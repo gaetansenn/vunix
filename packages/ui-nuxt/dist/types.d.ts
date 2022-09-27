@@ -2,8 +2,8 @@
 import { ModuleOptions, ModuleHooks } from './module'
 
 declare module '@nuxt/schema' {
-  interface NuxtConfig { ['dwUi']?: Partial<ModuleOptions> }
-  interface NuxtOptions { ['dwUi']?: ModuleOptions }
+  interface NuxtConfig { ['ui-nuxt']?: Partial<ModuleOptions> }
+  interface NuxtOptions { ['ui-nuxt']?: ModuleOptions }
   interface NuxtHooks extends ModuleHooks {}
 }
 
