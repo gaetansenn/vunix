@@ -1,3 +1,6 @@
-import DwButton from './runtime/components/DwButton.vue'
+// export * from './runtime/components'
+// export default { DwButton }
 
-export default { DwButton }
+const test = 'toto'
+
+export default { test }

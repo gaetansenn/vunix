@@ -4,7 +4,9 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export interface ModuleOptions {
 }
 
-const coreDistPath = require.resolve('ui-core').replace('index.ts', 'dist')
+console.log(require.resolve('ui-core'))
+
+const coreDistPath = require.resolve('ui-core').replace('index.ts.mjs', '')
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -19,6 +21,7 @@ export default defineNuxtModule<ModuleOptions>({
     'components:dirs': (dirs) => {
       dirs.push({
         path: coreDistPath.replace('dist', 'dist/runtime/components'),
+        ignore: ['index*'],
         global: true
       })
     },

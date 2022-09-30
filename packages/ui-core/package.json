@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.mjs",
+  "main": "./dist/index.ts.mjs",
   "types": "./dist/index.ts.d.ts",
   "files": [
     "dist"
@@ -22,9 +22,9 @@
     "vue": "^3.2.38"
   },
   "scripts": {
+    "dev": "unbuild --stub",
     "build": "unbuild",
     "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
-    "test": "vitest run --config vitest.config.ts --coverage",
-    "prepare": "unbuild"
+    "test": "vitest run --config vitest.config.ts --coverage"
   }
 }
