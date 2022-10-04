@@ -4,8 +4,6 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 export interface ModuleOptions {
 }
 
-console.log(require.resolve('ui-core'))
-
 const coreDistPath = require.resolve('ui-core').replace('index.ts.mjs', '')
 
 export default defineNuxtModule<ModuleOptions>({
@@ -13,7 +11,7 @@ export default defineNuxtModule<ModuleOptions>({
     name: 'ui-nuxt',
     configKey: 'ui-nuxt',
     compatibility: {
-      nuxt: '>=3.0.0-rc.9'
+      nuxt: '>=3.0.0-rc.11'
     }
   },
   hooks: {
@@ -41,8 +39,8 @@ export default defineNuxtModule<ModuleOptions>({
         sans: ['Inter var', ...defaultTheme.fontFamily.sans]
       }
 
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.mjs'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.ts'))
     })
 
     installModule('@nuxtjs/tailwindcss')

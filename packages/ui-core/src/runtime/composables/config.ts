@@ -1,7 +1,7 @@
 import { reactive, computed, markRaw } from 'vue'
 import { merge } from 'lodash'
 
-function handleReactiveConfig (config, context) {
+function handleReactiveConfig (config: any, context: any) {
   Object.keys(config).forEach((key) => {
     if (typeof config[key] === 'function') {
       // Mark render function as raw
@@ -16,7 +16,7 @@ function handleReactiveConfig (config, context) {
 }
 
 // Inject library config to component
-export const useConfig = <T>(context, config): T => {
+export const useConfig = <T>(context: any, config: any): T => {
   const _config = merge({}, config)
 
   handleReactiveConfig(_config, context)

@@ -2,7 +2,6 @@
     "name": "ui-nuxt",
     "version": "1.0.0",
     "license": "MIT",
-    "type": "module",
     "exports": {
       ".": {
         "import": "./dist/module.mjs",
@@ -19,14 +18,14 @@
       "build": "nuxt-module-build"
     },
     "dependencies": {
-      "@nuxt/kit": "^3.0.0-rc.11",
+      "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
       "ui-core": "*"
     },
     "devDependencies": {
       "@nuxt/module-builder": "latest",
       "@nuxtjs/eslint-config-typescript": "latest",
       "eslint": "latest",
-      "nuxt": "^3.0.0-rc.11",
+      "nuxt3": "latest",
       "@nuxtjs/tailwindcss": "^5.3.2"
     }
   }

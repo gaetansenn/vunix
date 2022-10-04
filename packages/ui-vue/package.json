@@ -16,6 +16,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/lodash": "^4.14.186",
     "@vitejs/plugin-vue": "^3.1.0",
     "ui-core": "*",
     "vite": "^3.1.4",
@@ -28,7 +29,7 @@
     "prepare": "vite build && vue-tsc --emitDeclarationOnly"
   },
   "dependencies": {
-    "vue": "^3.2.40",
-    "ui-core": "*"
+    "ui-core": "*",
+    "vue": "^3.2.40"
   }
 }

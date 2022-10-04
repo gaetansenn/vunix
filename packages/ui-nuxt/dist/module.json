@@ -1,8 +1,0 @@
-{
-  "name": "ui-nuxt",
-  "configKey": "ui-nuxt",
-  "compatibility": {
-    "nuxt": ">=3.0.0-rc.9"
-  },
-  "version": "1.0.0"
-}

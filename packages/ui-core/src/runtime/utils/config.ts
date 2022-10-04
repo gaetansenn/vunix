@@ -1,7 +1,7 @@
 import { FunctionalComponent } from 'vue'
 import { ArrowPathIcon } from '@heroicons/vue/20/solid';
 
-export type ConfigMethodType = (...any) => string;
+export type ConfigMethodType = (...any: any[]) => string;
 export type IconType = FunctionalComponent | string
 export type MethodOrStringType = ConfigMethodType | string
 
@@ -37,7 +37,7 @@ export const rounded: ConfigMethodType = ({ props }) => {
     lg: 'rounded-lg',
     xl: 'rounded-xl',
     full: 'rounded-full'
-  })[props.rounded]
+  } as any)[props.rounded]
 }
 
 export enum SizeEnum {
@@ -96,7 +96,7 @@ export const buttonConfig: ButtonConfig = {
       [SizeEnum.md]: 'px-4 py-2 text-sm leading-5',
       [SizeEnum.lg]: 'px-4 py-2 text-base leading-6',
       [SizeEnum.xl]: 'px-6 py-3 text-base leading-6'
-    })[props.size]
+    } as any)[props.size]
   },
   loading: {
     fixed: 'ml-3 animate-spin',
@@ -107,7 +107,7 @@ export const buttonConfig: ButtonConfig = {
         [SizeEnum.md]: 'h-5 w-5',
         [SizeEnum.lg]: 'h-6 w-6',
         [SizeEnum.xl]: 'h-6 w-6'
-      })[props.size]
+      }as any)[props.size]
     },
     icon: ArrowPathIcon
   }
