@@ -9,6 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "build:nuxt-playground": "turbo run build --filter=nuxt-playground",
+    "build:vue-playground": "turbo run build --filter=vue-playground",
     "dev": "turbo run dev",
     "dev:vue-playground": "turbo run dev --filter=vue-playground",
     "dev:nuxt-playground": "turbo run dev --filter=nuxt-playground",
