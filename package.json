@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "build:nuxt-playground": "turbo run build --filter=nuxt-playground",
     "dev": "turbo run dev",
-    "dev:vue-playground": "turbo run dev --filter=ui-vue-playground",
-    "dev:nuxt-playground": "turbo run dev --filter=ui-nuxt-playground",
+    "dev:vue-playground": "turbo run dev --filter=vue-playground",
+    "dev:nuxt-playground": "turbo run dev --filter=nuxt-playground",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
     "test:ui-core": "turbo run test --filter=ui-core",
