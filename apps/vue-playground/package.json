@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "ui-vue": "*",
-    "vue": "^3.2.38",
+    "vue": "^3.2.40",
     "vue-router": "^4.1.5"
   },
   "devDependencies": {

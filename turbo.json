@@ -3,12 +3,14 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": ["dist/**", ".nuxt/**"],
+      "cache": false
     },
     "lint": {
       "outputs": []
     },
     "dev": {
+      "dependsOn": ["^dev"],
       "cache": false
     },
     "test": {
@@ -16,6 +18,12 @@
     },
     "prepare": {
       "cache": false
+    },
+    "deploy": {
+      "dependsOn": ["test", "build"],
+      "outputs": [
+        "dist/**"
+      ]
     }
   }
 }

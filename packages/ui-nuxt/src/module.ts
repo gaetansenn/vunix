@@ -1,10 +1,10 @@
 import { defineNuxtModule, installModule } from '@nuxt/kit'
-import defaultTheme from 'tailwindcss/defaultTheme'
 
-export interface ModuleOptions {
-}
+export interface ModuleOptions {}
 
-const coreDistPath = require.resolve('ui-core').replace('index.ts.mjs', '')
+const coreDistPath = require.resolve('ui-core').replace('/index.ts.mjs', '')
+
+console.log('ui-nuxt: coredist path', coreDistPath)
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -24,7 +24,7 @@ export default defineNuxtModule<ModuleOptions>({
       })
     },
     'build:before': (nuxt, buildOptions) => {
-      buildOptions.transpile.push('ui-core')
+      buildOptions.transpile.push('@heroicons/vue')
     }
   },
   setup (moduleOptions, nuxt) {
@@ -36,11 +36,11 @@ export default defineNuxtModule<ModuleOptions>({
     // @ts-ignore - Module might not exist
     nuxt.hook('tailwindcss:config', function (config) {
       config.theme.extend.fontFamily = {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans]
+        sans: ['Inter var', require('tailwindcss/defaultTheme').fontFamily.sans]
       }
 
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts}'))
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.ts'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
     })
 
     installModule('@nuxtjs/tailwindcss')

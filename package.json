@@ -8,15 +8,15 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --filter=ui-*; turbo run dev --filter=*-playground",
-    "dev:vue-playground": "turbo run dev --filter=vue-playground",
+    "dev": "turbo run dev",
+    "dev:vue-playground": "turbo run dev --filter=ui-vue-playground",
+    "dev:nuxt-playground": "turbo run dev --filter=ui-nuxt-playground",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
     "test:ui-core": "turbo run test --filter=ui-core",
     "test:ui-nuxt": "turbo run test --filter=ui-nuxt",
-    "prepare:ui-core": "turbo run prepare --filter=ui-core",
-    "prepare:ui-nuxt": "turbo run prepare --filter=ui-nuxt",
-    "prepare:ui-vue": "turbo run prepare --filter=ui-vue"
+    "prepare": "turbo run prepare",
+    "deploy": "turbo run deploy"
   },
   "devDependencies": {
     "prettier": "latest",

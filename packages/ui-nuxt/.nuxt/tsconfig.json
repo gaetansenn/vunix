@@ -47,19 +47,19 @@
         "public"
       ],
       "#app": [
-        "../../../node_modules/nuxt/dist/app"
+        "../../node_modules/nuxt/dist/app"
       ],
       "#app/*": [
-        "../../../node_modules/nuxt/dist/app/*"
+        "../../node_modules/nuxt/dist/app/*"
       ],
       "vue-demi": [
-        "../../../node_modules/nuxt/dist/app/compat/vue-demi"
+        "../../node_modules/nuxt/dist/app/compat/vue-demi"
       ],
       "#head": [
-        "../../../node_modules/nuxt/dist/head/runtime"
+        "../../node_modules/nuxt/dist/head/runtime"
       ],
       "#head/*": [
-        "../../../node_modules/nuxt/dist/head/runtime/*"
+        "../../node_modules/nuxt/dist/head/runtime/*"
       ],
       "#imports": [
         ".nuxt/imports"
@@ -77,6 +77,7 @@
   },
   "include": [
     "./nuxt.d.ts",
-    "../**/*"
+    "../**/*",
+    "../../../**/*"
   ]
 }

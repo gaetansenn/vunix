@@ -19,7 +19,7 @@
     "typescript": "latest",
     "unbuild": "latest",
     "vitest": "^0.23.4",
-    "vue": "^3.2.38"
+    "vue": "^3.2.41"
   },
   "scripts": {
     "dev": "unbuild --stub",

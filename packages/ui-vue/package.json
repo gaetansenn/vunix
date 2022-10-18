@@ -6,7 +6,7 @@
     "dist"
   ],
   "main": "./dist/ui-vue.umd.cjs",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "module": "./dist/ui-vue.es.js",
   "exports": {
     ".": {
@@ -18,18 +18,16 @@
   "devDependencies": {
     "@types/lodash": "^4.14.186",
     "@vitejs/plugin-vue": "^3.1.0",
-    "ui-core": "*",
     "vite": "^3.1.4",
     "vue-tsc": "^0.40.13"
   },
   "scripts": {
     "dev": "vite build && vue-tsc --emitDeclarationOnly",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "typecheck": "vue-tsc --noEmit",
-    "prepare": "vite build && vue-tsc --emitDeclarationOnly"
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "ui-core": "*",
-    "vue": "^3.2.40"
+    "vue": "^3.2.41"
   }
 }

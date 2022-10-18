@@ -10,7 +10,10 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
+    },
+    dedupe: [
+      'vue'
+    ]
   },
   preview: {
     port: 3001

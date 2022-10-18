@@ -1,5 +1,5 @@
 import { reactive, computed, markRaw } from 'vue'
-import { merge } from 'lodash'
+import merge from 'lodash/merge'
 
 function handleReactiveConfig (config: any, context: any) {
   Object.keys(config).forEach((key) => {

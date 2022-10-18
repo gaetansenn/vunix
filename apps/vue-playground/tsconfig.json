@@ -6,9 +6,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "types": ["vite/cli"],
-    }
+    },
   },
-
   "references": [
     {
       "path": "./tsconfig.config.json"
