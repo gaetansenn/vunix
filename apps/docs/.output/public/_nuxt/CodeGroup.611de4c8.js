@@ -1,0 +1,1 @@
+import{_ as o}from"./CodeGroup.vue_vue_type_style_index_1_scoped_59fe1296_lang.2596d56a.js";import{a}from"./entry.fb07763c.js";import"./TabsHeader.b4c53f7e.js";const s=a(o,[["__scopeId","data-v-59fe1296"]]);export{s as default};

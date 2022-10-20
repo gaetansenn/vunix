@@ -1,0 +1,32 @@
+{
+    "name": "vunix-nuxt",
+    "version": "1.0.0",
+    "license": "MIT",
+    "exports": {
+      ".": {
+        "import": "./dist/module.mjs",
+        "require": "./dist/module.cjs"
+      }
+    },
+    "main": "./dist/module.cjs",
+    "types": "./dist/types.d.ts",
+    "files": [
+      "dist"
+    ],
+    "scripts": {
+      "prepare": "nuxi prepare",
+      "dev": "nuxt-module-build --stub",
+      "build": "nuxt-module-build"
+    },
+    "dependencies": {
+      "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+      "vunix-core": "*"
+    },
+    "devDependencies": {
+      "@nuxt/module-builder": "latest",
+      "@nuxtjs/eslint-config-typescript": "latest",
+      "eslint": "latest",
+      "nuxt3": "latest",
+      "@nuxtjs/tailwindcss": "^5.3.2"
+    }
+  }

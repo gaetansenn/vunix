@@ -1,13 +1,15 @@
 {
-  "name": "ui",
-  "version": "0.0.0",
+  "name": "vunix",
+  "version": "1.0.0",
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "docs/*"
   ],
   "scripts": {
     "build": "turbo run build",
+    "dev:docs": "turbo run dev --filter=docs",
     "build:nuxt-playground": "turbo run build --filter=nuxt-playground",
     "build:vue-playground": "turbo run build --filter=vue-playground",
     "dev": "turbo run dev",
@@ -15,8 +17,8 @@
     "dev:nuxt-playground": "turbo run dev --filter=nuxt-playground",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
-    "test:ui-core": "turbo run test --filter=ui-core",
-    "test:ui-nuxt": "turbo run test --filter=ui-nuxt",
+    "test:vunix-core": "turbo run test --filter=vunix-core",
+    "test:vunix-nuxt": "turbo run test --filter=vunix-nuxt",
     "prepare": "turbo run prepare",
     "deploy": "turbo run deploy"
   },

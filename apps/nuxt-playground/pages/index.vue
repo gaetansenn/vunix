@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DwButton :to="{ name: 'test' }">Test to</DwButton>
+    <DwButton :to="{ name: 'test' }">Test update</DwButton>
   </div>
 </template>
   

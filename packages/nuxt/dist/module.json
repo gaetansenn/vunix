@@ -1,0 +1,8 @@
+{
+  "name": "vunix-nuxt",
+  "configKey": "vunix-nuxt",
+  "compatibility": {
+    "nuxt": ">=3.0.0-rc.11"
+  },
+  "version": "1.0.0"
+}
