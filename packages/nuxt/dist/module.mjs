@@ -9,12 +9,12 @@ import __cjs_mod__ from 'module';
 const __filename = __cjs_url__.fileURLToPath(import.meta.url);
 const __dirname = __cjs_path__.dirname(__filename);
 const require = __cjs_mod__.createRequire(import.meta.url);
-const coreDistPath = require.resolve("vunix-core").replace("/index.ts.mjs", "");
-console.log("vunix-nuxt: coredist path", coreDistPath);
+const coreDistPath = require.resolve("@vunix/core").replace("/index.ts.mjs", "");
+console.log("@vunix/nuxt: coredist path", coreDistPath);
 const module = defineNuxtModule({
   meta: {
-    name: "vunix-nuxt",
-    configKey: "vunix-nuxt",
+    name: "@vunix/nuxt",
+    configKey: "@vunix/nuxt",
     compatibility: {
       nuxt: ">=3.0.0-rc.11"
     }

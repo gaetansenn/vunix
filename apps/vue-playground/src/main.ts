@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import { uiVue } from 'vunix-vue'
+import { uiVue } from '@vunix/vue'
 
 import './assets/main.css'
 

@@ -1,5 +1,5 @@
 {
-    "name": "vunix-nuxt",
+    "name": "@vunix/nuxt",
     "version": "1.0.0",
     "license": "MIT",
     "exports": {
@@ -20,7 +20,7 @@
     },
     "dependencies": {
       "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
-      "vunix-core": "*"
+      "@vunix/core": "*"
     },
     "devDependencies": {
       "@nuxt/module-builder": "latest",

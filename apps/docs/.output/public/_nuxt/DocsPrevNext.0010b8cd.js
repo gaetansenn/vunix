@@ -1,1 +1,0 @@
-import"./DocsPrevNext.vue_vue_type_script_setup_true_lang.fc355fa1.js";import{_ as t}from"./DocsPrevNext.vue_vue_type_script_setup_true_lang.fc355fa1.js";import"./entry.fb07763c.js";export{t as default};

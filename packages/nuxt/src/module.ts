@@ -2,14 +2,14 @@ import { defineNuxtModule, installModule } from '@nuxt/kit'
 
 export interface ModuleOptions {}
 
-const coreDistPath = require.resolve('vunix-core').replace('/index.ts.mjs', '')
+const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
 
-console.log('vunix-nuxt: coredist path', coreDistPath)
+console.log('@vunix/nuxt: coredist path', coreDistPath)
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'vunix-nuxt',
-    configKey: 'vunix-nuxt',
+    name: '@vunix/nuxt',
+    configKey: '@vunix/nuxt',
     compatibility: {
       nuxt: '>=3.0.0-rc.11'
     }

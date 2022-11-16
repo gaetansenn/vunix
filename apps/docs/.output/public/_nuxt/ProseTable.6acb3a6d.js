@@ -1,1 +1,0 @@
-import{a as o,o as t,b as _,f as s,v as a}from"./entry.fb07763c.js";const n={},c={class:"my-6 max-w-full overflow-x-auto"};function l(e,r){return t(),_("div",c,[s("table",null,[a(e.$slots,"default",{},void 0,!0)])])}const d=o(n,[["render",l],["__scopeId","data-v-28f0c90f"]]);export{d as default};

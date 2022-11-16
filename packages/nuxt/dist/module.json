@@ -1,6 +1,6 @@
 {
-  "name": "vunix-nuxt",
-  "configKey": "vunix-nuxt",
+  "name": "@vunix/nuxt",
+  "configKey": "@vunix/nuxt",
   "compatibility": {
     "nuxt": ">=3.0.0-rc.11"
   },

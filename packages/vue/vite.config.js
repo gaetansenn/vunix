@@ -7,7 +7,7 @@ export default defineConfig({
     target: 'esnext',
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'vunix-vue',
+      name: '@vunix/vue',
       fileName: (format) => `vunix-vue.${format}.js`,
     },
     rollupOptions: {

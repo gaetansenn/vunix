@@ -1,5 +1,5 @@
 {
-  "name": "vunix-vue",
+  "name": "@vunix/vue",
   "version": "1.0.0",
   "type": "module",
   "files": [
@@ -27,7 +27,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "vunix-core": "*",
+    "@vunix/core": "*",
     "vue": "^3.2.41"
   }
 }

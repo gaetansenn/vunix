@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const coreDistPath = require.resolve('vunix-core').replace('index.ts.mjs', '')
+const coreDistPath = require.resolve('@vunix/core').replace('index.ts.mjs', '')
 
 console.log(coreDistPath.replace('dist/', 'dist/runtime/components/**/*.{vue,js,ts}'))
 console.log(coreDistPath.replace('dist/', 'dist/runtime/utils/config.ts'))

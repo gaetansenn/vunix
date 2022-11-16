@@ -9,7 +9,7 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "vunix-nuxt": "*"
+    "@vunix/nuxt": "*"
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.12"

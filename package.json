@@ -17,12 +17,14 @@
     "dev:nuxt-playground": "turbo run dev --filter=nuxt-playground",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
-    "test:vunix-core": "turbo run test --filter=vunix-core",
-    "test:vunix-nuxt": "turbo run test --filter=vunix-nuxt",
+    "test:core": "turbo run test --filter=@vunix/core",
+    "test:nuxt": "turbo run test --filter=@vunix/nuxt",
     "prepare": "turbo run prepare",
-    "deploy": "turbo run deploy"
+    "deploy": "turbo run deploy",
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.25.2",
     "prettier": "latest",
     "turbo": "latest"
   },

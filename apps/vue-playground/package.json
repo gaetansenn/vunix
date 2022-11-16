@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "vunix-vue": "*",
+    "@vunix/vue": "*",
     "vue": "^3.2.40",
     "vue-router": "^4.1.5"
   },
