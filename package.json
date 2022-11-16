@@ -8,11 +8,11 @@
     "docs/*"
   ],
   "scripts": {
+    "dev": "turbo run dev",
     "build": "turbo run build",
     "dev:docs": "turbo run dev --filter=docs",
     "build:nuxt-playground": "turbo run build --filter=nuxt-playground",
     "build:vue-playground": "turbo run build --filter=vue-playground",
-    "dev": "turbo run dev",
     "dev:vue-playground": "turbo run dev --filter=vue-playground",
     "dev:nuxt-playground": "turbo run dev --filter=nuxt-playground",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -21,10 +21,15 @@
     "test:nuxt": "turbo run test --filter=@vunix/nuxt",
     "prepare": "turbo run prepare",
     "deploy": "turbo run deploy",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
+    "changeset": "changeset",
+    "bump": "changset version",
+    "release": "turbo run build lint test && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
+    "husky": "^8.0.2",
     "prettier": "latest",
     "turbo": "latest"
   },
