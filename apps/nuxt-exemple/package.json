@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "nuxt-playground",
+  "name": "nuxt-exemple",
   "version": "1.0.0",
   "scripts": {
     "build": "nuxt build",

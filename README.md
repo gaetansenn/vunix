@@ -73,7 +73,6 @@ Learn more about the power of Turborepo:
 - [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
 
 
-
 ## Extra
 
 Check if @vitejs/plugin-vue@^2.3.3 is working with other version ?

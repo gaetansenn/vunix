@@ -1,0 +1,22 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "histoire dev",
+    "build": "histoire build",
+    "preview": "histoire preview --port 4567"
+  },
+  "type": "module",
+  "dependencies": {
+    "@vunix/nuxt": "*"
+  },
+  "devDependencies": {
+    "@histoire/plugin-nuxt": "^0.11.7",
+    "@histoire/plugin-vue": "^0.11.7",
+    "destr": "^1.2.1",
+    "histoire": "^0.11.7",
+    "nuxt": "3.0.0-rc.12",
+    "vue": "^3.2.37"
+  }
+}
