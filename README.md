@@ -81,3 +81,8 @@ Check if @vitejs/plugin-vue@^2.3.3 is working with other version ?
 
 Add dependencies to specific package:
 yarn workspace @vunix/core add -D vitest @vitejs/plugin-vue@^2.3.3 jsdom c8
+
+
+## Release / Publish
+
+https://github.com/changesets/changesets
