@@ -5,4 +5,5 @@ export default defineNuxtConfig({
   modules: [
     '@vunix/nuxt',
   ],
+  ssr: false
 })
