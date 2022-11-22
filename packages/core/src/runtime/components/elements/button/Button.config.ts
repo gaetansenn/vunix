@@ -1,4 +1,4 @@
-import { ArrowPathIcon } from '@heroicons/vue/20/solid';
+import ArrowPathIcon from '@heroicons/vue/20/solid/esm/ArrowPathIcon.js';
 
 import { DefaultConfig, IconType, MethodOrStringType, rounded, SizeEnum } from "../../../utils/config"
 
