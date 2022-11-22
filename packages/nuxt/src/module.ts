@@ -41,7 +41,7 @@ export default defineNuxtModule<ModuleOptions>({
         sans: ['Inter var', require('tailwindcss/defaultTheme').fontFamily.sans]
       }
 
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
     })
 
