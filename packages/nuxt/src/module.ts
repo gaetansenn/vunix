@@ -4,8 +4,6 @@ export interface ModuleOptions {}
 
 const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
 
-console.log('@vunix/nuxt: coredist path', coreDistPath)
-
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@vunix/nuxt',
@@ -25,11 +23,11 @@ export default defineNuxtModule<ModuleOptions>({
         pathPrefix: false
       })
     },
-    'build:before': (nuxt, buildOptions) => {
-      buildOptions.transpile.push('@heroicons/vue')
-    }
   },
   setup (moduleOptions, nuxt) {
+    nuxt.hook('build:before', () => {
+      nuxt.options.build.transpile.push('@heroicons/vue')
+    })
     nuxt.options.app.head.link?.push({
       rel: 'stylesheet',
       href: 'https://rsms.me/inter/inter.css'
