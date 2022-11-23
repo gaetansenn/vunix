@@ -1,4 +1,4 @@
 export default defineNuxtConfig({
-  extends: '@nuxt-themes/docus-edge',
+  extends: '@nuxt-themes/docus',
   ssr: false
 })
