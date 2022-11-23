@@ -12,7 +12,7 @@
     "build": "turbo run build",
     "dev:docs": "turbo run dev --filter=docs",
     "dev:playground": "turbo run dev --filter=playground",
-    "build:nuxt-example": "turbo run build --filter=nuxt-example",
+    "build:nuxt-example": "turbo run generate --filter=nuxt-example",
     "build:vue-example": "turbo run build --filter=vue-example",
     "build:playground": "turbo run build --filter=playground",
     "dev:vue-example": "turbo run dev --filter=vue-example",
