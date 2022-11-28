@@ -1,4 +1,5 @@
-import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE } from '../../utils/config'
+import { PropType } from 'vue'
+import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum } from '../../utils/config'
 
 /**
  * @type {{ size: string }}
@@ -6,7 +7,7 @@ import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE } from '../../utils/conf
  * */
 export const sizeProp = {
   size: {
-    type: String,
+    type: String as PropType<SizeEnum>,
     default: DEFAULT_SIZE
   }
 }
@@ -19,7 +20,7 @@ export const roundedProp = {
    * @see https://router.vuejs.org/api/#routelocationraw
    */
   rounded: {
-    type: String,
+    type: String as PropType<RoundedEnum>,
     default: DEFAULT_ROUNDED
   }
 }

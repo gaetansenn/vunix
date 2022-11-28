@@ -17,7 +17,7 @@ export interface ButtonConfig extends DefaultConfig {
       return `${fixed} ${(props.block) ? 'flex w-full' : 'inline-flex'}`
     },
     variants: {
-      default: 'bg-blue-100 text-blue-900',
+      default: 'bg-blue-100 text-blue-900 hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300 font-medium',
       outline: '',
       text: ''
     },

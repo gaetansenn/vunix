@@ -7,15 +7,15 @@
 
 <script setup lang="ts">
 import pick from 'lodash/pick'
-import { computed, ConcreteComponent, resolveComponent } from 'vue'
+import { computed, type ConcreteComponent, resolveComponent } from 'vue'
 
-import { IconType } from '../../../utils/config'
+import type { IconType } from '../../../utils/config'
 import { useConfig } from '../../../composables/config'
 import { sizeProp, toProp, variantProp, roundedProp } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
 import { toAriaBoolean } from '../../commons/accessibilityAttrs'
-import { props as buttonProps, TypeType } from './Button.props'
-import { buttonConfig, ButtonConfig } from './Button.config'
+import { props as buttonProps, type TypeType } from './Button.props'
+import { buttonConfig, type ButtonConfig } from './Button.config'
 
 const props = defineProps({
   ...sizeProp,
