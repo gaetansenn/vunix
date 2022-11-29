@@ -1,6 +1,6 @@
 
 import type { App } from 'vue'
-import * as components from '@vunix/core/dist/runtime/components'
+import { components } from '@vunix/core'
 
 const plugin = {
   install(app: App) {
@@ -13,5 +13,5 @@ const plugin = {
   },
 }
 
-export * from '@vunix/core/dist/runtime/components'
+export * from '@vunix/core'
 export { plugin as uiVue }

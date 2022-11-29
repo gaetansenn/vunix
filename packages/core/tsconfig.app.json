@@ -1,0 +1,9 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.web.json",
+    "include": ["src/env.d.ts", "src/**/*", "src/**/*.vue"],
+    "exclude": ["__tests__/**/*"],
+    "compilerOptions": {
+      "composite": true,
+      "baseUrl": "."
+    }
+  }

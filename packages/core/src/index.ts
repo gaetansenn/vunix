@@ -1,6 +1,1 @@
-// export * from './runtime/components'
-// export default { DwButton }
-
-const test = 'toto'
-
-export default { test }
+export * as components from './components/index'

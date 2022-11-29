@@ -2,7 +2,9 @@ import { defineNuxtModule, installModule } from '@nuxt/kit'
 
 export interface ModuleOptions {}
 
-const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
+console.log(require.resolve('@vunix/core'))
+
+const coreDistPath = require.resolve('@vunix/core').replace('/vunix.umd.cjs', '')
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
@@ -16,7 +18,7 @@ export default defineNuxtModule<ModuleOptions>({
     // inject components
     'components:dirs': (dirs) => {
       dirs.push({
-        path: coreDistPath.replace('dist', 'dist/runtime/components'),
+        path: coreDistPath.replace('dist', 'dist/components'),
         ignore: ['index*'],
         global: true,
         prefix: 'Dw',
@@ -39,8 +41,8 @@ export default defineNuxtModule<ModuleOptions>({
         sans: ['Inter var', require('tailwindcss/defaultTheme').fontFamily.sans]
       }
 
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/components/**/*.{vue,js,ts,mjs}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/utils/config.{ts,mjs}'))
     })
 
     installModule('@nuxtjs/tailwindcss')
