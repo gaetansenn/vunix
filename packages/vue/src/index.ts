@@ -1,17 +1,23 @@
 
 import type { App } from 'vue'
-import * as components from '@vunix/core/dist/runtime/components'
+import { components } from '@vunix/core/dist/runtime'
+
+export interface PluginOptions {
+  registerComponents: boolean
+}
 
 const plugin = {
-  install(app: App) {
-    console.log('components :>> ', components);
-    for (const prop in components.default) {
-      // @ts-expect-error: I want to index import using string
-      const component = components.default[prop]
-      app.component(component.__name, component)
+  install(app: App, options?: PluginOptions) {
+    if (options && options.registerComponents) {
+      for (const prop in components) {
+        // @ts-expect-error: I want to index import using string
+        const component = components[prop]
+        app.component(`Dw${component.__name}`, component)
+      }
     }
   },
 }
 
+export { VunixComponentResolver } from './componentResolver'
 export * from '@vunix/core/dist/runtime/components'
-export { plugin as uiVue }
+export { plugin as vunix }
