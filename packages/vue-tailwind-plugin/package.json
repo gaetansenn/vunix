@@ -1,0 +1,29 @@
+{
+  "name": "@vunix/vue-tailwind-plugin",
+  "version": "1.0.0",
+  "description": "Vue tailwind plugin for vunix content injection",
+  "author": "Gaetan SENN",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "devDependencies": {
+    "unbuild": "^1.0.1"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
