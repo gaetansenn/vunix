@@ -21,3 +21,4 @@ const plugin = {
 export { VunixComponentResolver } from './componentResolver'
 export * from '@vunix/core/dist/runtime/components'
 export { plugin as vunix }
+export { default as tailwind } from './tailwind'
