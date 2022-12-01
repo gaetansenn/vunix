@@ -4,9 +4,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "types": ["vite/cli"],
+      "@/*": ["./src/*"]
     },
+    "types": [
+      "vite/cli",
+      "@vunix/vue/volar"
+    ]
   },
   "references": [
     {
