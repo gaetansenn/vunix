@@ -1,4 +1,4 @@
-import { defineNuxtModule, installModule } from '@nuxt/kit'
+import { defineNuxtModule, installModule, createResolver } from '@nuxt/kit'
 
 export interface ModuleOptions {}
 
@@ -20,6 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
         ignore: ['index*'],
         global: true,
         prefix: 'Dw',
+        extensions: ['.vue'],
         pathPrefix: false
       })
     },
