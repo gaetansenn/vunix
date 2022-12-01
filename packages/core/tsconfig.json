@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
@@ -12,12 +12,16 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["*"],
+      "@vunix/core": ["./src"]
     },
     "lib": ["esnext"],
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "declaration": true
+    "skipLibCheck": true
   },
-  "include": ["vite.config.*", "env.d.ts", "src/**/*", "src/**/*.vue"]
+  "include": ["env.d.ts", "vite.config.*", "src/*.d.ts", "src/**/*.ts", "src/**/*.vue"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
