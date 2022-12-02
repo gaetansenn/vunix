@@ -10,6 +10,8 @@ The core is build on top of [Vue.js](https://nextjs.org) framework and [Tailwind
 
 Vunix is also compatible with [Nuxt.js](http://nuxtjs.org)
 
+- [📄 Documentation](https://vunix.dewib.com)
+
 ## What's inside?
 
 This reposiroty uses [Yarn](https://classic.yarnpkg.com/) as a package manager. It includes the following packages/apps:
