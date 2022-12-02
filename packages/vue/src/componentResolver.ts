@@ -1,6 +1,6 @@
 import type { ComponentResolver } from 'unplugin-vue-components'
 
-export function VunixComponentResolver(): ComponentResolver {
+export function ComponentResolver(): ComponentResolver {
   return {
     type: 'component',
     resolve: (name: string) => {

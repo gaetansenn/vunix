@@ -6,7 +6,7 @@ export interface PluginOptions {
   registerComponents: boolean
 }
 
-const plugin = {
+export const plugin = {
   install(app: App, options?: PluginOptions) {
     if (options && options.registerComponents) {
       for (const prop in components) {
@@ -18,6 +18,5 @@ const plugin = {
   },
 }
 
-export { VunixComponentResolver } from './componentResolver'
+export { ComponentResolver } from './componentResolver'
 export * from '@vunix/core/dist/runtime/components'
-export { plugin as vunix }
