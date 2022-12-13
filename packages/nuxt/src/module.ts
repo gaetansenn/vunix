@@ -1,13 +1,12 @@
-import { defineNuxtModule, installModule, createResolver } from '@nuxt/kit'
-
-export interface ModuleOptions {}
+import { Config } from '@vunix/core'
+import { defineNuxtModule, installModule, addPluginTemplate, createResolver } from '@nuxt/kit'
 
 const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
 
-export default defineNuxtModule<ModuleOptions>({
+export default defineNuxtModule({
   meta: {
     name: '@vunix/nuxt',
-    configKey: '@vunix/nuxt',
+    configKey: 'vunix',
     compatibility: {
       nuxt: '>=3.0.0-rc.11'
     }
@@ -19,13 +18,16 @@ export default defineNuxtModule<ModuleOptions>({
         path: coreDistPath.replace('dist', 'dist/runtime/components'),
         ignore: ['index*'],
         global: true,
-        prefix: 'Dw',
+        prefix: 'V',
         extensions: ['.vue'],
         pathPrefix: false
       })
     },
   },
-  setup (moduleOptions, nuxt) {
+  async setup (moduleOptions, nuxt) {
+    // Create resolver to resolve relative paths
+    const { resolve } = createResolver(import.meta.url)
+
     nuxt.hook('build:before', () => {
       nuxt.options.build.transpile.push('@heroicons/vue')
     })
@@ -37,7 +39,7 @@ export default defineNuxtModule<ModuleOptions>({
     // @ts-ignore - Module might not exist
     nuxt.hook('tailwindcss:config', function (config) {
       config.theme.extend.fontFamily = {
-        sans: ['Inter var', require('tailwindcss/defaultTheme').fontFamily.sans]
+        sans: ['Inter var', ...require('tailwindcss/defaultTheme').fontFamily.sans]
       }
 
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
@@ -45,5 +47,25 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     installModule('@nuxtjs/tailwindcss')
+
+    addPluginTemplate({
+      options: {
+        config: JSON.stringify(moduleOptions.config)
+      },
+      src: resolve('./runtime/plugin.mjs'),
+    })
   }
 })
+
+declare module '@nuxt/schema' {
+  interface NuxtConfig {
+    vunix?: {
+      config: Config;
+    }
+  }
+  interface NuxtOptions {
+    vunix?: {
+      config: Config;
+    }
+  }
+}
