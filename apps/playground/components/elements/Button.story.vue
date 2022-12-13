@@ -1,5 +1,5 @@
 <template>
   <Story title="Elements/Button">
-    <DwButton>Test it</DwButton>
+    <VButton>Test it</VButton>
   </Story>
 </template>
