@@ -1,11 +1,12 @@
 import { PropType } from 'vue'
 import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum } from '../../utils/config'
 
-/**
- * @type {{ size: string }}
- * @values xs|sm|md|lg|xl
- * */
 export const sizeProp = {
+  /**
+   * @description Use specific size according to root configuration
+   * @type {String}
+   * @values xs|sm|md|lg|xl
+   */
   size: {
     type: String as PropType<SizeEnum>,
     default: DEFAULT_SIZE
@@ -14,10 +15,9 @@ export const sizeProp = {
 
 export const roundedProp = {
   /**
-   * @description Use specific border radius to root
+   * @description Use specific border radius to root element
    * @type {String}
-   * @values string | RouteLocationPathRaw | RouteLocationNamedRaw
-   * @see https://router.vuejs.org/api/#routelocationraw
+   * @values string
    */
   rounded: {
     type: String as PropType<RoundedEnum>,

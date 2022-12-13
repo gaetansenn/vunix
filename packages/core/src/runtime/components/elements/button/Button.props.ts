@@ -1,4 +1,4 @@
-const typeTypes = ['a', 'nuxt-link', 'router-link', 'button', 'div', 'span'] as const
+const typeTypes = ['a', 'nuxt-link', 'router-link', 'button', 'div', 'span', 'p'] as const
 export type TypeType = typeof typeTypes[number]
 
 export const props = {
@@ -31,10 +31,18 @@ export const props = {
   },
   /**
    * @description Use to set button as toggle button
-   * @todo Handle implementation of aria-pressed gaetansenn/dw-ui-v3#1
+   * @todo Handle implementation of aria-pressed
    * @type {Boolean}
   */
   toggle: {
+    type: Boolean,
+    default: undefined
+  },
+  /**
+   * @description Use to set button as disabled
+   * If final html tag attribute is not a `button` aria-disabled will be injected such as `href` or `to` tag
+   */
+  disabled: {
     type: Boolean,
     default: undefined
   }

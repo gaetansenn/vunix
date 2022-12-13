@@ -98,11 +98,44 @@ export const ariaCheckedAttr = {
   /**
    * @description The aria-checked attribute indicates the current "checked" state of checkboxes, radio buttons, and other widgets.
    * @type {TristateType}
-   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-autocomplete
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked
   */
   ariaChecked: {
     type: String,
     default: undefined,
     validator: (prop: TristateType) => tristateTypes.includes(prop)
+  }
+}
+
+export const ariaDescriptionAttr = {
+  /**
+   * @description The global aria-description attribute defines a string value that describes or annotates the current element.
+   * @type {String}
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-description
+  */
+   ariaDescription: {
+    type: String,
+  }
+}
+
+export const ariaDescribedByAttr = {
+  /**
+   * @description The global aria-describedby attribute identifies the element (or elements) that describes the element on which the attribute is set.
+   * @type {String}
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
+  */
+   ariaDecribedBy: {
+    type: String,
+  }
+}
+
+export const ariaDetailsAttr = {
+  /**
+   * @description The global aria-details attribute identifies the element (or elements) that provide additional information related to the object.
+   * @type {String}
+   * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-details#description
+  */
+   ariaDetails: {
+    type: String,
   }
 }

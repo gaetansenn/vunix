@@ -1,5 +1,7 @@
-import { FunctionalComponent } from 'vue'
+import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNestedRefs } from 'vue'
+import { ButtonConfig } from '../components/elements/button/Button.config';
 
+export const VunixConfigKey : InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config');
 export type ConfigMethodType = (...any: any[]) => string;
 export type IconType = FunctionalComponent | string
 export type MethodOrStringType = ConfigMethodType | string
@@ -56,10 +58,31 @@ export interface SizesConfig {
 }
 export const DEFAULT_SIZE = SizeEnum.sm
 
-export interface DefaultConfig {
+export declare interface DefaultConfig {
   class: MethodOrStringType, // style classes of root element
   variants: VariantsConfig,
   variant: ConfigMethodType,
   size?:MethodOrStringType,
   rounded?: MethodOrStringType
+}
+
+export declare interface Config {
+  Button: ButtonConfig
+}
+
+// const defaultConfig = {
+//   Button
+// }
+
+/**
+ * Type helper to make it easier to use vunix.config.ts
+ * accepts a direct {@link Config} object, or a function that returns it.
+ */
+export function defineConfig(config: Config, app?: App) {
+  // Need to merge from default config
+  const _config = reactive(config);
+
+  (app ? app.provide : provide)(VunixConfigKey, _config);
+
+  return _config;
 }

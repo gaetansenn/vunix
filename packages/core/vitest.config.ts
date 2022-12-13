@@ -5,7 +5,7 @@ export default defineConfig({
     plugins: [vue()],
     test: {
         reporters: ["verbose"], 
-        include: ['__tests__/**/*.test.ts'],
+        include: ['src/**/*.test.ts'],
         globals: true,
         environment: 'jsdom'
     }

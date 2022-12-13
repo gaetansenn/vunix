@@ -1,12 +1,27 @@
-import { autofocusAttr, disabledAttr, downloadAttr, formactionAttr, formAttr, hrefAttr, hrefLangAttr, nameAttr, relAttr, targetAttr } from './attrs'
+import { PropType } from 'vue'
+import { ariaDescribedByAttr, ariaDescriptionAttr, ariaLabelAttr, ariaLabelledByAttr } from './accessibilityAttrs'
+import { autofocusAttr, downloadAttr, formactionAttr, formAttr, hrefAttr, hrefLangAttr, nameAttr, relAttr, targetAttr } from './attrs'
 
-export type ButtonFormenctypeAttrType = 'application/x-www-form-urlencoded' | 'multipart/form-data' | 'text/plain'
-export type ButtonTypeAttrType = 'button' | 'reset' | 'submit'
+export enum ButtonFormenctypeAttrEnum {
+  FormUrlEncoded = 'application/x-www-form-urlencoded',
+  FormData = 'multipart/form-data',
+  TextPlain = 'text/plain'
+}
+
+export enum ButtonTypeAttrEnum {
+  Button = 'button',
+  Reset = 'reset',
+  Submit = 'submit'
+}
+
 export const buttonTag = {
   ...autofocusAttr,
-  ...disabledAttr,
   ...formAttr,
   ...formactionAttr,
+  ...ariaLabelAttr,
+  ...ariaLabelledByAttr,
+  ...ariaDescriptionAttr,
+  ...ariaDescribedByAttr,
   /**
    * @description The formenctype attribute specifies how form-data should be encoded before sending it to a server. This attribute overrides the form's enctype attribute.
    * The formenctype attribute is only used for buttons with type="submit".
@@ -15,13 +30,8 @@ export const buttonTag = {
    * @see https://www.w3schools.com/tags/att_button_formenctype.asp
   */
   formenctype: {
-    type: String,
-    default: undefined,
-    validator: (prop: ButtonFormenctypeAttrType) => [
-      'application/x-www-form-urlencoded',
-      'multipart/form-data',
-      'text/plain',
-    ].includes(prop)
+    type: String as PropType<ButtonFormenctypeAttrEnum>,
+    default: undefined
   },
   /**
    * @description The formtarget attribute specifies where to display the response after submitting the form. This attribute overrides the form's target attribute.
@@ -44,13 +54,8 @@ export const buttonTag = {
    * @see https://www.w3schools.com/tags/att_button_type.asp
   */
   type: {
-    type: String,
+    type: String as PropType<ButtonTypeAttrEnum>,
     default: undefined,
-    validator: (prop: ButtonTypeAttrType) => [
-      'button',
-      'reset',
-      'submit',
-    ].includes(prop)
   },
   /**
    * @description The value attribute specifies the initial value for a <button> in an HTML form.
@@ -61,10 +66,28 @@ export const buttonTag = {
   value: {
     type: String,
     default: undefined,
+  },
+  /**
+   * @description The disabled attribute is a boolean attribute.
+   * When present, it specifies that the button should be disabled.
+   * A disabled button is unusable and un-clickable.
+   * @see https://www.w3schools.com/tags/att_button_disabled.asp
+  */
+  disabled: {
+    type: Boolean,
+    default: undefined
   }
 }
 
-export type ReferrerpolicyAttrType = 'no-referrer' | 'no-referrer-when-downgrade' | 'origin' | 'origin-when-cross-origin' | 'same-origin' | 'strict-origin-when-cross-origin' | 'unsafe-url'
+export enum ReferrerpolicyAttrEnum {
+  NoReferrer = 'no-referrer',
+  NoReferrerWhenDowngrade = 'no-referrer-when-downgrade',
+  Origin = 'origin',
+  OriginWhenCrossOrigin = 'origin-when-cross-origin',
+  SameOrigin = 'same-origin',
+  StrictOriginWhenCrossOrigin = 'strict-origin-when-cross-origin',
+  UnsafeUrl = 'unsafe-url'
+}
 
 /**
  * @description The <a> tag defines a hyperlink, which is used to link from one page to another.
@@ -74,6 +97,12 @@ export const aTag = {
   ...downloadAttr,
   ...hrefAttr,
   ...hrefLangAttr,
+  ...relAttr,
+  ...targetAttr,
+  ...ariaLabelAttr,
+  ...ariaLabelledByAttr,
+  ...ariaDescriptionAttr,
+  ...ariaDescribedByAttr,
   /**
    * @description The media attribute specifies what media or device the linked document is optimized for.
    * This attribute is used to specify that the target URL is designed for special devices (like iPhone), speech or print media.
@@ -107,19 +136,9 @@ export const aTag = {
    */
   referrerpolicy: {
     type: String,
-    default: undefined,
-    validator: (prop: ReferrerpolicyAttrType) => [
-      'no-referrer',
-      'no-referrer-when-downgrade',
-      'origin',
-      'origin-when-cross-origin',
-      'same-origin',
-      'strict-origin-when-cross-origin',
-      'unsafe-url'
-    ].includes(prop)
+    default: String as PropType<ReferrerpolicyAttrEnum>
   },
-  ...relAttr,
-  ...targetAttr,
+  
   /**
    * @description The type attribute specifies the Internet media type (formerly known as MIME type) of the linked document.
    * @type {String}

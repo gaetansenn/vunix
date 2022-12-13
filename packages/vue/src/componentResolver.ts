@@ -4,7 +4,7 @@ export function ComponentResolver(): ComponentResolver {
   return {
     type: 'component',
     resolve: (name: string) => {
-      if (name.match(/^Dw[A-Z]/)) {
+      if (name.match(/^V[A-Z]/)) {
         return { name, from: '@vunix/vue' }
       }
     },

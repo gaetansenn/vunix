@@ -4,8 +4,9 @@ import merge from 'lodash/merge.js'
 function handleReactiveConfig (config: any, context: any) {
   Object.keys(config).forEach((key) => {
     if (typeof config[key] === 'function') {
-      // Mark render function as raw
-      // TODO: Handle better way to omit render functions from reactivity
+      // Mark render function as raw (never be converted to a proxy)
+      // https://vuejs.org/api/reactivity-advanced.html#markraw
+      // TODO: Handle better way to detect render function
       if (config[key].name === 'render') {
         markRaw(config[key])
       } else config[key] = computed(config[key].bind(null, context))

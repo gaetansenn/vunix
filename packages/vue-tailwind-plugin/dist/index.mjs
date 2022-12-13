@@ -1,13 +1,6 @@
-import plugin from 'tailwindcss/plugin';
+import jiti from "file:///Users/gaetansenn/Development/dewib/librairies/ui/node_modules/jiti/lib/index.js";
 
-const coreDistPath = require.resolve("@vunix/core").replace("index.ts.mjs", "");
-const index = plugin(() => {
-}, {
-  content: [
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    coreDistPath.replace("index.ts.mjs", "").replace("dist/", "dist/runtime/components/**/*.{ts,mjs}"),
-    coreDistPath.replace("index.ts.mjs", "").replace("dist/", "dist/runtime/utils/config.{ts,mjs}")
-  ]
-});
+/** @type {import("/Users/gaetansenn/Development/dewib/librairies/ui/packages/vue-tailwind-plugin/src/index")} */
+const _module = jiti(null, { interopDefault: true, esmResolve: true })("/Users/gaetansenn/Development/dewib/librairies/ui/packages/vue-tailwind-plugin/src/index.js");
 
-export { index as default };
+export default _module;

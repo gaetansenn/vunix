@@ -1,3 +1,5 @@
+import { PropType } from "vue"
+
 export const idAttr = {
   /**
    * @description The id global attribute defines an identifier (ID) which must be unique in the whole document.
@@ -36,10 +38,11 @@ export const formactionAttr = {
   /**
    * @description The formaction attribute specifies where to send the form-data when a form is submitted. This attribute overrides the form's action attribute.
    * The formaction attribute is only used for buttons with type="submit".
+   * @todo change type as url type and use validator
    * @see https://www.w3schools.com/tags/att_button_formaction.asp
   */
   formaction: {
-    type: String, // TODO: change type as url typing and use validator ?,
+    type: String,
     default: undefined
   }
 }
@@ -52,19 +55,6 @@ export const formAttr = {
   */
   form: {
     type: String,
-    default: undefined
-  }
-}
-
-export const disabledAttr = {
-  /**
-   * @description The disabled attribute is a boolean attribute.
-   * When present, it specifies that the button should be disabled.
-   * A disabled button is unusable and un-clickable.
-   * @see https://www.w3schools.com/tags/att_button_disabled.asp
-  */
-  disabled: {
-    type: Boolean,
     default: undefined
   }
 }
@@ -122,7 +112,14 @@ export const hrefLangAttr = {
   }
 }
 
-export type TargetAttrType = '_blank' | '_self' | '_parent' | '_top' | 'framename'
+export enum TargetAttrEnum {
+  BLANK = '_blank',
+  SELF = '_self',
+  PARENT = '_parent',
+  TOP = '_TOP',
+  FRAMENAME = 'framename'
+}
+
 export const targetAttr = {
   /**
    * @description The target attribute specifies where to open the linked document.
@@ -131,19 +128,27 @@ export const targetAttr = {
    * @see https://www.w3schools.com/tags/att_a_target.asp
   */
   target: {
-    type: String,
-    default: undefined,
-    validator: (prop: TargetAttrType) => [
-      '_blank',
-      '_self',
-      '_parent',
-      '_top',
-      'framename'
-    ].includes(prop)
+    type: String as PropType<TargetAttrEnum>,
+    default: undefined
   }
 }
 
-export type RelAttrType = 'alternate' | 'author' | 'bookmark' | 'external' | 'help' | 'license' | 'next' | 'nofollow' | 'noopener' | 'noreferrer' | 'prev' | 'search' | 'tag'
+export enum RelAttrEnum {
+  Alternate = 'alternate',
+  Author = 'author',
+  Bookmark = 'bookmark',
+  External = 'external',
+  Help = 'help',
+  License = 'license',
+  Next = 'next',
+  Nofollow = 'nofollow',
+  Noopener = 'noopener',
+  Noreferrer = 'noreferrer',
+  Prev = 'prev',
+  Search = 'search',
+  Tag = 'tag'
+}
+
 export const relAttr = {
   /**
    * @description The rel attribute specifies the relationship between the current document and the linked document.
@@ -153,22 +158,7 @@ export const relAttr = {
    * @see https://www.w3schools.com/tags/att_a_rel.asp
   */
   rel: {
-    type: String,
+    type: String as PropType<RelAttrEnum>,
     default: undefined,
-    validator: (prop: RelAttrType) => [
-      'alternate',
-      'author',
-      'bookmark',
-      'external',
-      'help',
-      'license',
-      'next',
-      'nofollow',
-      'noopener',
-      'noreferrer',
-      'prev',
-      'search',
-      'tag'
-    ].includes(prop)
   }
 }

@@ -7,9 +7,9 @@
 
 <script setup lang="ts">
 import pick from 'lodash/pick'
-import { computed, type ConcreteComponent, resolveComponent } from 'vue'
+import { computed, type ConcreteComponent, resolveComponent, inject } from 'vue'
 
-import type { IconType } from '../../../utils/config'
+import { type IconType, VunixConfigKey } from '../../../utils/config'
 import { useConfig } from '../../../composables/config'
 import { sizeProp, toProp, variantProp, roundedProp } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
@@ -17,14 +17,19 @@ import { toAriaBoolean } from '../../commons/accessibilityAttrs'
 import { props as buttonProps, type TypeType } from './Button.props'
 import { buttonConfig, type ButtonConfig } from './Button.config'
 
+// get button config
+const _config = inject(VunixConfigKey)
+
+console.log(_config)
+
 const props = defineProps({
   ...sizeProp,
-  ...aTag,
   ...toProp,
-  ...buttonTag,
   ...variantProp,
   ...roundedProp,
-  ...buttonProps
+  ...buttonProps,
+  ...buttonTag,
+  ...aTag,
 })
 
 const is = computed<TypeType | ConcreteComponent | string>(() => {
@@ -53,7 +58,6 @@ const attrs = computed(() => {
         disabled: props.disabled || props.loading,
         type: props.type,
         ...pick(props, Object.keys(buttonTag)),
-        'aria-disabled': toAriaBoolean(props.disabled)
       }
     }
   }
