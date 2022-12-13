@@ -6,8 +6,7 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
-    "preview": "nuxi preview",
-    "prepare": "nuxi prepare"
+    "preview": "nuxi preview"
   },
   "dependencies": {
     "@vunix/nuxt": "*"
