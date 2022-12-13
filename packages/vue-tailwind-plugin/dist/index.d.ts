@@ -1,2 +1,0 @@
-export * from "/Users/gaetansenn/Development/dewib/librairies/ui/packages/vue-tailwind-plugin/src/index";
-export { default } from "/Users/gaetansenn/Development/dewib/librairies/ui/packages/vue-tailwind-plugin/src/index";
