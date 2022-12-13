@@ -7,6 +7,13 @@ export default defineAppConfig({
       twitter: '@gaetansenn',
       github: 'gaetansenn/vunix'
     },
+    aside: {
+      level: 0,
+      exclude: []
+    },
+    header: {
+      exclude: []
+    },
     github: {
       root: 'content',
       edit: true,
