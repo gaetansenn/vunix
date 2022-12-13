@@ -50,7 +50,7 @@ export default defineNuxtModule({
 
     addPluginTemplate({
       options: {
-        config: JSON.stringify(moduleOptions.config)
+        config: JSON.stringify(moduleOptions.config || {})
       },
       src: resolve('./runtime/plugin.mjs'),
     })
