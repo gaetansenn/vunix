@@ -1,8 +1,10 @@
 import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNestedRefs } from 'vue'
-import { ButtonConfig } from '../components/elements/button/Button.config';
+import defu from 'defu'
 
-export const VunixConfigKey : InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config');
-export type ConfigMethodType = (...any: any[]) => string;
+import { ButtonConfig } from '../components/elements/button/Button.config'
+
+export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
+export type ConfigMethodType = (...any: any[]) => string
 export type IconType = FunctionalComponent | string
 export type MethodOrStringType = ConfigMethodType | string
 
@@ -62,7 +64,7 @@ export declare interface DefaultConfig {
   class: MethodOrStringType, // style classes of root element
   variants: VariantsConfig,
   variant: ConfigMethodType,
-  size?:MethodOrStringType,
+  size?: MethodOrStringType,
   rounded?: MethodOrStringType
 }
 
@@ -70,19 +72,28 @@ export declare interface Config {
   Button: ButtonConfig
 }
 
-// const defaultConfig = {
-//   Button
-// }
+export type PresetType = string;
+export declare interface defineConfigOptions {
+  preset: Config,
+  config?: Config,
+  app?: App
+}
+
+function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
+  const preset: Config = options.preset;
+
+  return defu({}, preset, options?.config || {})
+}
 
 /**
- * Type helper to make it easier to use vunix.config.ts
- * accepts a direct {@link Config} object, or a function that returns it.
+ * Helper to provide config for all components
+ * accepts a direct {@link Config} object.
  */
-export function defineConfig(config: Config, app?: App) {
-  // Need to merge from default config
-  const _config = reactive(config);
+export function defineConfig(options: defineConfigOptions) {
+  console.log('options', options)
+  const _config = reactive(mergeConfig(options));
 
-  (app ? app.provide : provide)(VunixConfigKey, _config);
+  (options?.app ? options.app.provide : provide)(VunixConfigKey, _config)
 
-  return _config;
+  return _config
 }

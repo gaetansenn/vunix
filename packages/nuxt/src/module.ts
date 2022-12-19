@@ -1,5 +1,5 @@
 import { Config } from '@vunix/core'
-import { defineNuxtModule, installModule, addPluginTemplate, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, installModule, addPlugin, createResolver, addPluginTemplate } from '@nuxt/kit'
 
 const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
 
@@ -24,7 +24,7 @@ export default defineNuxtModule({
       })
     },
   },
-  async setup (moduleOptions, nuxt) {
+  async setup(moduleOptions, nuxt) {
     // Create resolver to resolve relative paths
     const { resolve } = createResolver(import.meta.url)
 
@@ -43,29 +43,29 @@ export default defineNuxtModule({
       }
 
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/presets/**/*.{ts,mjs}'))
     })
+
+    addPlugin(resolve('./runtime/plugin'))
 
     installModule('@nuxtjs/tailwindcss')
-
-    addPluginTemplate({
-      options: {
-        config: JSON.stringify(moduleOptions.config || {})
-      },
-      src: resolve('./runtime/plugin.mjs'),
-    })
   }
 })
 
 declare module '@nuxt/schema' {
   interface NuxtConfig {
     vunix?: {
-      config: Config;
     }
   }
   interface NuxtOptions {
     vunix?: {
-      config: Config;
+    }
+  }
+
+  interface AppConfig {
+    vunix?: {
+      config?: Config;
+      preset?: Config;
     }
   }
 }

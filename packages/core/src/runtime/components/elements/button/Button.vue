@@ -15,12 +15,7 @@ import { sizeProp, toProp, variantProp, roundedProp } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
 import { toAriaBoolean } from '../../commons/accessibilityAttrs'
 import { props as buttonProps, type TypeType } from './Button.props'
-import { buttonConfig, type ButtonConfig } from './Button.config'
-
-// get button config
-const _config = inject(VunixConfigKey)
-
-console.log(_config)
+import { type ButtonConfig } from './Button.config'
 
 const props = defineProps({
   ...sizeProp,
@@ -65,7 +60,7 @@ const attrs = computed(() => {
 
 const config = useConfig<ButtonConfig>({
   props
-}, buttonConfig)
+}, inject(VunixConfigKey)?.Button)
 
 const loadingComponent = computed<IconType>(() => {
   if (typeof config.loading.icon === 'string') return 'div'

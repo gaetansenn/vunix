@@ -1,8 +1,8 @@
-import { Config } from "../utils/config";
-
-export default {
-    Button: {
-        class: 'vunix-preset',
+export default defineAppConfig({
+  vunix: {
+    config: {
+      Button: {
+        class: 'tt',
         variants: {
           default: 'toto'
         },
@@ -15,4 +15,6 @@ export default {
           icon: 'tt'
         }
       }
-} as Config;
+    },
+  }
+})

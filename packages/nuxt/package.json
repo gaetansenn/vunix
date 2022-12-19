@@ -31,6 +31,7 @@
     "@nuxtjs/eslint-config-typescript": "latest",
     "@nuxtjs/tailwindcss": "^6.1.3",
     "eslint": "latest",
-    "nuxt3": "latest"
+    "nuxt3": "latest",
+    "unconfig": "^0.3.7"
   }
 }
