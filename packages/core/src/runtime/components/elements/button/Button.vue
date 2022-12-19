@@ -13,9 +13,8 @@ import { type IconType, VunixConfigKey } from '../../../utils/config'
 import { useConfig } from '../../../composables/config'
 import { sizeProp, toProp, variantProp, roundedProp } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
-import { toAriaBoolean } from '../../commons/accessibilityAttrs'
 import { props as buttonProps, type TypeType } from './Button.props'
-import { type ButtonConfig } from './Button.config'
+import type { ButtonConfig } from './Button.config'
 
 const props = defineProps({
   ...sizeProp,

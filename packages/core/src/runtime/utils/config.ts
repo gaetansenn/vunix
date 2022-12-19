@@ -1,7 +1,7 @@
 import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNestedRefs } from 'vue'
 import defu from 'defu'
 
-import { ButtonConfig } from '../components/elements/button/Button.config'
+import type { ButtonConfig } from '../components/elements/button/Button.config'
 
 export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
 export type ConfigMethodType = (...any: any[]) => string

@@ -16,7 +16,8 @@
       "@vunix/core": ["./src"]
     },
     "lib": ["esnext"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "importsNotUsedAsValues": "error"
   },
   "include": ["env.d.ts", "vite.config.*", "src/*.d.ts", "src/**/*.ts", "src/**/*.vue"],
   "references": [
