@@ -1,6 +1,6 @@
 import ArrowPathIcon from '@heroicons/vue/20/solid/esm/ArrowPathIcon.js';
 
-import { ButtonConfig } from '../../components';
+import type { ButtonConfig } from '../../components';
 import { rounded, SizeEnum } from '../../utils/config';
 
 const config = {

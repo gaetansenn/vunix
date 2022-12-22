@@ -1,2 +1,2 @@
-icon: ph:star-duotone
-navigation.redirect: /components/button
+icon: mdi:atom-variant
+navigation.redirect: /components/elements/button
