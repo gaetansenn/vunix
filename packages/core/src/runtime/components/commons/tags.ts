@@ -1,4 +1,4 @@
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 import { ariaDescribedByAttr, ariaDescriptionAttr, ariaLabelAttr, ariaLabelledByAttr } from './accessibilityAttrs'
 import { autofocusAttr, downloadAttr, formactionAttr, formAttr, hrefAttr, hrefLangAttr, nameAttr, relAttr, targetAttr } from './attrs'
 
@@ -138,7 +138,7 @@ export const aTag = {
     type: String,
     default: String as PropType<ReferrerpolicyAttrEnum>
   },
-  
+
   /**
    * @description The type attribute specifies the Internet media type (formerly known as MIME type) of the linked document.
    * @type {String}

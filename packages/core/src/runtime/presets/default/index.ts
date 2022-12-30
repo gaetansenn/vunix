@@ -1,4 +1,4 @@
-import { Config } from '../../utils/config';
+import type { Config } from '../../utils/config';
 import Button from './Button.config';
 
 export default {

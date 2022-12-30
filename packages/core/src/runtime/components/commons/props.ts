@@ -1,5 +1,6 @@
-import { PropType } from 'vue'
-import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum } from '../../utils/config'
+import type { PropType } from 'vue'
+
+import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum, KeyValue } from '../../utils/config'
 
 export const sizeProp = {
   /**
@@ -9,7 +10,7 @@ export const sizeProp = {
    */
   size: {
     type: String as PropType<SizeEnum>,
-    default: DEFAULT_SIZE
+    defaultValue: DEFAULT_SIZE
   }
 }
 
@@ -21,7 +22,7 @@ export const roundedProp = {
    */
   rounded: {
     type: String as PropType<RoundedEnum>,
-    default: DEFAULT_ROUNDED
+    defaultValue: DEFAULT_ROUNDED
   }
 }
 
@@ -34,7 +35,7 @@ export const toProp = {
    */
   to: {
     type: [String, Object],
-    default: undefined
+    defaultValue: undefined
   }
 }
 
@@ -46,6 +47,22 @@ export const variantProp = {
    */
   variant: {
     type: String,
-    default: DEFAULT_VARIANT
+    defaultValue: DEFAULT_VARIANT
   }
+}
+
+export function injectDefaultValues(props: KeyValue<any> = {}, defaultValues: any, configValues: KeyValue<any> = {}) {
+  // convert defaultValues as object / value
+  const _defaultValues = Object.keys(defaultValues).reduce((accu: any, key: string) => {
+    accu[key] = defaultValues[key].defaultValue
+
+    return accu;
+  }, {})
+
+  Object.keys(props).forEach((key) => {
+    if (props[key] === undefined) {
+      if (configValues[key] !== undefined) props[key] = configValues[key]
+      else if (_defaultValues[key] !== undefined) props[key] = _defaultValues[key]
+    }
+  })
 }

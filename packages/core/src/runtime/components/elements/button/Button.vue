@@ -1,30 +1,26 @@
 <template>
   <component :is="is" v-bind="attrs" :class="[config.class, config.size, config.variant, config.rounded]">
     <slot />
-    <component :is="loadingComponent" v-if="loading" :class="[config.loading.fixed, config.loading.size]" role="alert" aria-busy="true" />
+    <component :is="loadingComponent" v-if="loading" :class="[config.loading.class, config.loading.size]" role="alert"
+      aria-busy="true" />
   </component>
 </template>
 
 <script setup lang="ts">
 import pick from 'lodash/pick'
-import { computed, type ConcreteComponent, resolveComponent, inject } from 'vue'
+import { computed, type ConcreteComponent, resolveComponent, inject, getCurrentInstance } from 'vue'
 
 import { type IconType, VunixConfigKey } from '../../../utils/config'
 import { useConfig } from '../../../composables/config'
-import { sizeProp, toProp, variantProp, roundedProp } from '../../commons/props'
+import { toProp, injectDefaultValues } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
 import { props as buttonProps, type TypeType } from './Button.props'
 import type { ButtonConfig } from './Button.config'
 
-const props = defineProps({
-  ...sizeProp,
-  ...toProp,
-  ...variantProp,
-  ...roundedProp,
-  ...buttonProps,
-  ...buttonTag,
-  ...aTag,
-})
+const props = defineProps(buttonProps)
+
+// Inject default values
+injectDefaultValues(getCurrentInstance()?.props, buttonProps, inject(VunixConfigKey)?.Button.defaults)
 
 const is = computed<TypeType | ConcreteComponent | string>(() => {
   if (props.type) return props.type as TypeType

@@ -1,7 +1,10 @@
+import { roundedProp, sizeProp, toProp, variantProp } from "../../commons/props"
+import { aTag, buttonTag } from "../../commons/tags"
+
 const typeTypes = ['a', 'nuxt-link', 'router-link', 'button', 'div', 'span', 'p'] as const
 export type TypeType = typeof typeTypes[number]
 
-export const props = {
+const buttonProps = {
   /**
    * @description Use to overide automatic typing of component
    * @values 'a|nuxt-link|router-link|button|div|span'
@@ -47,3 +50,14 @@ export const props = {
     default: undefined
   }
 }
+
+export const props = {
+  ...buttonProps,
+  ...sizeProp,
+  ...toProp,
+  ...variantProp,
+  ...roundedProp,
+  ...buttonProps,
+  ...buttonTag,
+  ...aTag,
+} 

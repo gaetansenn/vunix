@@ -3,10 +3,12 @@ import defu from 'defu'
 
 import type { ButtonConfig } from '../components/elements/button/Button.config'
 
+export type KeyValue<T> = { [key: string]: T }
 export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
 export type ConfigMethodType = (...any: any[]) => string
 export type IconType = FunctionalComponent | string
 export type MethodOrStringType = ConfigMethodType | string
+export type MethodOrObject = KeyValue<string> | ConfigMethodType
 
 export const DEFAULT_VARIANT = 'default'
 export interface VariantsConfig {
@@ -62,10 +64,12 @@ export const DEFAULT_SIZE = SizeEnum.sm
 
 export declare interface DefaultConfig {
   class: MethodOrStringType, // style classes of root element
-  variants: VariantsConfig,
-  variant: ConfigMethodType,
+  variants: VariantsConfig, // Contain all variants key / value
+  variant?: MethodOrObject,
+  sizes?: MethodOrObject, // Contain all sizes key / value
   size?: MethodOrStringType,
-  rounded?: MethodOrStringType
+  rounded?: MethodOrObject, // Contain all rounded key / value
+  defaults: KeyValue<any> // Overide the default component props
 }
 
 export declare interface Config {
@@ -90,7 +94,6 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
  * accepts a direct {@link Config} object.
  */
 export function defineConfig(options: defineConfigOptions) {
-  console.log('options', options)
   const _config = reactive(mergeConfig(options));
 
   (options?.app ? options.app.provide : provide)(VunixConfigKey, _config)
