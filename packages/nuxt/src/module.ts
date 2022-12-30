@@ -1,5 +1,5 @@
 import { Config } from '@vunix/core'
-import { defineNuxtModule, installModule, addPlugin, createResolver, addPluginTemplate } from '@nuxt/kit'
+import { defineNuxtModule, installModule, addPlugin, createResolver } from '@nuxt/kit'
 
 const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
 
@@ -43,7 +43,12 @@ export default defineNuxtModule({
       }
 
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
+      // TODO: Inject selected preset and not all presets
       config.content.push(coreDistPath.replace('dist', 'dist/runtime/presets/**/*.{ts,mjs}'))
+      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
+
+      // Inject custom config
+      config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
     })
 
     addPlugin(resolve('./runtime/plugin'))
