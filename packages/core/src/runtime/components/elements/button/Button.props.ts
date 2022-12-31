@@ -33,15 +33,6 @@ const buttonProps = {
     default: false
   },
   /**
-   * @description Use to set button as toggle button
-   * @todo Handle implementation of aria-pressed
-   * @type {Boolean}
-  */
-  toggle: {
-    type: Boolean,
-    default: undefined
-  },
-  /**
    * @description Use to set button as disabled
    * If final html tag attribute is not a `button` aria-disabled will be injected such as `href` or `to` tag
    */

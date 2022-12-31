@@ -45,9 +45,9 @@ const attrs = computed(() => {
     case 'nuxt-link': return pick(props, Object.keys(toProp))
     default: {
       return {
+        ...pick(props, Object.keys(buttonTag)),
         disabled: props.disabled || props.loading,
         type: props.type,
-        ...pick(props, Object.keys(buttonTag)),
       }
     }
   }

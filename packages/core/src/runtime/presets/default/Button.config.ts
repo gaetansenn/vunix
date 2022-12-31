@@ -10,8 +10,8 @@ const config = {
     return `${fixed} ${(props.block) ? 'flex w-full' : 'inline-flex'}`
   },
   variants: {
-    default: 'bg-blue-100 text-blue-900 hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300 font-medium',
-    outline: 'border border-blue-500 text-blue-500 focus:outline-none focus:ring focus:ring-blue-300 font-medium',
+    default: 'bg-blue-100 text-blue-900 font-medium hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300 disabled:text-gray-400 disabled:bg-gray-200',
+    outline: 'border border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600 focus:outline-none focus:ring focus:ring-blue-300 font-medium',
     text: ''
   },
   sizes: {
@@ -20,7 +20,7 @@ const config = {
     [SizeEnum.lg]: 'px-4 py-2 text-xl',
   },
   loading: {
-    class: 'ml-3 animate-spin',
+    class: 'ml-0.5 animate-spin',
     sizes: {
       [SizeEnum.sm]: 'h-4 w-4',
       [SizeEnum.md]: 'h-5 w-5',

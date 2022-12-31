@@ -60,7 +60,7 @@ export interface SizesConfig {
   [SizeEnum.xl]?: SizeEnum,
   [key: string]: any
 }
-export const DEFAULT_SIZE = SizeEnum.sm
+export const DEFAULT_SIZE = SizeEnum.md
 
 export declare interface DefaultConfig {
   class: MethodOrStringType, // style classes of root element
