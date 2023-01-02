@@ -54,7 +54,7 @@ export const variantProp = {
 export function injectDefaultValues(props: KeyValue<any> = {}, defaultValues: any, configValues: KeyValue<any> = {}) {
   // convert defaultValues as object / value
   const _defaultValues = Object.keys(defaultValues).reduce((accu: any, key: string) => {
-    accu[key] = defaultValues[key].defaultValue
+    if (defaultValues[key]?.defaultValue) accu[key] = defaultValues[key].defaultValue
 
     return accu;
   }, {})

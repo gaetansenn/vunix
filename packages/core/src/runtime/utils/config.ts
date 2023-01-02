@@ -2,6 +2,7 @@ import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNested
 import defu from 'defu'
 
 import type { ButtonConfig } from '../components/elements/button/Button.config'
+import type { IconConfig } from '../components/icon/Icon.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
@@ -69,11 +70,12 @@ export declare interface DefaultConfig {
   sizes?: MethodOrObject, // Contain all sizes key / value
   size?: MethodOrStringType,
   rounded?: MethodOrObject, // Contain all rounded key / value
-  defaults: KeyValue<any> // Overide the default component props
+  defaults?: KeyValue<any> // Overide the default component props
 }
 
 export declare interface Config {
   Button: ButtonConfig
+  Icon: IconConfig,
 }
 
 export type PresetType = string;

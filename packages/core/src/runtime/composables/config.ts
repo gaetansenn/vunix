@@ -14,7 +14,7 @@ function handleReactiveConfig(config: any, context: any) {
     }
 
     // Inject default helper
-    if (!config[el.of] && el.default) {
+    if (!config[el.of] && el.default && context.props[el.of]) {
       config[el.of] = el.default
     }
   })
