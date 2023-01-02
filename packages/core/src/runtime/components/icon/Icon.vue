@@ -51,9 +51,3 @@ watch(() => props.name, loadIconComponent, {
   immediate: true
 })
 </script>
-
-<style lang="scss" scoped>
-.icon {
-  @apply inline align-middle;
-}
-</style>
