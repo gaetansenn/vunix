@@ -15,7 +15,7 @@
       "@/*": ["*"],
       "@vunix/vue": ["./src"]
     },
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "outDir": "dist",
     "declaration": true

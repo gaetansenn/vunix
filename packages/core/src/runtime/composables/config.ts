@@ -1,5 +1,7 @@
 import { reactive, computed, markRaw } from 'vue'
+import defu from 'defu'
 import merge from 'lodash/merge.js'
+
 import { rounded } from '../utils/config'
 
 function handleReactiveConfig(config: any, context: any) {
@@ -36,11 +38,16 @@ function handleReactiveConfig(config: any, context: any) {
 
 // Inject library config to component
 export const useConfig = <T>(context: any, config: any): T => {
-  const _config = merge({}, config)
+  // Handle path of config according to context
+  let path = context.props.configPath
 
+  if (context.props.rootPath) path = `${context.props.rootPath}.${path}`
+
+  // Merge custom component config with config path
+  const _config: any = defu({}, context.props.config || {}, merge({}, config[path]))
+
+  // Apply reactivity to config
   handleReactiveConfig(_config, context)
 
-  const proxy = reactive(_config)
-
-  return proxy
+  return reactive(_config) as T
 }

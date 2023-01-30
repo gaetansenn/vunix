@@ -49,6 +49,11 @@ export default defineNuxtModule({
 
       // Inject custom config
       config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
+
+      // Inject @tailwindcss/forms
+      config.plugins.push(moduleOptions.forms || require('@tailwindcss/forms')({
+        strategy: 'class'
+      }))
     })
 
     addPlugin(resolve('./runtime/plugin'))
@@ -60,10 +65,12 @@ export default defineNuxtModule({
 declare module '@nuxt/schema' {
   interface NuxtConfig {
     vunix?: {
+      forms: any
     }
   }
   interface NuxtOptions {
     vunix?: {
+      forms: any
     }
   }
 

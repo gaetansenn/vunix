@@ -1,4 +1,6 @@
-export const props = {
+import { configProp } from "../commons/props"
+
+const iconProps = {
   /**
    * @description Name of iconify icon
    * @type {String}
@@ -14,5 +16,10 @@ export const props = {
   */
   size: {
     type: String
-  },
+  }
+}
+
+export const props = {
+  ...iconProps,
+  ...configProp('Icon')
 }

@@ -15,7 +15,7 @@
       "@/*": ["*"],
       "@vunix/core": ["./src"]
     },
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "importsNotUsedAsValues": "error"
   },

@@ -51,6 +51,30 @@ export const variantProp = {
   }
 }
 
+export const configProp = (configPath: string, rootPath?: string) => ({
+  /**
+   * @description Used to change root path of config
+   */
+  rootPath: {
+    type: String,
+    default: rootPath
+  },
+  /**
+   * @description Specify the config path to inject
+   */
+  configPath: {
+    type: String,
+    default: configPath
+  },
+  /**
+   * @description Used to overide default config
+   */
+  config: {
+    type: Object,
+    default: undefined
+  }
+})
+
 export function injectDefaultValues(props: KeyValue<any> = {}, defaultValues: any, configValues: KeyValue<any> = {}) {
   // convert defaultValues as object / value
   const _defaultValues = Object.keys(defaultValues).reduce((accu: any, key: string) => {
@@ -65,4 +89,10 @@ export function injectDefaultValues(props: KeyValue<any> = {}, defaultValues: an
       else if (_defaultValues[key] !== undefined) props[key] = _defaultValues[key]
     }
   })
+}
+
+export type validateEnumFunction<T> = (prop: T) => boolean
+
+export function validateEnum<T>(enumValue: any): validateEnumFunction<T> {
+  return (prop: T) => Object.values(enumValue).includes(prop)
 }

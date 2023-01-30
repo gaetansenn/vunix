@@ -1,8 +1,12 @@
 import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNestedRefs } from 'vue'
 import defu from 'defu'
+import get from 'lodash/get.js'
+import set from 'lodash/set.js'
 
 import type { ButtonConfig } from '../components/elements/button/Button.config'
+import type { InputBaseConfig } from '../components/forms/input/base/InputBase.config'
 import type { IconConfig } from '../components/icon/Icon.config'
+import type { InputTextConfig } from '../components/forms/input/text/InputText.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
@@ -75,6 +79,8 @@ export declare interface DefaultConfig {
 
 export declare interface Config {
   Button: ButtonConfig
+  InputBase: InputBaseConfig,
+  InputText: InputTextConfig,
   Icon: IconConfig,
 }
 
@@ -85,10 +91,33 @@ export declare interface defineConfigOptions {
   app?: App
 }
 
+
+/**
+ * Use to merge preset config / user config / and merge classes to another config
+ *
+ * @param {*} parentConfig
+ * @param {string} parentPath
+ * @param {string} childPath
+ * @param {*} defaultConfig
+ * @param {*} config
+ */
+function mergeClasses(parentConfig: any, parentPath: string, childPath: string, defaultConfig: any, config: any) {
+  if (!config[parentPath]) {
+    config[parentPath] = {}
+    set(config[parentPath], childPath, defu({}, get(defaultConfig[parentPath], childPath, {}), config[childPath], parentConfig))
+  } else if (!get(config[parentPath], childPath)) set(config[parentPath], childPath, defu({}, get(defaultConfig[parentPath], childPath, {}), config[childPath], parentConfig))
+  else if (get(config[parentPath], childPath)) set(config[parentPath], childPath, defu({}, get(config[parentPath], childPath, {}), get(defaultConfig[parentPath], childPath, {}), config[childPath], parentConfig))
+}
+
 function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   const preset: Config = options.preset;
+  const newConfig = Object.assign({}, options?.config || {});
 
-  return defu({}, preset, options?.config || {})
+  // Merge InputBase config with Inputs components
+  ['InputText'].forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig))
+
+  // Merge user config with default preset
+  return defu({}, newConfig, preset)
 }
 
 /**

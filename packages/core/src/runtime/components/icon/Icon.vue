@@ -3,7 +3,7 @@
   <Iconify v-else-if="icon" :class="config.class" :icon="icon.value" :width="sSize" :height="sSize" />
   <span v-else :class="config.class" :style="{ fontSize: sSize, lineHeight: sSize, width: sSize, height: sSize }">{{
     name
-    }}</span>
+  }}</span>
 </template>
 
 <script setup lang="ts">
@@ -26,14 +26,14 @@ injectDefaultValues(getCurrentInstance()?.props, iconProps, inject(VunixConfigKe
 
 const config = useConfig<IconConfig>({
   props
-}, inject(VunixConfigKey)?.Icon)
+}, inject(VunixConfigKey))
 
 let icon: any = reactive({
   ongoing: false
 })
 
 const sSize = computed(() => {
-  const size = propSize === config.size ? props.size : config.size as string
+  const size = propSize === config.size ? config.size : props.size as string
   if (String(Number(size)) === size) {
     return `${size}px`
   }

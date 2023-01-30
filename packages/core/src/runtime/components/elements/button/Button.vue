@@ -55,7 +55,7 @@ const attrs = computed(() => {
 
 const config = useConfig<ButtonConfig>({
   props
-}, inject(VunixConfigKey)?.Button)
+}, inject(VunixConfigKey))
 
 const loadingComponent = computed<IconType>(() => {
   if (typeof config.loading.icon === 'string') return 'div'

@@ -1,4 +1,4 @@
-import { roundedProp, sizeProp, toProp, variantProp } from "../../commons/props"
+import { configProp, roundedProp, sizeProp, toProp, variantProp } from "../../commons/props"
 import { aTag, buttonTag } from "../../commons/tags"
 
 const typeTypes = ['a', 'nuxt-link', 'router-link', 'button', 'div', 'span', 'p'] as const
@@ -51,4 +51,5 @@ export const props = {
   ...buttonProps,
   ...buttonTag,
   ...aTag,
+  ...configProp('Button')
 } 
