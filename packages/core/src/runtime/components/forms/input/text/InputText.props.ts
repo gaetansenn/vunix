@@ -1,4 +1,5 @@
 import { props as baseProps } from '../base/InputBase.props'
+import { commonsProps } from '../commons.props'
 
 const inputProps = {
   /**
@@ -14,5 +15,6 @@ const inputProps = {
 
 export const props = {
   ...baseProps('InputText'),
+  ...commonsProps<string>(),
   ...inputProps,
-} 
+}

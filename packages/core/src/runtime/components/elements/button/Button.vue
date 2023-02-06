@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import pick from 'lodash/pick'
+import pick from 'lodash/pick.js'
 import { computed, type ConcreteComponent, resolveComponent, inject, getCurrentInstance } from 'vue'
 
 import { type IconType, VunixConfigKey } from '../../../utils/config'
