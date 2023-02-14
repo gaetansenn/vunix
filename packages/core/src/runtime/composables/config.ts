@@ -9,7 +9,8 @@ function handleReactiveConfig(config: any, context: any) {
   [{ from: 'variants', of: 'variant' }, { from: 'rounded', of: 'rounded', default: rounded }, { from: 'sizes', of: 'size' }].forEach((el) => {
     if (config[el.from]) {
       if (typeof config[el.of] !== 'function') {
-        config[el.of] = (context: any) => {
+        if (typeof config[el.from][context.props[el.of]] === 'function') config[el.of] = config[el.from][context.props[el.of]]
+        else config[el.of] = (context: any) => {
           return config[el.from][context.props[el.of]]
         }
       }
@@ -19,7 +20,7 @@ function handleReactiveConfig(config: any, context: any) {
     if (!config[el.of] && el.default && context.props[el.of]) {
       config[el.of] = el.default
     }
-  })
+  });
 
   Object.keys(config).forEach((key) => {
     if (key === 'defaults') return

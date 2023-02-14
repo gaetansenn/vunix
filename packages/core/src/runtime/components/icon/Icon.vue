@@ -14,7 +14,7 @@ import { computed, getCurrentInstance, inject, reactive, watch } from 'vue';
 
 import { props as iconProps } from './Icon.props'
 import { injectDefaultValues } from '../commons/props';
-import { VunixConfigKey } from '../../../runtime/utils/config';
+import { VunixConfigSymbol } from '../../symbols'
 import { useConfig } from '../../composables/config';
 import type { IconConfig } from './Icon.config';
 
@@ -22,11 +22,11 @@ const props = defineProps(iconProps)
 const propSize = props.size
 
 // Inject default values
-injectDefaultValues(getCurrentInstance()?.props, iconProps, inject(VunixConfigKey)?.Icon.defaults)
+injectDefaultValues(getCurrentInstance()?.props, iconProps, inject(VunixConfigSymbol)?.Icon.defaults)
 
 const config = useConfig<IconConfig>({
   props
-}, inject(VunixConfigKey))
+}, inject(VunixConfigSymbol))
 
 let icon: any = reactive({
   ongoing: false

@@ -1,23 +1,29 @@
 <template>
-  <div>
-    <VInputBase v-bind="_props">
+  <InputGroup :required="required" :description="props.description" :label="props.label" :optional-label="props.optionalLabel">
+    <InputBase v-bind="_props">
       <template v-slot:leading>
         <slot name="leading" />
       </template>
       <template v-slot:heading>
         <slot name="heading" />
       </template>
-    </VInputBase>
-    field: {{ field }}
-    meta: {{ meta }}
-  </div>
+    </InputBase>
+  </InputGroup>
 </template>
 
-<script setup lang="ts">
-import { getCurrentInstance, inject } from 'vue';
-import { useBindField, useField } from '../../../../composables/forms/field';
+<!-- <script lang="ts">
+export default {
+  inheritAttrs: false
+}
+</script> -->
 
-import { VunixConfigKey } from '../../../../utils/config';
+<script setup lang="ts">
+import { getCurrentInstance, inject, useAttrs } from 'vue';
+
+import InputBase from '../base/InputBase.vue'
+import InputGroup from '../group/InputGroup.vue'
+import { useBindField, useField } from '../../../../composables/forms/field';
+import { VunixConfigSymbol } from '../../../../symbols'
 import { injectDefaultValues } from '../../../commons/props';
 import { props as inputProps } from './InputText.props'
 
@@ -26,8 +32,8 @@ const props = defineProps(inputProps)
 defineEmits(['update:modelValue', 'focus', 'blur'])
 
 // Inject default values
-injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigKey)?.InputText.defaults)
+injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigSymbol)?.InputText.defaults)
 
-const { field, meta } = useField<string>(props.name as string, props.rules)
-const _props = useBindField(field, props)
+const { field } = useField<string>(props.name as string, props.rules || [])
+const _props = useBindField(field, props, useAttrs())
 </script>

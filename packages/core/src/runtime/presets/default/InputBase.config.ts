@@ -8,7 +8,11 @@ const config = {
     class: 'placeholder:transition-all focus:placeholder:pl-1 appearance-none bg-transparent focus:outline-none w-full'
   },
   variants: {
-    default: 'bg-gray-100 border border-gray-200 text-gray-800 [&>input]:placeholder:text-gray-500 [&.focused]:border-blue-300 group-[&.focused]:ring-blue-300 [&.focused]:ring-2',
+    default: ({ props }) => {
+      const focused = props.error ? 'border-red-400 [&.focused]:border-red-400 [&.focused]:ring-red-400' : 'border-gray-200 [&.focused]:border-blue-300 [&.focused]:ring-blue-300'
+
+      return `bg-gray-100 border text-gray-800 [&>input]:placeholder:text-gray-500 [&.focused]:ring-1 ${focused}`
+    }
   },
   size: ({ props }) => {
     // Due to content optimisation https://tailwindcss.com/docs/content-configuration

@@ -25,6 +25,7 @@ This reposiroty uses [Yarn](https://classic.yarnpkg.com/) as a package manager. 
 - `vunix/vue`: a [Vue.js](https://nextjs.org) compatible module that bundle the core
 - `vunix/nuxt`: a [Nuxt](http://nuxt.com) compatible module that bundle the core
 - `vue-tailwind-plugin`: a [TailwindCSS](https://tailwindcss.com/) plugin to handle css optimisation classes exposition
+- `vunix/rules`: a blundle of functions to handle validation such as (required, email, ...)
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 

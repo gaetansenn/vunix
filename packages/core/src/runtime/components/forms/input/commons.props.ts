@@ -8,7 +8,7 @@ export const commonsProps = <T>() => ({
    * @type {string, function}
    */
   rules: {
-    type: [String, Function] as PropType<RuleExpression<ValueType<T>>>,
-    default: undefined
+    type: Array as PropType<RuleExpression<ValueType<T>>[]>,
+    defaultValue: undefined
   }
 })

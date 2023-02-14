@@ -56,16 +56,6 @@ const inputProps = {
     defaultValue: undefined
   },
   /**
-   * @description A value is required or must be check for the form to be submittable
-   * If a string is provided the validation error will use it.
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder
-   * @type {String, Boolean}
-  */
-  required: {
-    type: [Boolean, String],
-    defaultValue: false
-  },
-  /**
    * @description Whether the form control is disabled
    * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
    * @type {Boolean}
@@ -89,6 +79,13 @@ const inputProps = {
   leading: {
     type: String,
     defaultValue: undefined
+  },
+  /**
+   * @description Is input with error
+   */
+  error: {
+    type: Boolean,
+    defaultValue: false
   }
 }
 

@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     VButton: typeof import('@vunix/vue')['VButton']
     VIcon: typeof import('@vunix/vue')['VIcon']
+    VInputText: typeof import('@vunix/vue')['VInputText']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
 }

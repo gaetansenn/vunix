@@ -22,7 +22,7 @@ const buttonProps = {
   */
   loading: {
     type: Boolean,
-    default: false
+    defaultValue: false
   },
   /**
    * @description If true apply display block type to fill available space
@@ -30,7 +30,7 @@ const buttonProps = {
    */
   block: {
     type: Boolean,
-    default: false
+    defaultValue: false
   },
   /**
    * @description Use to set button as disabled
@@ -38,7 +38,7 @@ const buttonProps = {
    */
   disabled: {
     type: Boolean,
-    default: undefined
+    defaultValue: undefined
   }
 }
 

@@ -10,7 +10,8 @@
 import pick from 'lodash/pick.js'
 import { computed, type ConcreteComponent, resolveComponent, inject, getCurrentInstance } from 'vue'
 
-import { type IconType, VunixConfigKey } from '../../../utils/config'
+import { VunixConfigSymbol } from '../../../symbols'
+import type { IconType } from '../../../utils/config'
 import { useConfig } from '../../../composables/config'
 import { toProp, injectDefaultValues } from '../../commons/props'
 import { aTag, buttonTag } from '../../commons/tags'
@@ -20,7 +21,7 @@ import type { ButtonConfig } from './Button.config'
 const props = defineProps(buttonProps)
 
 // Inject default values
-injectDefaultValues(getCurrentInstance()?.props, buttonProps, inject(VunixConfigKey)?.Button.defaults)
+injectDefaultValues(getCurrentInstance()?.props, buttonProps, inject(VunixConfigSymbol)?.Button.defaults)
 
 const is = computed<TypeType | ConcreteComponent | string>(() => {
   if (props.type) return props.type as TypeType
@@ -55,7 +56,7 @@ const attrs = computed(() => {
 
 const config = useConfig<ButtonConfig>({
   props
-}, inject(VunixConfigKey))
+}, inject(VunixConfigSymbol))
 
 const loadingComponent = computed<IconType>(() => {
   if (typeof config.loading.icon === 'string') return 'div'

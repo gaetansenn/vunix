@@ -1,0 +1,26 @@
+{
+  "name": "@vunix/rules",
+  "version": "1.0.0",
+  "description": "Rules validation form",
+  "author": "Gaetan SENN",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "devDependencies": {
+    "unbuild": "^1.0.1"
+  }
+}

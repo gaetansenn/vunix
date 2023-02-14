@@ -1,4 +1,4 @@
-import { App, FunctionalComponent, InjectionKey, provide, reactive, UnwrapNestedRefs } from 'vue'
+import { App, ComputedRef, FunctionalComponent, provide, reactive, Ref } from 'vue'
 import defu from 'defu'
 import get from 'lodash/get.js'
 import set from 'lodash/set.js'
@@ -7,18 +7,19 @@ import type { ButtonConfig } from '../components/elements/button/Button.config'
 import type { InputBaseConfig } from '../components/forms/input/base/InputBase.config'
 import type { IconConfig } from '../components/icon/Icon.config'
 import type { InputTextConfig } from '../components/forms/input/text/InputText.config'
+import type { InputGroupConfig } from '../components/forms/input/group/InputGroup.config'
+import { VunixConfigSymbol } from '../symbols'
 
 export type KeyValue<T> = { [key: string]: T }
-export const VunixConfigKey: InjectionKey<UnwrapNestedRefs<Config>> = Symbol('vunix-config')
 export type ConfigMethodType = (...any: any[]) => string
 export type IconType = FunctionalComponent | string
-export type MethodOrStringType = ConfigMethodType | string
+export type MethodOrStringType = ConfigMethodType | ComputedRef<string> | Ref<string> | string
 export type MethodOrObject = KeyValue<string> | ConfigMethodType
 
 export const DEFAULT_VARIANT = 'default'
 export interface VariantsConfig {
-  default: string,
-  [key: string]: string
+  default: MethodOrStringType,
+  [key: string]: MethodOrStringType
 }
 
 export enum RoundedEnum {
@@ -69,8 +70,8 @@ export const DEFAULT_SIZE = SizeEnum.md
 
 export declare interface DefaultConfig {
   class: MethodOrStringType, // style classes of root element
-  variants: VariantsConfig, // Contain all variants key / value
-  variant?: MethodOrObject,
+  variants?: VariantsConfig, // Contain all variants key / value
+  variant?: MethodOrStringType,
   sizes?: MethodOrObject, // Contain all sizes key / value
   size?: MethodOrStringType,
   rounded?: MethodOrObject, // Contain all rounded key / value
@@ -81,6 +82,7 @@ export declare interface Config {
   Button: ButtonConfig
   InputBase: InputBaseConfig,
   InputText: InputTextConfig,
+  InputGroup: InputGroupConfig
   Icon: IconConfig,
 }
 
@@ -127,7 +129,7 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
 export function defineConfig(options: defineConfigOptions) {
   const _config = reactive(mergeConfig(options));
 
-  (options?.app ? options.app.provide : provide)(VunixConfigKey, _config)
+  (options?.app ? options.app.provide : provide)(VunixConfigSymbol, _config)
 
   return _config
 }

@@ -18,6 +18,7 @@
     "build:docs": "turbo run generate --filter=docs",
     "dev:vue-example": "turbo run dev --filter=vue-example",
     "dev:nuxt-example": "turbo run dev --filter=nuxt-example",
+    "dev:rules": "turbo run dev --filter=rules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test",
     "test:core": "turbo run test --filter=@vunix/core",
