@@ -125,6 +125,10 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
   async function validate(value: MaybeRef<ValueType<T>>): Promise<ValidationResult> {
     const validReturn = { errors: [], valid: true }
 
+    // Restore to valid
+    field.errors.value = []
+    meta.valid.value = true
+
     if (!rules) return validReturn
 
     value = unref(value)
@@ -143,7 +147,6 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
 
       // TODO: Rule string type
     })
-
 
     // Handle error message
     if (!meta.valid.value) {
