@@ -17,10 +17,10 @@
     "dist"
   ],
   "scripts": {
-    "dev": "unbuild --stub",
+    "dev": "unbuild",
     "build": "unbuild"
   },
   "devDependencies": {
-    "unbuild": "^1.0.1"
+    "unbuild": "^1.1.1"
   }
 }
