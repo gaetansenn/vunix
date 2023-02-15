@@ -17,7 +17,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@nuxt/kit": "^3.2.0",
     "@types/lodash": "^4.14.186",
     "@vitejs/plugin-vue": "^4.0.0",
     "unplugin-vue-components": "^0.23.0",
