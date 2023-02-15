@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare": "nuxi prepare",
     "dev": "histoire dev",
     "build": "histoire build",
     "preview": "histoire preview --port 4567"
@@ -12,10 +13,10 @@
     "@vunix/nuxt": "*"
   },
   "devDependencies": {
-    "@histoire/plugin-nuxt": "^0.12.4",
-    "@histoire/plugin-vue": "^0.12.4",
+    "@histoire/plugin-nuxt": "^0.15.3",
+    "@histoire/plugin-vue": "^0.15.3",
     "destr": "^1.2.1",
-    "histoire": "^0.12.4",
+    "histoire": "^0.15.3",
     "nuxt": "^3.2.0",
     "vue": "^3.2.45"
   }

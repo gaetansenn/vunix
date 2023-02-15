@@ -1168,22 +1168,22 @@
   resolved "https://registry.yarnpkg.com/@heroicons/vue/-/vue-2.0.13.tgz#974c52abf8dab70e7d2a3a93d7fdadff4a0e9ec2"
   integrity sha512-vVCVF02+rNKXEmanVNnmktJlxCbOn0qVFP1gfZPn4bcBIwPX3h9AVHGCkwly+IWDEME8w5oooG0KRd2hhSe/HQ==
 
-"@histoire/app@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/app/-/app-0.12.4.tgz#4c377f5d6c8fe13f6a7bcd3b961c973638eec347"
-  integrity sha512-noemJQ3q5ofHbBJGJ9FgLIdoV4Feyn3zHMhOQjHZRPETdoAak2adALO4UWKVnFu75+R43SLtoV7HnK0TAPx5kw==
+"@histoire/app@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/app/-/app-0.15.3.tgz#5cf7b3295514e8b6a6a5f97131cee1e1de17eeeb"
+  integrity sha512-8+noBt6O+wSBlEwqI5LZbRSK5FeLstUB8hbvHrZx67K+b5jlGEcPwA30lXRQcTCuTs9RLV/XSR3lWKidFInZZw==
   dependencies:
-    "@histoire/controls" "^0.12.4"
-    "@histoire/shared" "^0.12.4"
-    "@histoire/vendors" "^0.12.4"
+    "@histoire/controls" "^0.15.3"
+    "@histoire/shared" "^0.15.3"
+    "@histoire/vendors" "^0.15.3"
     "@types/flexsearch" "^0.7.3"
     flexsearch "0.7.21"
-    shiki-es "^0.1.2"
+    shiki-es "^0.2.0"
 
-"@histoire/controls@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/controls/-/controls-0.12.4.tgz#1c250c0c424938cad8d8b660f2452c7dd9d06075"
-  integrity sha512-p4qa11vXqhSMsnXW1p+n7ZqawoHVErLFL24yNnA9peMuXnR306/0cvdAnsLMQJdq5mDNayOY5Di69YKVQ0Shqg==
+"@histoire/controls@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/controls/-/controls-0.15.3.tgz#99b62688cda6d24beb30d4997a1f82dd690b355c"
+  integrity sha512-RqWnBeal4vyHh/gBn5fpZy05nFYmQzn9D4DvDKFqrUqoQ0hPLUJmdX/KT5CAwczJeeeUvlp2/FaxGb7p1sa9og==
   dependencies:
     "@codemirror/commands" "^6.1.1"
     "@codemirror/lang-json" "^6.0.0"
@@ -1192,39 +1192,48 @@
     "@codemirror/state" "^6.1.2"
     "@codemirror/theme-one-dark" "^6.1.0"
     "@codemirror/view" "^6.3.0"
-    "@histoire/vendors" "^0.12.4"
+    "@histoire/shared" "^0.15.3"
+    "@histoire/vendors" "^0.15.3"
 
-"@histoire/plugin-nuxt@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/plugin-nuxt/-/plugin-nuxt-0.12.4.tgz#bf107e62c283f22409b482255ff8df8ef1cae6e4"
-  integrity sha512-4RCA/UzePlKKeoWPOKJM5Vf9B7JN0uDETwFpumX/j12qRC1aBZWdmDjNpXG4+PN1gV6NDUlXr/ssvts9gOVFZg==
+"@histoire/plugin-nuxt@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/plugin-nuxt/-/plugin-nuxt-0.15.3.tgz#a7d5763f993d659378aad06f1a80282dbe969fb2"
+  integrity sha512-eI/h1mIa5aDxVh3WLATohzWpbKnmSl3KJ+BMGaf3NnaMDuiD9daw8m0dclul9xr7/YpAk0psSmELxPScpQjdkg==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.11"
+    h3 "^1.4.0"
+    ofetch "^1.0.0"
+    unenv "^1.1.1"
 
-"@histoire/plugin-vue@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.12.4.tgz#8c151da729fd1e17bda14ce3bff4b3438650783c"
-  integrity sha512-2xgBDwEHmiY053hPWy4rKnnMjntVcg8qfIYJGyITwFWSfNTq+6ez/HjWzUcHT6qwFMglUHq+rDlQb9gYZF+Edw==
+"@histoire/plugin-vue@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/plugin-vue/-/plugin-vue-0.15.3.tgz#10c27b6979df06912f3b8a4d1071219374807f52"
+  integrity sha512-jqVIHpBty+81UzYbXDVxG3qPJt2TXD/W5T/oTL3Sg3rOjk1XVLKSIYdMIPVwN37umWmwk94yI03mYx0P8unwwA==
   dependencies:
-    "@histoire/controls" "^0.12.4"
-    "@histoire/shared" "^0.12.4"
-    "@histoire/vendors" "^0.12.4"
+    "@histoire/controls" "^0.15.3"
+    "@histoire/shared" "^0.15.3"
+    "@histoire/vendors" "^0.15.3"
+    change-case "^4.1.2"
+    globby "^13.1.1"
+    launch-editor "^2.6.0"
+    pathe "^0.2.0"
 
-"@histoire/shared@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/shared/-/shared-0.12.4.tgz#037b1013170e8b5ffd6bd93001171f4a642e379a"
-  integrity sha512-dVSrfsEu17KczjyHVW8yPvSlguhEV7hWjDSwsjlUrRdbe7hwztX4GbbcCIWvG5hy5gASpKpQq6FJa5uTs0HOsg==
+"@histoire/shared@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/shared/-/shared-0.15.3.tgz#9a4d47f5722a7ff328e50234de9010821228d133"
+  integrity sha512-3FHOINqI+2r90Ow0Vx7UiZQHGcAdLta3jDRqWCCV4v+yK9cOuFFK2FZvpMHxhGjEegTYDfUZhUJ/O0s4WF/ung==
   dependencies:
+    "@histoire/vendors" "^0.15.3"
     "@types/fs-extra" "^9.0.13"
     "@types/markdown-it" "^12.2.3"
     chokidar "^3.5.3"
     pathe "^0.2.0"
     picocolors "^1.0.0"
 
-"@histoire/vendors@^0.12.4":
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/@histoire/vendors/-/vendors-0.12.4.tgz#f34d5011be176eba26ae4bd378e38efc172369e5"
-  integrity sha512-NIi0krz19iSjPHhIsGLrW4Q3tvrCLfvCet2kFA8crKPX6inaMZm8g/+pDQBqlh9DRCXVbxV5RWQKcumrIFbrmw==
+"@histoire/vendors@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/@histoire/vendors/-/vendors-0.15.3.tgz#0fd407859476f83b41a8b28e8a4aa2c9136e6616"
+  integrity sha512-KegkTOqxIPrD12f1ELbP9jO3gkFAtM474eoZCmkaoUsvImzJ2nTAUih2bMgJtS6I44gaOQCI9ssfhyUBsrXBaw==
 
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.7"
@@ -5834,15 +5843,15 @@ hey-listen@^1.0.8:
   resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.8.tgz#8e59561ff724908de1aa924ed6ecc84a56a9aa68"
   integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
 
-histoire@^0.12.4:
-  version "0.12.4"
-  resolved "https://registry.yarnpkg.com/histoire/-/histoire-0.12.4.tgz#7c59f64d9612a6f9d40b7f479f11f22c24159942"
-  integrity sha512-q20Zncdh+GI2jDXiry1JS1DrN5qprKpl452AnS/P06Vgowqf79aG85E0XmhNpX2r8HI2HmIntwZ5FLd6hxYobQ==
+histoire@^0.15.3:
+  version "0.15.3"
+  resolved "https://registry.yarnpkg.com/histoire/-/histoire-0.15.3.tgz#e3605ecaf4c4526e408140e9fe8cb18b0c2dbd03"
+  integrity sha512-Un0bajyJJi7LAHFu0m0ScHy0h6zE7Cd+VMc8QgjsPaATf5igF91X0tDXXTf3QLeR6rqSfnDSP/sRotBq9P3rCw==
   dependencies:
-    "@histoire/app" "^0.12.4"
-    "@histoire/controls" "^0.12.4"
-    "@histoire/shared" "^0.12.4"
-    "@histoire/vendors" "^0.12.4"
+    "@histoire/app" "^0.15.3"
+    "@histoire/controls" "^0.15.3"
+    "@histoire/shared" "^0.15.3"
+    "@histoire/vendors" "^0.15.3"
     "@types/flexsearch" "^0.7.3"
     "@types/markdown-it" "^12.2.3"
     birpc "^0.1.1"
@@ -5866,10 +5875,10 @@ histoire@^0.12.4:
     pathe "^0.2.0"
     picocolors "^1.0.0"
     sade "^1.8.1"
-    shiki-es "^0.1.2"
+    shiki-es "^0.2.0"
     sirv "^2.0.2"
     tinypool "^0.1.2"
-    vite-node "0.26.0"
+    vite-node "0.28.4"
 
 hogan.js@^3.0.2:
   version "3.0.2"
@@ -6771,6 +6780,14 @@ kolorist@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/kolorist/-/kolorist-1.6.0.tgz#f43ac794305b30032a5bedcae7799d0f91d2ff36"
   integrity sha512-dLkz37Ab97HWMx9KTes3Tbi3D1ln9fCAy2zr2YVExJasDRPGRaKcoE4fycWNtnCAJfjFqe0cnY+f8KT2JePEXQ==
+
+launch-editor@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/launch-editor/-/launch-editor-2.6.0.tgz#4c0c1a6ac126c572bd9ff9a30da1d2cae66defd7"
+  integrity sha512-JpDCcQnyAAzZZaZ7vEiSqL690w7dAEyLao+KC96zBplnYbJS7TYNjvM3M7y3dGz+v7aIsJk3hllWuc0kWAjyRQ==
+  dependencies:
+    picocolors "^1.0.0"
+    shell-quote "^1.7.3"
 
 lazystream@^1.0.0:
   version "1.0.1"
@@ -9785,10 +9802,20 @@ shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.4.tgz#33fe15dee71ab2a81fcbd3a52106c5cfb9fb75d8"
   integrity sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw==
 
+shell-quote@^1.7.3:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.0.tgz#20d078d0eaf71d54f43bd2ba14a1b5b9bfa5c8ba"
+  integrity sha512-QHsz8GgQIGKlRi24yFc6a6lN69Idnx634w49ay6+jA5yFh7a1UY+4Rp6HPx/L/1zcEDPEij8cIsiqR6bQsE5VQ==
+
 shiki-es@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/shiki-es/-/shiki-es-0.1.2.tgz#37176c6ff8d734f95e27560b62e1230c9a90c0cb"
   integrity sha512-eqtfk8idlYlSLAn0gp0Ly2+FbKc2d78IddigHSS4iHAnpXoY2kdRzyFGZOdi6TvemYMnRhZBi1HsSqZc5eNKqg==
+
+shiki-es@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/shiki-es/-/shiki-es-0.2.0.tgz#ae5bced62dca0ba46ee81149e68d428565a3e6fb"
+  integrity sha512-RbRMD+IuJJseSZljDdne9ThrUYrwBwJR04FvN4VXpfsU3MNID5VJGHLAD5je/HGThCyEKNgH+nEkSFEWKD7C3Q==
 
 side-channel@^1.0.4:
   version "1.0.4"
@@ -11065,14 +11092,16 @@ vfile@^5.0.0:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-node@0.26.0:
-  version "0.26.0"
-  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.26.0.tgz#b070b812a9e90431f48fa9c2640e3cb6f60b4cce"
-  integrity sha512-nLtHWCv6reONl1oFsKhQ/LT7n3UNLpvVARAJlmGrQV6qSElht/9AdN41Pa+WSkw2Winh682UzM0Yw0GNlfqejw==
+vite-node@0.28.4:
+  version "0.28.4"
+  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.28.4.tgz#ce709cde2200d86a2a45457fed65f453234b0261"
+  integrity sha512-KM0Q0uSG/xHHKOJvVHc5xDBabgt0l70y7/lWTR7Q0pR5/MrYxadT+y32cJOE65FfjGmJgxpVEEY+69btJgcXOQ==
   dependencies:
+    cac "^6.7.14"
     debug "^4.3.4"
-    mlly "^1.0.0"
-    pathe "^0.2.0"
+    mlly "^1.1.0"
+    pathe "^1.1.0"
+    picocolors "^1.0.0"
     source-map "^0.6.1"
     source-map-support "^0.5.21"
     vite "^3.0.0 || ^4.0.0"
