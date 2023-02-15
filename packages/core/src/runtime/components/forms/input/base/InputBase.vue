@@ -54,7 +54,7 @@ export default defineComponent({
       focused
     }, inject(VunixConfigSymbol))
 
-    return { config, props, slots: useSlots(), handleInputChange, focused }
+    return { config, props, slots: useSlots(), handleInputChange, focused, input }
   }
 })
 </script>
