@@ -1,6 +1,6 @@
 <template>
   <InputGroup :required="required" :description="description" :label="label" :optional-label="optionalLabel">
-    <InputBase v-bind="boundProps">
+    <InputBase v-bind="boundProps" @trailing-click="$emit('trailingClick')" @leading-click="$emit('leadingClick')">
       <template v-slot:leading>
         <slot name="leading" />
       </template>
@@ -28,7 +28,7 @@ export default defineComponent({
   },
   inheritAttrs: false,
   props: inputProps,
-  emits: ['update:modelValue', 'focus', 'blur'],
+  emits: ['update:modelValue', 'focus', 'blur', 'trailingClick', 'leadingClick'],
   setup(props) {
     // Inject default values
     injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigSymbol)?.InputText.defaults)
