@@ -10,6 +10,10 @@ export { default as VInputPassword } from './password/InputPassword.vue'
 export type { props as InputPasswordProps } from './password/InputPassword.props'
 export type { InputPasswordConfig } from './password/InputPassword.config'
 
+export { default as VInputEmail } from './email/InputEmail.vue'
+export type { props as InputEmailProps } from './email/InputEmail.props'
+export type { InputEmailConfig } from './email/InputEmail.config'
+
 export { default as VInputGroup } from './group/InputGroup.vue'
 export type { props as InputGroupProps } from './group/InputGroup.props'
 export type { InputGroupConfig } from './group/InputGroup.config'

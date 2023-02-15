@@ -9,7 +9,7 @@ import type { IconConfig } from '../components/icon/Icon.config'
 import type { InputTextConfig } from '../components/forms/input/text/InputText.config'
 import type { InputGroupConfig } from '../components/forms/input/group/InputGroup.config'
 import { VunixConfigSymbol } from '../symbols'
-import type { InputPasswordConfig } from '../components'
+import type { InputEmailConfig, InputPasswordConfig } from '../components'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -85,6 +85,7 @@ export declare interface Config {
   InputText: InputTextConfig,
   InputGroup: InputGroupConfig
   InputPassword: InputPasswordConfig,
+  InputEmail: InputEmailConfig,
   Icon: IconConfig,
 }
 
