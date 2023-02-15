@@ -1,9 +1,11 @@
 import { Config } from '@vunix/core'
-import { defineNuxtModule, installModule, addPlugin, createResolver } from '@nuxt/kit'
+import { defineNuxtModule, installModule, addComponentsDir, resolvePath, addPlugin, createResolver } from '@nuxt/kit'
 
-const coreDistPath = require.resolve('@vunix/core').replace('/index.ts.mjs', '')
+export interface ModuleOptions {
+  forms: any
+}
 
-export default defineNuxtModule({
+export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: '@vunix/nuxt',
     configKey: 'vunix',
@@ -11,27 +13,29 @@ export default defineNuxtModule({
       nuxt: '>=3.0.0-rc.11'
     }
   },
-  hooks: {
-    // inject components
-    'components:dirs': (dirs) => {
-      dirs.push({
-        path: coreDistPath.replace('dist', 'dist/runtime/components'),
-        ignore: ['index*'],
-        global: true,
-        prefix: 'V',
-        extensions: ['.vue'],
-        pathPrefix: false
-      })
-    },
-  },
   async setup(moduleOptions, nuxt) {
-    // Create resolver to resolve relative paths
+    // Create resolver to resolve relative paths within this module
     const { resolve } = createResolver(import.meta.url)
 
-    nuxt.hook('build:before', () => {
-      nuxt.options.build.transpile.push('@heroicons/vue')
+    // Create resolver to resolve dist paths within @vunix/core
+    const core = createResolver(await resolvePath('@vunix/core', { cwd: import.meta.url }))
+
+    // Register components
+    addComponentsDir({
+      path: core.resolve('../runtime/components'),
+      ignore: ['index*'],
+      global: true,
+      prefix: 'V',
+      extensions: ['.vue'],
+      pathPrefix: false
     })
-    nuxt.options.app.head.link?.push({
+
+    nuxt.options.build.transpile.push('@vunix/core', '@heroicons/vue')
+    nuxt.options.build.transpile.push(core.resolve('..')) // root dist directory
+
+    // TODO: make this configurable
+    nuxt.options.app.head.link = nuxt.options.app.head.link || []
+    nuxt.options.app.head.link.push({
       rel: 'stylesheet',
       href: 'https://rsms.me/inter/inter.css'
     })
@@ -39,18 +43,20 @@ export default defineNuxtModule({
     // @ts-ignore - Module might not exist
     nuxt.hook('tailwindcss:config', function (config) {
       config.theme.extend.fontFamily = {
+        // TODO: use dynamic import and not require
         sans: ['Inter var', ...require('tailwindcss/defaultTheme').fontFamily.sans]
       }
 
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/components/**/*.{vue,js,ts,mjs}'))
+      config.content.push(core.resolve('../runtime/components/**/*.{vue,js,ts,mjs}'))
       // TODO: Inject selected preset and not all presets
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/presets/**/*.{ts,mjs}'))
-      config.content.push(coreDistPath.replace('dist', 'dist/runtime/utils/config.{ts,mjs}'))
+      config.content.push(core.resolve('../runtime/presets/**/*.{ts,mjs}'))
+      config.content.push(core.resolve('../runtime/utils/config.{ts,mjs}'))
 
       // Inject custom config
       config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
 
       // Inject @tailwindcss/forms
+      // TODO: use dynamic import and not require
       config.plugins.push(moduleOptions.forms || require('@tailwindcss/forms')({
         strategy: 'class'
       }))
@@ -58,20 +64,16 @@ export default defineNuxtModule({
 
     addPlugin(resolve('./runtime/plugin'))
 
-    installModule('@nuxtjs/tailwindcss')
+    await installModule('@nuxtjs/tailwindcss')
   }
 })
 
 declare module '@nuxt/schema' {
   interface NuxtConfig {
-    vunix?: {
-      forms: any
-    }
+    vunix?: ModuleOptions
   }
   interface NuxtOptions {
-    vunix?: {
-      forms: any
-    }
+    vunix?: ModuleOptions
   }
 
   interface AppConfig {
