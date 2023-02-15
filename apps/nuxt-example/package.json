@@ -9,7 +9,6 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@heroicons/vue": "^2.0.15",
     "@vunix/nuxt": "*"
   },
   "devDependencies": {
