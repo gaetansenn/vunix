@@ -3,6 +3,10 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import { URL, fileURLToPath } from 'url'
 import dts from 'vite-plugin-dts'
+import { resolvePath, createResolver } from '@nuxt/kit'
+
+// Create resolver to resolve dist paths within @vunix/core
+const core = createResolver(await resolvePath('@vunix/core', { cwd: import.meta.url }))
 
 export default defineConfig({
   build: {
@@ -32,6 +36,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@/': fileURLToPath(new URL('./src', import.meta.url)),
+      '@core/': core.resolve('..') // root dist directory
     },
   },
 })
