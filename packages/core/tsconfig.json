@@ -12,8 +12,7 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["*"],
-      "@vunix/core": ["./src"]
+      "@core/*": ["*"]
     },
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,

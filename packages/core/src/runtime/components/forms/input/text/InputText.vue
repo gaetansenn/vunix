@@ -14,13 +14,13 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, inject, useAttrs } from 'vue';
 
-import { required } from '@vunix/rules'
+// import { required } from '@vunix/rules'
 import InputBase from '../base/InputBase.vue'
 import InputGroup from '../group/InputGroup.vue'
-import { useBindField, useField } from '../../../../composables/forms/field';
-import { VunixConfigSymbol } from '../../../../symbols'
-import { injectDefaultValues } from '../../../commons/props';
+import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as inputProps } from './InputText.props'
+import { VunixConfigSymbol } from '@core/runtime/symbols';
+import { useBindField, useField } from '@core/runtime/composables/forms/field';
 
 export default defineComponent({
   components: {
