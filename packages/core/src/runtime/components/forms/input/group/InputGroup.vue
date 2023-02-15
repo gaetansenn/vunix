@@ -40,12 +40,7 @@ const validation = inject(VunixFieldSymbol)
 // Inject default values
 injectDefaultValues(getCurrentInstance()?.props, inputGroupProps, inject(VunixConfigSymbol)?.InputGroup.defaults)
 
-console.log(props)
-
 const config = useConfig<InputGroupConfig>({
   props,
 }, inject(VunixConfigSymbol))
-
-console.log('config from input group', config)
-
 </script>
