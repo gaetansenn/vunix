@@ -11,15 +11,16 @@
   </InputGroup>
 </template>
 
-<!-- <script lang="ts">
+<script lang="ts">
 export default {
   inheritAttrs: false
 }
-</script> -->
+</script>
 
 <script setup lang="ts">
 import { getCurrentInstance, inject, useAttrs } from 'vue';
 
+import { required } from '@vunix/rules'
 import InputBase from '../base/InputBase.vue'
 import InputGroup from '../group/InputGroup.vue'
 import { useBindField, useField } from '../../../../composables/forms/field';
