@@ -21,7 +21,7 @@
     "build": "unbuild"
   },
   "devDependencies": {
-    "unbuild": "^1.0.1"
+    "unbuild": "latest"
   },
   "peerDependencies": {
     "tailwindcss": "^3.1.8"
