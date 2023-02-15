@@ -11,6 +11,8 @@ export default defineBuildConfig({
     'vue',
     'vue-router',
     'lodash',
+    'lodash/get.js',
+    'lodash/set.js'
   ],
   failOnWarn: false
 })
