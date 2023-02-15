@@ -67,8 +67,6 @@ export default defineComponent({
       return props.trailing || config.InputBase.trailing.icon
     })
 
-    console.log(trailingIcon)
-
     return { config, props, slots: useSlots(), handleInputChange, focused, input, leadingIcon, trailingIcon }
   }
 })

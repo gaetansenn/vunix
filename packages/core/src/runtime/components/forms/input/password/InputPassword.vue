@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, inject, useAttrs, ref, defineEmits } from 'vue';
+import { defineComponent, getCurrentInstance, inject, useAttrs, ref } from 'vue';
 
 import { useConfig } from '../../../../composables/config';
 import InputBase from '../base/InputBase.vue'
