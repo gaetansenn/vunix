@@ -10,6 +10,6 @@ export const commonsProps = <T>() => ({
    */
   rules: {
     type: Array as PropType<RuleExpression<ValueType<T>>[]>,
-    defaultValue: undefined
+    defaultValue: []
   }
 })
