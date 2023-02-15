@@ -1,5 +1,6 @@
 import { computed, getCurrentInstance, InjectionKey, provide, Ref, ref, ToRefs, unref, UnwrapRef, watch } from 'vue';
 
+import { required } from '@vunix/rules'
 import type { MaybeRef } from '../../utils/types';
 import { VunixFieldSymbol } from '../../symbols';
 import type { RuleExpression } from './rules';
@@ -7,6 +8,7 @@ import type { RuleExpression } from './rules';
 export type ValueType<T> = T | UnwrapRef<NonNullable<T>> | UnwrapRef<T> | undefined
 
 export interface FieldOptions<T = unknown> {
+  required: boolean,
   initialValue?: MaybeRef<T | undefined>; // Could be modelValue from prop
   label?: MaybeRef<string>;
   modelPropName?: string; // Default modelValue
@@ -61,7 +63,6 @@ function normalizeOptions<T>(name: string, opts?: FieldOptions<T>): FieldOptions
 }
 
 export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpression<ValueType<T>>[], opts?: FieldOptions<T>) {
-  console.log('rules ares', rules)
   const emit = getCurrentInstance()?.emit as any
   const options = normalizeOptions(unref(name), opts)
   // create field value
@@ -118,6 +119,9 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
     emit('focus', event)
   }
 
+  // Inject required rule if provided from props
+  if (opts?.required) rules = [required, ...(rules || [])]
+
   async function validate(value: MaybeRef<ValueType<T>>): Promise<ValidationResult> {
     const validReturn = { errors: [], valid: true }
 
@@ -126,9 +130,16 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
     value = unref(value)
 
     rules.forEach((rule) => {
-      let valid = true
       // Rule function type
-      if (rules instanceof Function) meta.valid.value = rules(value)
+      if (rule instanceof Function) {
+        const valid = rule(value as ValueType<T>)
+
+        if (typeof valid === 'string') field.errors.value.push(valid)
+
+        if (valid === false || typeof valid === 'string') {
+          meta.valid.value = false
+        }
+      }
 
       // TODO: Rule string type
     })

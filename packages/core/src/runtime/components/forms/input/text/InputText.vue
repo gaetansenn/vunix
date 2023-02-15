@@ -14,7 +14,6 @@
 <script lang="ts">
 import { defineComponent, getCurrentInstance, inject, useAttrs } from 'vue';
 
-// import { required } from '@vunix/rules'
 import InputBase from '../base/InputBase.vue'
 import InputGroup from '../group/InputGroup.vue'
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
@@ -34,7 +33,9 @@ export default defineComponent({
     // Inject default values
     injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigSymbol)?.InputText.defaults)
 
-    const { field } = useField<string>(props.name as string, props.rules || [])
+    const { field } = useField<string>(props.name as string, props.rules, {
+      required: props.required
+    })
     const boundProps = useBindField(field, props, useAttrs())
 
     return { boundProps }
