@@ -17,6 +17,7 @@
     </VInputText>
     <VTextArea v-model="textArea" placeholder="Placeholder to" label="Textarea test" name="textarea" required
       maxlength="50" />
+    <VInputNumber v-model="number" placeholder="Number value" label="Number input" name="number" />
   </div>
 </template>
   
@@ -25,4 +26,5 @@ const name = ref('')
 const password = ref('')
 const email = ref('')
 const textArea = ref('')
+const number = ref('')
 </script>

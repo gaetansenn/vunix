@@ -14,6 +14,10 @@ export { default as VInputEmail } from './email/InputEmail.vue'
 export type { props as InputEmailProps } from './email/InputEmail.props'
 export type { InputEmailConfig } from './email/InputEmail.config'
 
+export { default as VInputNumber } from './number/InputNumber.vue'
+export type { props as InputNumberProps } from './number/InputNumber.props'
+export type { InputNumberConfig } from './number/InputNumber.config'
+
 export { default as VInputGroup } from './group/InputGroup.vue'
 export type { props as InputGroupProps } from './group/InputGroup.props'
 export type { InputGroupConfig } from './group/InputGroup.config'

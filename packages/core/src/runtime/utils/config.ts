@@ -11,6 +11,7 @@ import type { InputGroupConfig } from '../components/forms/input/group/InputGrou
 import { VunixConfigSymbol } from '../symbols'
 import type { InputEmailConfig, InputPasswordConfig } from '../components'
 import type { TextAreaConfig } from '../components/forms/textArea/TextArea.config'
+import type { InputNumberConfig } from '../components/forms/input/number/InputNumber.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -87,6 +88,7 @@ export declare interface Config {
   InputGroup: InputGroupConfig
   InputPassword: InputPasswordConfig,
   InputEmail: InputEmailConfig,
+  InputNumber: InputNumberConfig,
   Icon: IconConfig,
   TextArea: TextAreaConfig
 }
@@ -120,7 +122,7 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   const preset: Config = options.preset;
   const newConfig = Object.assign({}, options?.config || {});
 
-  const inputsComponents = ['InputText', 'InputPassword', 'InputEmail']
+  const inputsComponents = ['InputText', 'InputPassword', 'InputEmail', 'InputNumber']
   // Merge InputBase config with Inputs components
   inputsComponents.forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig));
 
