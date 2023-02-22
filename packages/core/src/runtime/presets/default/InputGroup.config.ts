@@ -19,11 +19,14 @@ const config = {
     },
     optional: 'text-gray-500 pl-2 font-light text-xs'
   },
-  validation: {
-    class: 'text-red-600 pt-1 pl-1 text-xs'
-  },
-  description: {
-    class: 'text-xs text-gray-500 pl-1'
+  bottom: {
+    class: 'inline-flex relative',
+    validation: {
+      wrapper: 'text-red-600 pt-1 pl-1 text-xs'
+    },
+    description: {
+      class: 'text-xs text-gray-500 pl-1'
+    }
   }
 } as InputGroupConfig;
 
