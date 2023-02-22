@@ -1,5 +1,5 @@
 import { props as baseProps } from '../base/InputBase.props'
-import { commonsProps } from '../commons.props'
+import { commonsProps } from '../../commons.props'
 import { inputGroupProps } from '../group/InputGroup.props'
 
 const inputProps = {

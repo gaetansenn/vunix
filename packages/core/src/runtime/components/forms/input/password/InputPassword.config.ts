@@ -1,8 +1,10 @@
 import type { DefaultConfig, IconType } from "../../../../utils/config";
 import type { InputBaseConfig } from "../base/InputBase.config";
+import type { InputGroupConfig } from "../group/InputGroup.config";
 
 export interface InputPasswordConfig extends DefaultConfig {
-  InputBase: InputBaseConfig,
+  InputBase?: InputBaseConfig,
+  InputGroup?: InputGroupConfig,
   /**
    * Icon used to show / hide password
    */

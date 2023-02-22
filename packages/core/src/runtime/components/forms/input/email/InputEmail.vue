@@ -1,5 +1,6 @@
 <template>
-  <InputGroup :required="required" :description="description" :label="label" :optional-label="optionalLabel">
+  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+    :description="description" :label="label" :optional-label="optionalLabel">
     <InputBase v-bind="boundProps" type="email">
       <template v-slot:leading>
         <slot name="leading" />
@@ -39,7 +40,7 @@ export default defineComponent({
     })
     const boundProps = useBindField(field, props, useAttrs())
 
-    return { boundProps }
+    return { boundProps, props }
   }
 })
 </script>

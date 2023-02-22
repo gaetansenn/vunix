@@ -1,5 +1,6 @@
 <template>
-  <InputGroup :required="required" :description="description" :label="label" :optional-label="optionalLabel">
+  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+    :description="description" :label="label" :optional-label="optionalLabel">
     <InputBase v-bind="boundProps" :trailing="eyeOff ? config.eye.off : config.eye.on"
       :type="eyeOff ? 'text' : 'password'" @trailing-click="onTrailingClick" @leading-click="$emit('leadingClick')">
       <template v-slot:leading>
@@ -52,7 +53,7 @@ export default defineComponent({
       eyeOff.value = !eyeOff.value
     }
 
-    return { boundProps, eyeOff, config, onTrailingClick }
+    return { boundProps, eyeOff, config, onTrailingClick, props }
   }
 })
 </script>

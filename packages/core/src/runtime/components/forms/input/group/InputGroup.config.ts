@@ -1,18 +1,21 @@
 import type { DefaultConfig, MethodOrObject, MethodOrStringType } from "../../../../utils/config"
 
 export interface InputGroupConfig extends DefaultConfig {
-  label: {
+  label?: {
     wrapper?: MethodOrStringType,
     class?: MethodOrStringType,
     sizes?: MethodOrObject,
     size?: MethodOrStringType,
-    required: MethodOrStringType,
+    required?: MethodOrStringType,
     optional?: MethodOrStringType
   },
-  validation: {
-    class?: MethodOrStringType
-  },
-  description: {
-    class?: MethodOrStringType
+  bottom?: {
+    class?: MethodOrStringType,
+    validation?: {
+      class?: MethodOrStringType
+    },
+    description?: {
+      class?: MethodOrStringType
+    }
   }
 }
