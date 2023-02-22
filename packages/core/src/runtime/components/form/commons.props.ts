@@ -1,7 +1,7 @@
 import type { PropType } from 'vue';
 
-import type { RuleExpression } from '../../composables/forms/rules';
-import type { ValueType } from '../../composables/forms/field';
+import type { RuleExpression } from '../../composables/form/rules';
+import type { ValueType } from '../../composables/form/field';
 
 export const commonsProps = <T>() => ({
   /**

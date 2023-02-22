@@ -4,14 +4,14 @@ import get from 'lodash/get.js'
 import set from 'lodash/set.js'
 
 import type { ButtonConfig } from '../components/elements/button/Button.config'
-import type { InputBaseConfig } from '../components/forms/input/base/InputBase.config'
+import type { InputBaseConfig } from '../components/form/input/base/InputBase.config'
 import type { IconConfig } from '../components/icon/Icon.config'
-import type { InputTextConfig } from '../components/forms/input/text/InputText.config'
-import type { InputGroupConfig } from '../components/forms/input/group/InputGroup.config'
+import type { InputTextConfig } from '../components/form/input/text/InputText.config'
+import type { InputGroupConfig } from '../components/form/input/group/InputGroup.config'
 import { VunixConfigSymbol } from '../symbols'
 import type { InputEmailConfig, InputPasswordConfig } from '../components'
-import type { TextAreaConfig } from '../components/forms/textArea/TextArea.config'
-import type { InputNumberConfig } from '../components/forms/input/number/InputNumber.config'
+import type { TextAreaConfig } from '../components/form/textArea/TextArea.config'
+import type { InputNumberConfig } from '../components/form/input/number/InputNumber.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string

@@ -1,5 +1,5 @@
 
-import type { TextAreaConfig } from '../../../runtime/components/forms/textArea/TextArea.config';
+import type { TextAreaConfig } from '../../../runtime/components/form/textArea/TextArea.config';
 import { RoundedEnum, SizeEnum } from '../../utils/config';
 
 const config = {
