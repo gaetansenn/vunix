@@ -11,7 +11,7 @@ const config = {
     default: ({ props }) => {
       const focused = props.error ? 'border-red-400 [&.focused]:border-red-400 [&.focused]:ring-red-400' : 'border-gray-200 [&.focused]:border-blue-300 [&.focused]:ring-blue-300'
 
-      return `bg-gray-100 border text-gray-800 [&>input]:placeholder:text-gray-500 [&.focused]:ring-1 ${focused}`
+      return `bg-gray-100 border text-gray-800 [&>input]:placeholder:text-gray-500 [&.focused]:ring-1 [&>input]:disabled:text-gray-400 [&>input:disabled]:placeholder:text-gray-400 ${focused}`
     }
   },
   size: ({ props }) => {

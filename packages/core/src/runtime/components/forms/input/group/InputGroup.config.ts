@@ -12,7 +12,9 @@ export interface InputGroupConfig extends DefaultConfig {
   bottom?: {
     class?: MethodOrStringType,
     validation?: {
-      class?: MethodOrStringType
+      class?: MethodOrStringType,
+      sizes?: MethodOrObject,
+      size?: MethodOrStringType,
     },
     description?: {
       class?: MethodOrStringType

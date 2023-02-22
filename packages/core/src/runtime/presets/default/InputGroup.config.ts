@@ -22,7 +22,12 @@ const config = {
   bottom: {
     class: 'inline-flex relative',
     validation: {
-      wrapper: 'text-red-600 pt-1 pl-1 text-xs'
+      class: 'text-red-600 pt-1 pl-1 text-xs',
+      sizes: {
+        [SizeEnum.sm]: 'text-sm',
+        [SizeEnum.md]: 'text-sm',
+        [SizeEnum.lg]: 'text-base',
+      }
     },
     description: {
       class: 'text-xs text-gray-500 pl-1'

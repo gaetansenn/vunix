@@ -50,6 +50,4 @@ injectDefaultValues(getCurrentInstance()?.props, inputGroupProps, inject(VunixCo
 const config = useConfig<Config>({
   props,
 }, inject(VunixConfigSymbol))
-
-console.log('config gropu', config)
 </script>

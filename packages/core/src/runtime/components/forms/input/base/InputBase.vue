@@ -13,8 +13,8 @@
       @blur="$emit('blur', $event)" @focus="$emit('focus', $event)" />
     <div v-if="trailingIcon || slots.trailing" :class="config.InputBase.trailing.class">
       <slot name="trailing">
-        <Icon v-if="typeof trailingIcon === 'string'" :name="trailingIcon"
-          :size="(config.InputBase.trailing.size as any)" @click="$emit('trailingClick')" />
+        <Icon v-if="typeof trailingIcon === 'string'" :name="trailingIcon" :size="(config.InputBase.trailing.size as any)"
+          @click="$emit('trailingClick')" />
         <component v-else :is="props.trailing" :class="[config.InputBase.trailing.size]"
           @click="$emit('trailingClick')" />
       </slot>
@@ -44,7 +44,7 @@ export default defineComponent({
   props: inputProps(),
   inheritAttrs: false,
   emits: ['update:modelValue', 'focus', 'blur', 'trailingClick', 'leadingClick'],
-  setup(props) {
+  setup(props, { attrs }) {
     const handleInputChange = (event: Event) => (event.target as HTMLInputElement).value
 
     // Inject default values
@@ -56,7 +56,8 @@ export default defineComponent({
 
     const config = useConfig<Config>({
       props,
-      focused
+      focused,
+      attrs,
     }, inject(VunixConfigSymbol))
 
     const leadingIcon = computed(() => {

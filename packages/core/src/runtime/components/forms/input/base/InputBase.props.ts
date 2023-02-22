@@ -56,15 +56,6 @@ const inputProps = {
     defaultValue: undefined
   },
   /**
-   * @description Whether the form control is disabled
-   * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#disabled
-   * @type {Boolean}
-   */
-  disabled: {
-    type: Boolean,
-    defaultValue: undefined
-  },
-  /**
    * @description content added at the left of the input
    * @type {String}
    */
