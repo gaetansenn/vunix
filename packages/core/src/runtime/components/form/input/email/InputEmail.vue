@@ -5,8 +5,8 @@
       <template v-slot:leading>
         <slot name="leading" />
       </template>
-      <template v-slot:heading>
-        <slot name="heading" />
+      <template v-slot:trailing>
+        <slot name="trailing" />
       </template>
     </InputBase>
   </InputGroup>
