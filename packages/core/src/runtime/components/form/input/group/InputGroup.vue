@@ -13,7 +13,7 @@
     </div>
     <slot />
     <div :class="config.InputGroup.bottom?.class">
-      <slot name="validation">
+      <slot name="validation" v-if="!validation?.meta.valid.value" :validation="validation">
         <div :class="config.InputGroup.bottom?.validation?.class">
           <div>{{ validation?.field.errorMessage.value }}</div>
         </div>

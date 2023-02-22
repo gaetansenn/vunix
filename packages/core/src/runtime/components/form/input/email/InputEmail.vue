@@ -9,6 +9,9 @@
         <slot name="trailing" />
       </template>
     </InputBase>
+    <template #validation="{ validation }">
+      <slot name="validation" :validation="validation" />
+    </template>
   </InputGroup>
 </template>
 
