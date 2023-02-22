@@ -21,7 +21,7 @@
     "test": {
       "cache": false
     },
-    "prepare": {
+    "dev:prepare": {
       "cache": false
     },
     "deploy": {

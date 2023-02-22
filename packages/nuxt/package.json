@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "prepare": "nuxi prepare",
+    "dev:prepare": "nuxi prepare",
     "dev": "nuxt-module-build --stub",
     "build": "nuxt-module-build",
     "test": "nuxi prepare test/fixtures/basic && vitest run",

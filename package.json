@@ -23,7 +23,7 @@
     "test": "turbo run test",
     "test:core": "turbo run test --filter=@vunix/core",
     "test:nuxt": "turbo run test --filter=@vunix/nuxt",
-    "prepare": "turbo run prepare",
+    "dev:prepare": "turbo run dev:prepare",
     "deploy": "turbo run deploy",
     "changeset": "changeset",
     "bump": "changset version",

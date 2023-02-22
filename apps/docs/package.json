@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev:prepare": "nuxi prepare",
     "dev": "nuxi dev",
     "build": "nuxi build",
     "generate": "nuxi generate",
