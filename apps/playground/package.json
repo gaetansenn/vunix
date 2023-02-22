@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prepare": "nuxi prepare",
+    "dev:prepare": "nuxi prepare",
     "dev": "histoire dev",
     "build": "histoire build",
     "preview": "histoire preview --port 4567"
