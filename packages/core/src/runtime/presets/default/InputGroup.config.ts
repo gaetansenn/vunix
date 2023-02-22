@@ -30,7 +30,7 @@ const config = {
       }
     },
     description: {
-      class: 'text-xs text-gray-500 pl-1'
+      class: 'text-xs text-gray-500 pl-1 pt-1'
     }
   }
 } as InputGroupConfig;
