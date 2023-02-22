@@ -11,13 +11,18 @@
       </template>
     </VInputText>
     <VInputText v-model="name" placeholder="icon" name="icon" size="lg">
-      <template #leading>
+      <template #trailing>
         Kg
       </template>
     </VInputText>
     <VTextArea v-model="textArea" placeholder="Placeholder to" label="Textarea test" name="textarea" required
       maxlength="50" />
     <VInputNumber v-model="number" placeholder="Number value" label="Number input" name="number" />
+    <VInputText v-model="name" name="validation" required>
+      <template #validation="slotProps">
+        {{ slotProps.validation?.field.errorMessage.value }} 🔫
+      </template>
+    </VInputText>
   </div>
 </template>
   
