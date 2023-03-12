@@ -15,9 +15,10 @@ export default defineAppConfig({
       exclude: []
     },
     github: {
-      root: 'content',
+      owner: 'gaetansenn',
+      branch: 'main',
+      repo: 'vunix',
       edit: true,
-      contributors: false
     }
   }
 })
