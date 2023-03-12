@@ -10736,7 +10736,7 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
-unbuild@^1.0.1, unbuild@^1.1.2, unbuild@latest:
+unbuild@^1.0.1, unbuild@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/unbuild/-/unbuild-1.1.2.tgz#d38cb6ac931e5d745b016c7472dbc8ff6964b7b7"
   integrity sha512-EK5LeABThyn5KbX0eo5c7xKRQhnHVxKN8/e5Y+YQEf4ZobJB6OZ766756wbVqzIY/G/MvAfLbc6EwFPdSNnlpA==

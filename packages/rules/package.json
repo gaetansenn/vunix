@@ -21,6 +21,6 @@
     "build": "unbuild"
   },
   "devDependencies": {
-    "unbuild": "latest"
+    "unbuild": "^1.1.2"
   }
 }
