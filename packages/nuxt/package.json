@@ -16,7 +16,7 @@
   "scripts": {
     "dev:prepare": "nuxi prepare",
     "dev": "nuxt-module-build --stub",
-    "build": "nuxt-module-build",
+    "build": "nuxi prepare; nuxt-module-build",
     "test": "nuxi prepare test/fixtures/basic && vitest run",
     "test:coverage": "vitest --coverage",
     "test:types": "tsc --build tsconfig.json"
