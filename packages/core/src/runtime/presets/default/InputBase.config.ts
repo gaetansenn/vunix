@@ -1,5 +1,5 @@
 
-import type { InputBaseConfig } from '../../components';
+import type { InputBaseConfig } from '../../components/form/input/base/InputBase.config';
 import { KeyValue, RoundedEnum, SizeEnum } from '../../utils/config';
 
 const config = {
@@ -63,7 +63,7 @@ const config = {
   leading: {
     class: ({ props }) => {
       const spacing: KeyValue<string> = {
-        [SizeEnum.sm]: 'pr-1',
+        [SizeEnum.sm]: 'pr-1 -my-0.5',
         [SizeEnum.md]: 'pr-1',
         [SizeEnum.lg]: 'pr-1',
       }

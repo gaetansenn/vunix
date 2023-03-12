@@ -1,4 +1,5 @@
 export * from './elements/button'
 export * from './form/input'
 export * from './form/textArea'
+export * from './form/select'
 export * from './icon'

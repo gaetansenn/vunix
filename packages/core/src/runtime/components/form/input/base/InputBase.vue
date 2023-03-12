@@ -3,7 +3,7 @@
     :class="[config.InputBase.class, config.InputBase.variant, config.InputBase.rounded, config.InputBase.size, { 'focused': focused }]">
     <div v-if="leadingIcon || slots.leading" :class="config.InputBase.leading.class">
       <slot name="leading">
-        <Icon v-if="typeof leadingIcon === 'string'" :name="leadingIcon" :size="(config.InputBase.leading.size as any)"
+        <Icon v-if="typeof leadingIcon === 'string'" :name="leadingIcon" :size="config.InputBase.leading.size"
           @click="$emit('leadingClick')" />
         <component v-else :is="props.leading" :class="[config.InputBase.leading.size]" @click="$emit('leadingClick')" />
       </slot>
@@ -13,7 +13,7 @@
       @blur="$emit('blur', $event)" @focus="$emit('focus', $event)" />
     <div v-if="trailingIcon || slots.trailing" :class="config.InputBase.trailing.class">
       <slot name="trailing">
-        <Icon v-if="typeof trailingIcon === 'string'" :name="trailingIcon" :size="(config.InputBase.trailing.size as any)"
+        <Icon v-if="typeof trailingIcon === 'string'" :name="trailingIcon" :size="config.InputBase.trailing.size"
           @click="$emit('trailingClick')" />
         <component v-else :is="props.trailing" :class="[config.InputBase.trailing.size]"
           @click="$emit('trailingClick')" />
@@ -51,7 +51,7 @@ export default defineComponent({
     injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigSymbol)?.InputBase.defaults)
 
     const input = ref(null)
-    // TODO: Check if we keep useFocus 
+    // TODO: Check if we keep useFocus
     const { focused } = useFocus(input)
 
     const config = useConfig<Config>({

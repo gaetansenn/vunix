@@ -9,14 +9,14 @@
 <script setup lang="ts">
 
 import { Icon as Iconify } from '@iconify/vue/dist/offline'
-import { loadIcon } from '@iconify/vue'
-import { computed, getCurrentInstance, inject, reactive, watch } from 'vue';
+import { computed, getCurrentInstance, inject, Ref, toRef } from 'vue';
 
 import { props as iconProps } from './Icon.props'
 import { injectDefaultValues } from '../commons/props';
 import { VunixConfigSymbol } from '../../symbols'
 import { useConfig } from '../../composables/config';
 import type { IconConfig } from './Icon.config';
+import { useIcon } from './icon.composable';
 
 const props = defineProps(iconProps)
 const propSize = props.size
@@ -28,10 +28,6 @@ const config = useConfig<IconConfig>({
   props
 }, inject(VunixConfigSymbol))
 
-let icon: any = reactive({
-  ongoing: false
-})
-
 const sSize = computed(() => {
   const size = propSize === config.size ? config.size : props.size as string
   if (String(Number(size)) === size) {
@@ -41,13 +37,5 @@ const sSize = computed(() => {
   return size
 })
 
-async function loadIconComponent() {
-  icon.ongoing = true
-  icon.value = await loadIcon(props.name as string).catch(() => undefined)
-  icon.ongoing = false
-}
-
-watch(() => props.name, loadIconComponent, {
-  immediate: true
-})
+const { icon } = await useIcon(toRef(props, 'name') as Ref<String>)
 </script>

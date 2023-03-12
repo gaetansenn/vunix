@@ -5,6 +5,7 @@ import Icon from './Icon.config';
 import InputGroup from './InputGroup.config';
 import InputPassword from './InputPassword.config'
 import TextArea from './TextArea.config'
+import Select from './Select.config';
 
 export default {
   Button,
@@ -13,4 +14,5 @@ export default {
   Icon,
   InputGroup,
   TextArea,
+  Select
 } as Config;

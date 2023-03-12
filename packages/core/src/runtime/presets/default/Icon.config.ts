@@ -1,5 +1,5 @@
 
-import type { IconConfig } from '../../components';
+import type { IconConfig } from '../../components/icon/Icon.config';
 import { SizeEnum } from '../../utils/config';
 
 const config = {

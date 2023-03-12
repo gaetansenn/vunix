@@ -1,7 +1,7 @@
 <template>
   <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
     :description="description" :label="label" :optional-label="optionalLabel">
-    <InputBase v-bind="boundProps" :trailing="eyeOff ? config.eye.off : config.eye.on"
+    <InputBase v-model="field.value.value" v-bind="boundProps" :trailing="eyeOff ? config.eye.off : config.eye.on"
       :type="eyeOff ? 'text' : 'password'" @trailing-click="onTrailingClick" @leading-click="$emit('leadingClick')">
       <template v-slot:leading>
         <slot name="leading" />
@@ -25,7 +25,7 @@ import InputGroup from '../group/InputGroup.vue'
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as inputProps } from './InputPassword.props'
 import { VunixConfigSymbol } from '@core/runtime/symbols';
-import { useBindField, useField } from '@core/runtime/composables/form/field';
+import { useBindInputField, useField } from '@core/runtime/composables/form/field';
 import type { InputPasswordConfig } from './InputPassword.config';
 
 export default defineComponent({
@@ -46,7 +46,7 @@ export default defineComponent({
     const { field } = useField<string>(props.name as string, props.rules, {
       required: props.required
     })
-    const boundProps = useBindField(field, props, useAttrs())
+    const boundProps = useBindInputField(field, props, useAttrs())
     const eyeOff = ref(false)
 
     const onTrailingClick = () => {
@@ -56,7 +56,7 @@ export default defineComponent({
       eyeOff.value = !eyeOff.value
     }
 
-    return { boundProps, eyeOff, config, onTrailingClick, props }
+    return { boundProps, eyeOff, config, onTrailingClick, props, field }
   }
 })
 </script>

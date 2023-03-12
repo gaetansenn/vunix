@@ -9,9 +9,11 @@ import type { IconConfig } from '../components/icon/Icon.config'
 import type { InputTextConfig } from '../components/form/input/text/InputText.config'
 import type { InputGroupConfig } from '../components/form/input/group/InputGroup.config'
 import { VunixConfigSymbol } from '../symbols'
-import type { InputEmailConfig, InputPasswordConfig } from '../components'
+import type { InputPasswordConfig } from '../components/form/input/password/InputPassword.config'
+import type { InputEmailConfig } from '../components/form/input/email/InputEmail.config'
 import type { TextAreaConfig } from '../components/form/textArea/TextArea.config'
 import type { InputNumberConfig } from '../components/form/input/number/InputNumber.config'
+import type { SelectConfig } from '../components/form/select/Select.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -91,6 +93,7 @@ export declare interface Config {
   InputNumber: InputNumberConfig,
   Icon: IconConfig,
   TextArea: TextAreaConfig
+  Select: SelectConfig
 }
 
 export type PresetType = string;
@@ -127,7 +130,7 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   inputsComponents.forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig));
 
   // Merge InputGroup config with Inputs components
-  [...inputsComponents, 'TextArea'].forEach(parentPath => mergeClasses(preset.InputGroup, parentPath, 'InputGroup', preset, newConfig))
+  [...inputsComponents, 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.InputGroup, parentPath, 'InputGroup', preset, newConfig))
 
   // Merge user config with default preset
   return defu({}, newConfig, preset)

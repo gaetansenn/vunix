@@ -1,6 +1,6 @@
 
 import type { ConfigMethodType } from '@core/runtime/utils/config';
-import type { InputPasswordConfig } from '../../components';
+import type { InputPasswordConfig } from '../../components/form/input/password/InputPassword.config';
 import InputBaseConfig from './InputBase.config'
 
 const config = {

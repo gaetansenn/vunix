@@ -1,5 +1,5 @@
 
-import type { InputGroupConfig } from '../../components';
+import type { InputGroupConfig } from '../../components/form/input/group/InputGroup.config';
 import { SizeEnum } from '../../utils/config';
 
 const config = {

@@ -30,6 +30,7 @@
     "@iconify/vue": "^4.0.2",
     "@vueuse/core": "^9.10.0",
     "@vunix/rules": "*",
-    "defu": "^6.1.1"
+    "defu": "^6.1.1",
+    "mini-svg-data-uri": "^1.4.4"
   }
 }

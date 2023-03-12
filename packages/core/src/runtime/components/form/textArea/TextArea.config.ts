@@ -1,5 +1,5 @@
 import type { DefaultConfig, MethodOrStringType } from "../../../utils/config";
-import type { InputGroupConfig } from "../input";
+import type { InputGroupConfig } from "../input/group/InputGroup.config";
 
 export interface TextAreaConfig extends DefaultConfig {
   counter?: {

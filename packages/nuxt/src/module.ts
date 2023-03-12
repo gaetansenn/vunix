@@ -60,10 +60,10 @@ export default defineNuxtModule<ModuleOptions>({
       config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
 
       // Inject @tailwindcss/forms
-      // TODO: use dynamic import and not require
-      config.plugins.push(moduleOptions.forms || require('@tailwindcss/forms')({
-        strategy: 'class'
-      }))
+      // TODO: use dynamic import to inject tailwindcss/forms
+      // config.plugins.push(moduleOptions.forms || require('@tailwindcss/forms')({
+      //   strategy: 'base'
+      // }))
     })
 
     addPlugin(resolve('./runtime/plugin'))

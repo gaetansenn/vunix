@@ -3,7 +3,7 @@ import type { TextAreaConfig } from '../../../runtime/components/form/textArea/T
 import { RoundedEnum, SizeEnum } from '../../utils/config';
 
 const config = {
-  class: 'placeholder:transition-all focus:placeholder:pl-1 appearance-none bg-transparent focus:outline-none w-full',
+  class: 'placeholder:transition-all focus:placeholder:pl-1 appearance-none focus:outline-none w-full',
   variants: {
     default: ({ props }) => {
       const focused = props.error ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-gray-200 focus:border-blue-300 focus:ring-blue-300'

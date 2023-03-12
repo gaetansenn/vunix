@@ -14,6 +14,7 @@ export interface FieldOptions<T = unknown> {
   modelPropName?: string; // Default modelValue
   validateOnValueUpdate?: boolean;
   validateOnVmodelUpdate?: boolean; // Apply validation on v-model value update
+  isSelect?: boolean; // Handle select html type
 }
 
 export interface FieldMeta<T> {
@@ -26,7 +27,7 @@ export interface FieldField<T> {
   value: Ref<ValueType<T>>,
   errors: Ref<string[]>,
   errorMessage: Ref<string>,
-  onInput: (event: Event) => void,
+  onInput?: (event: Event) => void,
   onChange: (event: Event) => void,
   onBlur: (event: Event) => void,
   onFocus: (event: Event) => void,
@@ -50,7 +51,8 @@ function normalizeOptions<T>(name: string, opts?: FieldOptions<T>): FieldOptions
     label: name,
     validateOnValueUpdate: true,
     validateOnVmodelUpdate: false,
-    modelPropName: 'modelValue'
+    modelPropName: 'modelValue',
+    isSelect: false
   })
 
   if (!opts) return defaults() as FieldOptions<T>
@@ -62,40 +64,39 @@ function normalizeOptions<T>(name: string, opts?: FieldOptions<T>): FieldOptions
   }
 }
 
+/** We don't use onInput / onChange due to complexity of input.value. Ex: object value with native select. we let the v-model directive handle it */
+export function useModelWrapper(props: any, emit: any, name: string) {
+  return computed({
+    get: () => props[name],
+    set: (value) => emit(`update:${name}`, value)
+  })
+}
+
 export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpression<ValueType<T>>[], opts?: FieldOptions<T>) {
   const emit = getCurrentInstance()?.emit as any
   const options = normalizeOptions(unref(name), opts)
   // create field value
   const field: FieldField<T> = {
-    value: ref(getCurrentInstance()?.props.modelValue as T || opts?.initialValue || undefined),
+    value: useModelWrapper(getCurrentInstance()?.props, emit, options.modelPropName as string),
     errors: ref([]),
     errorMessage: computed(() => field.errors.value[0]),
-    onInput,
     onChange,
     onBlur,
     onFocus,
     validate,
   }
+
+
+
+  if (!opts?.isSelect) field.onInput = onInput
+
   const meta: ToRefs<FieldMeta<T>> = {
     dirty: ref(false),
     valid: ref(true),
     touched: ref(false)
   }
-  const props = getCurrentInstance()?.props
-  // Sync v-model with field value
-  watch(() => props?.modelValue, (newValue) => {
-    field.value.value = newValue as T
 
-    // Handle validation
-    if (options.validateOnVmodelUpdate) onChange()
-  })
-
-
-  function onInput(event: Event) {
-    emit(`update:${options.modelPropName}`, (event.target as HTMLInputElement).value)
-
-    field.value.value = (event.target as HTMLInputElement).value as ValueType<T>
-
+  function onInput() {
     meta.dirty.value = true
   }
 
@@ -170,7 +171,7 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
   }
 }
 
-export function useBindField<T>(field: FieldField<T>, props: any, attrs: any) {
+export function useBindInputField<T>(field: FieldField<T>, props: any, attrs: any) {
   return computed(() => {
     const _props = {
       ...props,
@@ -179,7 +180,6 @@ export function useBindField<T>(field: FieldField<T>, props: any, attrs: any) {
       onChange: field.onChange,
       onBlur: field.onBlur,
       onFocus: field.onFocus,
-      value: field.value.value,
       error: !!field.errors.value.length
     }
 
