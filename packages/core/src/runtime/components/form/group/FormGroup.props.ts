@@ -1,6 +1,6 @@
-import { configProp, sizeProp } from "../../../commons/props"
+import { configProp, sizeProp } from "../../commons/props"
 
-export const inputGroupProps = {
+export const FormGroupProps = {
   /**
    * @description  Name of the input
    * @type {string}
@@ -52,7 +52,7 @@ export const inputGroupProps = {
 }
 
 export const props = {
-  ...inputGroupProps,
+  ...FormGroupProps,
   ...sizeProp,
-  ...configProp('InputGroup')
+  ...configProp('FormGroup')
 }

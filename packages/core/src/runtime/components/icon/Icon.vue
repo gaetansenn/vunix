@@ -19,17 +19,16 @@ import type { IconConfig } from './Icon.config';
 import { useIcon } from './icon.composable';
 
 const props = defineProps(iconProps)
-const propSize = props.size
-
 // Inject default values
 injectDefaultValues(getCurrentInstance()?.props, iconProps, inject(VunixConfigSymbol)?.Icon.defaults)
 
+const propSize = props.size
 const config = useConfig<IconConfig>({
   props
 }, inject(VunixConfigSymbol))
 
 const sSize = computed(() => {
-  const size = propSize === config.size ? config.size : props.size as string
+  const size = Object.keys(config.sizes).includes(propSize as string) ? config.size : props.size as string
   if (String(Number(size)) === size) {
     return `${size}px`
   }

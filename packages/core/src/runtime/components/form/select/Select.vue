@@ -1,5 +1,5 @@
 <template>
-  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+  <FormGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
     :description="description" :label="label" :optional-label="optionalLabel">
     <select v-model="field.value.value" v-bind="$attrs" @change="field.onChange($event)" @blur="field.onBlur($event)"
       @focus="field.onFocus($event)"
@@ -12,13 +12,13 @@
         </slot>
       </option>
     </select>
-  </InputGroup>
+  </FormGroup>
 </template>
   
 <script lang="ts">
 import { computed, defineComponent, getCurrentInstance, inject } from 'vue';
 
-import InputGroup from '../input/group/InputGroup.vue'
+import FormGroup from '../group/FormGroup.vue'
 import { useConfig } from '../../../composables/config';
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as selectProps } from './Select.props'
@@ -35,7 +35,7 @@ interface Option {
 
 export default defineComponent({
   components: {
-    InputGroup,
+    FormGroup,
   },
   inheritAttrs: false,
   props: selectProps,

@@ -1,6 +1,6 @@
 import { props as baseProps } from '../base/InputBase.props'
 import { commonsProps } from '../../commons.props'
-import { inputGroupProps } from '../group/InputGroup.props'
+import { FormGroupProps } from '../../group/FormGroup.props'
 
 const inputProps = {
   /**
@@ -17,6 +17,6 @@ const inputProps = {
 export const props = {
   ...baseProps('InputNumber'),
   ...commonsProps<string>(),
-  ...inputGroupProps,
+  ...FormGroupProps,
   ...inputProps,
 }

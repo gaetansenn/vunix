@@ -25,7 +25,7 @@ const config = {
     spliter: 'text-gray-500',
     totalLength: 'text-gray-500'
   },
-  InputGroup: {
+  FormGroup: {
     bottom: {
       class: 'inline-flex relative pr-5 mt-1'
     }

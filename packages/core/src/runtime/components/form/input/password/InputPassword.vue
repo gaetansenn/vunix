@@ -1,5 +1,5 @@
 <template>
-  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+  <FormGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
     :description="description" :label="label" :optional-label="optionalLabel">
     <InputBase v-model="field.value.value" v-bind="boundProps" :trailing="eyeOff ? config.eye.off : config.eye.on"
       :type="eyeOff ? 'text' : 'password'" @trailing-click="onTrailingClick" @leading-click="$emit('leadingClick')">
@@ -13,7 +13,7 @@
     <template #validation="{ validation }">
       <slot name="validation" :validation="validation" />
     </template>
-  </InputGroup>
+  </FormGroup>
 </template>
 
 <script lang="ts">
@@ -21,7 +21,7 @@ import { defineComponent, getCurrentInstance, inject, useAttrs, ref } from 'vue'
 
 import { useConfig } from '../../../../composables/config';
 import InputBase from '../base/InputBase.vue'
-import InputGroup from '../group/InputGroup.vue'
+import FormGroup from '../../group/FormGroup.vue'
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as inputProps } from './InputPassword.props'
 import { VunixConfigSymbol } from '@core/runtime/symbols';
@@ -31,7 +31,7 @@ import type { InputPasswordConfig } from './InputPassword.config';
 export default defineComponent({
   components: {
     InputBase,
-    InputGroup,
+    FormGroup,
   },
   inheritAttrs: false,
   props: inputProps,

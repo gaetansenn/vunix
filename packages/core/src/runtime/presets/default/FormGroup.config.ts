@@ -1,5 +1,5 @@
 
-import type { InputGroupConfig } from '../../components/form/input/group/InputGroup.config';
+import type { FormGroupConfig } from '../../components/form/input/group/FormGroup.config';
 import { SizeEnum } from '../../utils/config';
 
 const config = {
@@ -33,6 +33,6 @@ const config = {
       class: 'text-xs text-gray-500 pl-1 pt-1'
     }
   }
-} as InputGroupConfig;
+} as FormGroupConfig;
 
 export default config;

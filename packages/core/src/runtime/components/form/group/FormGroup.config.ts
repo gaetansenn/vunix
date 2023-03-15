@@ -1,6 +1,6 @@
 import type { DefaultConfig, MethodOrObject, MethodOrStringType } from "../../../../utils/config"
 
-export interface InputGroupConfig extends DefaultConfig {
+export interface FormGroupConfig extends DefaultConfig {
   label?: {
     wrapper?: MethodOrStringType,
     class?: MethodOrStringType,

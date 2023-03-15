@@ -7,7 +7,7 @@ import type { ButtonConfig } from '../components/elements/button/Button.config'
 import type { InputBaseConfig } from '../components/form/input/base/InputBase.config'
 import type { IconConfig } from '../components/icon/Icon.config'
 import type { InputTextConfig } from '../components/form/input/text/InputText.config'
-import type { InputGroupConfig } from '../components/form/input/group/InputGroup.config'
+import type { FormGroupConfig } from '../components/form/input/group/FormGroup.config'
 import { VunixConfigSymbol } from '../symbols'
 import type { InputPasswordConfig } from '../components/form/input/password/InputPassword.config'
 import type { InputEmailConfig } from '../components/form/input/email/InputEmail.config'
@@ -87,7 +87,7 @@ export declare interface Config {
   Button: ButtonConfig
   InputBase: InputBaseConfig,
   InputText: InputTextConfig,
-  InputGroup: InputGroupConfig
+  FormGroup: FormGroupConfig
   InputPassword: InputPasswordConfig,
   InputEmail: InputEmailConfig,
   InputNumber: InputNumberConfig,
@@ -129,8 +129,8 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   // Merge InputBase config with Inputs components
   inputsComponents.forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig));
 
-  // Merge InputGroup config with Inputs components
-  [...inputsComponents, 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.InputGroup, parentPath, 'InputGroup', preset, newConfig))
+  // Merge FormGroup config with Inputs components
+  [...inputsComponents, 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.FormGroup, parentPath, 'FormGroup', preset, newConfig))
 
   // Merge user config with default preset
   return defu({}, newConfig, preset)

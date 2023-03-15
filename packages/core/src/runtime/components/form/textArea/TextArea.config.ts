@@ -1,5 +1,5 @@
 import type { DefaultConfig, MethodOrStringType } from "../../../utils/config";
-import type { InputGroupConfig } from "../input/group/InputGroup.config";
+import type { FormGroupConfig } from "../input/group/FormGroup.config";
 
 export interface TextAreaConfig extends DefaultConfig {
   counter?: {
@@ -8,5 +8,5 @@ export interface TextAreaConfig extends DefaultConfig {
     currentLength?: MethodOrStringType,
     totalLength?: MethodOrStringType
   },
-  InputGroup?: Partial<InputGroupConfig>
+  FormGroup?: Partial<FormGroupConfig>
 }

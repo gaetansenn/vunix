@@ -1,5 +1,5 @@
 <template>
-  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+  <FormGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
     :description="description" :label="label" :optional-label="optionalLabel">
     <InputBase v-model="field.value.value" v-bind="boundProps" type="email">
       <template v-slot:leading>
@@ -12,7 +12,7 @@
     <template #validation="{ validation }">
       <slot name="validation" :validation="validation" />
     </template>
-  </InputGroup>
+  </FormGroup>
 </template>
 
 <script lang="ts">
@@ -20,7 +20,7 @@ import { defineComponent, getCurrentInstance, inject, useAttrs } from 'vue';
 
 import { email } from '@vunix/rules'
 import InputBase from '../base/InputBase.vue'
-import InputGroup from '../group/InputGroup.vue'
+import FormGroup from '../../group/FormGroup.vue'
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as inputProps } from './InputEmail.props'
 import { VunixConfigSymbol } from '@core/runtime/symbols';
@@ -29,7 +29,7 @@ import { useBindInputField, useField } from '@core/runtime/composables/form/fiel
 export default defineComponent({
   components: {
     InputBase,
-    InputGroup,
+    FormGroup,
   },
   inheritAttrs: false,
   props: inputProps,

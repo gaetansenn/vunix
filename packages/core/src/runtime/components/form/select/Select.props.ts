@@ -1,6 +1,6 @@
 import { configProp, roundedProp, sizeProp, variantProp } from '../../commons/props'
 import { commonsProps } from '../commons.props'
-import { inputGroupProps } from '../input/group/InputGroup.props'
+import { FormGroupProps } from '../group/FormGroup.props'
 
 const selectProps = {
   /**
@@ -51,7 +51,7 @@ const selectProps = {
 }
 
 export const props = {
-  ...inputGroupProps,
+  ...FormGroupProps,
   ...roundedProp,
   ...sizeProp,
   ...variantProp,

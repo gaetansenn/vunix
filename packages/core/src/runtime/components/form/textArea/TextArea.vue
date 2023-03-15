@@ -1,5 +1,5 @@
 <template>
-  <InputGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
+  <FormGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
     :description="description" :label="label" :optional-label="optionalLabel">
     <textarea v-model="field.value.value" v-bind="boundProps"
       :class="[config.class, config.variant, config.size, config.rounded]" />
@@ -10,13 +10,13 @@
         <span :class="config.counter?.totalLength">{{ $attrs.maxlength }}</span>
       </div>
     </template>
-  </InputGroup>
+  </FormGroup>
 </template>
   
 <script lang="ts">
 import { defineComponent, getCurrentInstance, inject, ref, useAttrs } from 'vue';
 
-import InputGroup from '../input/group/InputGroup.vue'
+import FormGroup from '../input/../group/FormGroup.vue'
 import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as textAreaProps } from './TextArea.props'
 import { VunixConfigSymbol } from '@core/runtime/symbols';
@@ -27,7 +27,7 @@ import type { TextAreaConfig } from './TextArea.config';
 
 export default defineComponent({
   components: {
-    InputGroup,
+    FormGroup,
   },
   inheritAttrs: false,
   props: textAreaProps,

@@ -2,7 +2,7 @@ import type { Config } from '../../utils/config';
 import Button from './Button.config';
 import InputBase from './InputBase.config';
 import Icon from './Icon.config';
-import InputGroup from './InputGroup.config';
+import FormGroup from './FormGroup.config';
 import InputPassword from './InputPassword.config'
 import TextArea from './TextArea.config'
 import Select from './Select.config';
@@ -12,7 +12,7 @@ export default {
   InputBase,
   InputPassword,
   Icon,
-  InputGroup,
+  FormGroup,
   TextArea,
   Select
 } as Config;
