@@ -26,7 +26,7 @@ const inputProps = {
   modelValue: {
     // TODO: Add another value type on new components
     type: String,
-    require: true
+    required: true
   },
   /**
    * @description Type of generated input
