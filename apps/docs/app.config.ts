@@ -1,7 +1,7 @@
 export default defineAppConfig({
   docus: {
     title: 'Vunix',
-    description: 'An open source ui library for developing HTML/CSS and JS websites on top of tailwind css and compatible with Vue 3 and Nuxt 3',
+    description: 'Vunix is a comprehensive UI toolkit for Vue.js and Nuxt.js that empowers you to build amazing user interfaces with ease',
     image: '/social-card-preview.png',
     socials: {
       twitter: '@gaetansenn',
@@ -9,7 +9,7 @@ export default defineAppConfig({
     },
     aside: {
       level: 0,
-      exclude: []
+      exclude: [],
     },
     header: {
       exclude: []

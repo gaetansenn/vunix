@@ -7,7 +7,7 @@
       :style="style">
       <option disabled value="">{{ placeholder }}</option>
       <option v-for="option in newOptions" :value="option.value">
-        <slot :option="option">
+        <slot name="option" :option="option">
           {{ option.label }}
         </slot>
       </option>
@@ -60,6 +60,8 @@ export default defineComponent({
         value: typeof option === 'object' ? (props.valueKey ? option[props.valueKey] : option) : option
       }))
     })
+
+    console.log(newOptions)
 
     return { handleChange, config, props, style, newOptions, field }
   }
