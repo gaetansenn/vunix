@@ -1,6 +1,6 @@
 import type { DefaultConfig, IconType } from "../../../../utils/config";
 import type { InputBaseConfig } from "../base/InputBase.config";
-import type { FormGroupConfig } from "../group/FormGroup.config";
+import type { FormGroupConfig } from "../../group/FormGroup.config";
 
 export interface InputPasswordConfig extends DefaultConfig {
   InputBase?: InputBaseConfig,

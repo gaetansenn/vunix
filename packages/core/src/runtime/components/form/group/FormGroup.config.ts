@@ -1,4 +1,4 @@
-import type { DefaultConfig, MethodOrObject, MethodOrStringType } from "../../../../utils/config"
+import type { DefaultConfig, MethodOrObject, MethodOrStringType } from "../../../utils/config"
 
 export interface FormGroupConfig extends DefaultConfig {
   label?: {
