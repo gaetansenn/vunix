@@ -1,5 +1,5 @@
 <template>
-  <VSelect v-bind="$attrs" v-model="model" :options="newOptions">
+  <VSelect v-bind="$attrs" v-model="model" :options="newOptions" :value-key="valueKey">
     <ContentSlot :use="$slots.default" unwrap="div" />
   </VSelect>
 </template>
@@ -13,6 +13,10 @@ export default defineComponent({
     options: {
       type: String,
       default: '[]'
+    },
+    valueKey: {
+      type: String,
+      default: undefined
     }
   },
   inheritAttrs: false,
