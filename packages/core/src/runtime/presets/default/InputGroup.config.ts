@@ -10,7 +10,7 @@ const config = {
   },
   label: {
     wrapper: 'inline-flex items-center mb-2',
-    class: 'inline align-center font-semibold text-gray-900',
+    class: 'inline align-center font-semibold text-gray-900 dark:text-white',
     required: 'inline-flex text-red-600',
     sizes: {
       [SizeEnum.sm]: 'text-base',
