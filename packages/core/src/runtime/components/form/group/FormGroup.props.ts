@@ -10,7 +10,7 @@ export const FormGroupProps = {
     require: true
   },
   /**
-   * @description handle inline input
+   * @description handle inline of form element
    * @type {boolean}
    */
   inline: {
@@ -27,7 +27,7 @@ export const FormGroupProps = {
     defaultValue: false
   },
   /**
-   * @description include label of input
+   * @description include label of form element
    * @see https://developer.mozilla.org/fr/docs/Web/HTML/Element/Label
    * @type {string}
    */

@@ -8,7 +8,7 @@ const config = {
     default: ({ props }) => {
       const focused = props.error ? 'border-red-400 focus:border-red-400 focus:ring-red-400' : 'border-gray-200 focus:border-blue-300 focus:ring-blue-300'
 
-      return `bg-gray-100 hover:bg-gray-200 focus:ring-2 disabled:text-gray-400 ${focused}`
+      return `bg-gray-100 dark:text-gray-700 hover:bg-gray-200 focus:ring-2 disabled:text-gray-400 ${focused}`
     }
   },
   sizes: {

@@ -49,6 +49,7 @@ export default defineComponent({
     const config = useConfig<SelectConfig>({
       props,
     }, inject(VunixConfigSymbol))
+
     const { field } = useField<string>(props.name as string, [...(props.rules || [])], {
       required: props.required,
       isSelect: true
@@ -60,8 +61,6 @@ export default defineComponent({
         value: typeof option === 'object' ? (props.valueKey ? option[props.valueKey] : option) : option
       }))
     })
-
-    console.log(newOptions)
 
     return { handleChange, config, props, style, newOptions, field }
   }
