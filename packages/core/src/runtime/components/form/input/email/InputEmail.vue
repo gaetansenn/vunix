@@ -1,7 +1,7 @@
 <template>
   <FormGroup :config="props.config" :config-path="props.configPath" :root-path="props.rootPath" :required="required"
-    :description="description" :label="label" :optional-label="optionalLabel">
-    <InputBase v-model="field.value.value" v-bind="boundProps" type="email">
+    :description="description" :label="label" :optional-label="optionalLabel" :id="id">
+    <InputBase v-model="field.value.value" v-bind="boundProps" type="email" :id="id">
       <template v-slot:leading>
         <slot name="leading" />
       </template>
@@ -25,6 +25,7 @@ import { injectDefaultValues } from '@core/runtime/components/commons/props';
 import { props as inputProps } from './InputEmail.props'
 import { VunixConfigSymbol } from '@core/runtime/symbols';
 import { useBindInputField, useField } from '@core/runtime/composables/form/field';
+import { useId } from '../../composable';
 
 export default defineComponent({
   components: {
@@ -34,7 +35,7 @@ export default defineComponent({
   inheritAttrs: false,
   props: inputProps,
   emits: ['update:modelValue', 'focus', 'blur'],
-  setup(props) {
+  setup(props, { attrs }) {
     // Inject default values
     injectDefaultValues(getCurrentInstance()?.props, inputProps, inject(VunixConfigSymbol)?.InputText.defaults)
 
@@ -42,8 +43,9 @@ export default defineComponent({
       required: props.required
     })
     const boundProps = useBindInputField(field, props, useAttrs())
+    const id = useId(attrs.id as string)
 
-    return { boundProps, props, field }
+    return { boundProps, props, field, id }
   }
 })
 </script>

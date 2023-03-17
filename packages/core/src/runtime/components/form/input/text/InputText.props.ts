@@ -18,5 +18,5 @@ export const props = {
   ...baseProps('InputText'),
   ...commonsProps<string>(),
   ...FormGroupProps,
-  ...inputProps,
+  ...inputProps
 }
