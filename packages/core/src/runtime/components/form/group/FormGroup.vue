@@ -2,8 +2,7 @@
   <div :class="config.FormGroup.class">
     <div :class="config.FormGroup.label?.wrapper">
       <slot name="label">
-        <label v-if="label" :class="[config.FormGroup.label?.class, config.FormGroup.label?.size]"
-          :for="$attrs.id as string">
+        <label v-if="label" :class="[config.FormGroup.label?.class, config.FormGroup.label?.size]" :for="$attrs.id">
           {{ label }}
           <span v-if="required && !props.optionalLabel" :class="config.FormGroup.label?.required">*</span>
         </label>
