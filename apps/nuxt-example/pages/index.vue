@@ -24,6 +24,7 @@
       </template>
     </VInputText>
     <VSelect v-model="select" size="md" required :options="optionsObject" name="Select" label="Select an animal" />
+    <VInputRadio v-model="radio" name="radio" />
   </div>
 </template>
   
@@ -41,4 +42,5 @@ const optionsObject = [{
   label: 'This is a cat'
 }]
 const select = ref(optionsObject[0])
+const radio = ref('')
 </script>

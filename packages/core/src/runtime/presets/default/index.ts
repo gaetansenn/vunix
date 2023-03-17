@@ -6,6 +6,7 @@ import FormGroup from './FormGroup.config';
 import InputPassword from './InputPassword.config'
 import TextArea from './TextArea.config'
 import Select from './Select.config';
+import InputRadio from './InputRadio.config'
 
 export default {
   Button,
@@ -14,5 +15,6 @@ export default {
   Icon,
   FormGroup,
   TextArea,
-  Select
+  Select,
+  InputRadio
 } as Config;

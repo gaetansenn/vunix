@@ -14,6 +14,7 @@ import type { InputEmailConfig } from '../components/form/input/email/InputEmail
 import type { TextAreaConfig } from '../components/form/textArea/TextArea.config'
 import type { InputNumberConfig } from '../components/form/input/number/InputNumber.config'
 import type { SelectConfig } from '../components/form/select/Select.config'
+import type { InputRadioConfig } from '../components/form/radio/input/InputRadio.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -91,6 +92,7 @@ export declare interface Config {
   InputPassword: InputPasswordConfig,
   InputEmail: InputEmailConfig,
   InputNumber: InputNumberConfig,
+  InputRadio: InputRadioConfig,
   Icon: IconConfig,
   TextArea: TextAreaConfig
   Select: SelectConfig
