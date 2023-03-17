@@ -1,5 +1,5 @@
 
-import type { FormGroupConfig } from '../../components/form/input/group/FormGroup.config';
+import type { FormGroupConfig } from '../../components/form/group/FormGroup.config';
 import { SizeEnum } from '../../utils/config';
 
 const config = {
@@ -10,7 +10,7 @@ const config = {
   },
   label: {
     wrapper: 'inline-flex items-center mb-2',
-    class: 'inline align-center font-semibold text-gray-900 dark:text-white',
+    class: 'inline align-center font-semibold text-gray-900 dark:text-gray-100',
     required: 'inline-flex text-red-600',
     sizes: {
       [SizeEnum.sm]: 'text-base',
