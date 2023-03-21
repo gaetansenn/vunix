@@ -11,6 +11,21 @@ const inputProps = {
     type: String,
     required: true
   },
+  /**
+   * @description description of the input radio
+   * @type {string}
+   */
+  description: {
+    type: String
+  },
+  /**
+   * @description include label of input radio
+   * @see https://developer.mozilla.org/fr/docs/Web/HTML/Element/Label
+   * @type {string}
+   */
+  label: {
+    type: String,
+  },
 }
 
 export const props = {

@@ -3,13 +3,13 @@
     <div :class="config.wrapper.class">
       <input type="radio" v-bind="boundProps" :id="id"
         :class="[config.wrapper.input.class, config.wrapper.input.size, config.wrapper.input.variant]" />
-      <label :for="id" :class="config.wrapper.label.class">Label</label>
+      <label v-if="label" :for="id" :class="config.wrapper.label.class">{{ label }}</label>
     </div>
-    <slot name="bottom">
-      <div :class="config.bottom.class">
-        Help or instructions
-      </div>
-    </slot>
+    <div v-if="$slots.bottom || description" :class="config.bottom.class">
+      <slot name="bottom">
+        {{ description }}
+      </slot>
+    </div>
   </div>
 </template>
   
