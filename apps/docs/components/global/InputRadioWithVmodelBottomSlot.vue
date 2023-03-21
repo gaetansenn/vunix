@@ -2,7 +2,7 @@
   <VInputRadio v-bind="$attrs" v-model="model">
     <ContentSlot :use="$slots.default" unwrap="div" />
     <template #bottom>
-      {{ $attrs.description }}
+      Bottom slot 😎
     </template>
   </VInputRadio>
 </template>
