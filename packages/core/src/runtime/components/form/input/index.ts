@@ -21,3 +21,5 @@ export type { InputNumberConfig } from './number/InputNumber.config'
 export { default as VInputRadio } from './radio/InputRadio.vue'
 export type { props as InputRadioProps } from './radio/InputRadio.props'
 export type { InputRadioConfig } from './radio/InputRadio.config'
+
+export { default as VInputGroupRadio } from './group-radio/InputGroupRadio.vue'

@@ -24,7 +24,10 @@
       </template>
     </VInputText>
     <VSelect v-model="select" size="md" required :options="optionsObject" name="Select" label="Select an animal" />
-    <VInputRadio v-model="radio" name="radio" />
+    <VInputGroupRadio v-model="radio" name="test" label="InputGroupRadio" required>
+      <VInputRadio :value="ouiok" label="Oui" />
+      <VInputRadio :value="nonok" label="Non" />
+    </VInputGroupRadio>
   </div>
 </template>
   
@@ -42,5 +45,9 @@ const optionsObject = [{
   label: 'This is a cat'
 }]
 const select = ref(optionsObject[0])
+
+const ouiok = { label: 'oui', value: 12 }
+const nonok = { label: 'non', value: 14 }
+
 const radio = ref('')
 </script>

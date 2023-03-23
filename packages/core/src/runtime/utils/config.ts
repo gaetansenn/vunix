@@ -15,6 +15,7 @@ import type { TextAreaConfig } from '../components/form/textArea/TextArea.config
 import type { InputNumberConfig } from '../components/form/input/number/InputNumber.config'
 import type { SelectConfig } from '../components/form/select/Select.config'
 import type { InputRadioConfig } from '../components/form/input/radio/InputRadio.config'
+import type { InputGroupRadioConfig } from '../components/form/input/group-radio/InputGroupRadio.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -93,6 +94,7 @@ export declare interface Config {
   InputEmail: InputEmailConfig,
   InputNumber: InputNumberConfig,
   InputRadio: InputRadioConfig,
+  InputGroupRadio: InputGroupRadioConfig,
   Icon: IconConfig,
   TextArea: TextAreaConfig
   Select: SelectConfig
@@ -132,7 +134,7 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   inputsComponents.forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig));
 
   // Merge FormGroup config with Inputs components
-  [...inputsComponents, 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.FormGroup, parentPath, 'FormGroup', preset, newConfig))
+  [...inputsComponents, 'InputGroupRadio', 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.FormGroup, parentPath, 'FormGroup', preset, newConfig))
 
   // Merge user config with default preset
   return defu({}, newConfig, preset)

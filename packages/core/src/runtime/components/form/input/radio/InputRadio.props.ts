@@ -8,8 +8,7 @@ const inputProps = {
    * @type {string}
    */
   modelValue: {
-    type: String,
-    required: true
+    type: [String, Object]
   },
   /**
    * @description description of the input radio
@@ -25,13 +24,13 @@ const inputProps = {
    */
   label: {
     type: String,
-  },
+  }
 }
 
 export const props = {
   ...commonsProps<string>(),
   ...inputProps,
-  ...configProp('InputRadio'),
   ...sizeProp,
-  ...variantProp
+  ...variantProp,
+  ...configProp('InputRadio')
 }

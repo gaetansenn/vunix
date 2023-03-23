@@ -1,11 +1,12 @@
 <template>
-  <div :class="config.FormGroup.class">
+  <component :is="fieldset ? 'fieldset' : 'div'" :class="config.FormGroup.class">
     <div :class="config.FormGroup.label?.wrapper">
       <slot name="label">
-        <label v-if="label" :class="[config.FormGroup.label?.class, config.FormGroup.label?.size]" :for="$attrs.id">
+        <component :is="fieldset ? 'legend' : 'label'" v-if="label"
+          :class="[config.FormGroup.label?.class, config.FormGroup.label?.size]" :for="$attrs.id">
           {{ label }}
           <span v-if="required && !props.optionalLabel" :class="config.FormGroup.label?.required">*</span>
-        </label>
+        </component>
       </slot>
       <slot v-if="props.optionalLabel && !required" name="optional">
         <span :class="config.FormGroup.label?.optional">Optional</span>
@@ -25,7 +26,7 @@
       </slot>
       <slot name="bottom"></slot>
     </div>
-  </div>
+  </component>
 </template>
 
 <script lang="ts">
@@ -42,6 +43,7 @@ interface Config {
 }
 
 export default defineComponent({
+  name: 'FormGroup',
   props: formGroupProps,
   inheritAttrs: false,
   setup(props) {

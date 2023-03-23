@@ -1,6 +1,6 @@
-import { props as baseProps } from '../base/InputBase.props'
 import { commonsProps } from '../../commons.props'
 import { props as formGroupProps } from '../../group/FormGroup.props'
+import { configProp } from '../../../commons/props'
 
 const inputProps = {
   /**
@@ -9,7 +9,7 @@ const inputProps = {
    * @type {string}
    */
   modelValue: {
-    type: String,
+    type: [String, Object, Number],
     required: true
   },
 }
@@ -18,5 +18,5 @@ export const props = {
   ...commonsProps<string>(),
   ...formGroupProps,
   ...inputProps,
-  ...baseProps('InputNumber')
+  ...configProp('InputGroupRadio')
 }

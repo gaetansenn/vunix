@@ -1,6 +1,7 @@
 import { configProp, sizeProp } from "../../commons/props"
 
-export const FormGroupProps = {
+/** @type {*} */
+const formGroupProps = {
   /**
    * @description  Name of the input
    * @type {string}
@@ -48,11 +49,19 @@ export const FormGroupProps = {
   optionalLabel: {
     type: Boolean,
     defaultValue: false
+  },
+  /**
+   * @description wrap content with fildset html (used for input radio / checkbox)
+   * @see https://developer.mozilla.org/fr/docs/Web/HTML/Element/fieldset
+   */
+  fieldset: {
+    type: Boolean,
+    defaultValue: false
   }
 }
 
 export const props = {
-  ...FormGroupProps,
+  ...formGroupProps,
   ...sizeProp,
   ...configProp('FormGroup')
 }

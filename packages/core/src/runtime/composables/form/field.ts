@@ -15,6 +15,7 @@ export interface FieldOptions<T = unknown> {
   validateOnValueUpdate?: boolean;
   validateOnVmodelUpdate?: boolean; // Apply validation on v-model value update
   isSelect?: boolean; // Handle select html type
+  isRadio?: boolean // Handle input radio type
 }
 
 export interface FieldMeta<T> {
@@ -68,13 +69,16 @@ function normalizeOptions<T>(name: string, opts?: FieldOptions<T>): FieldOptions
 export function useModelWrapper(props: any, emit: any, name: string) {
   return computed({
     get: () => props[name],
-    set: (value) => emit(`update:${name}`, value)
+    set: (value) => {
+      emit(`update:${name}`, value)
+    }
   })
 }
 
 export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpression<ValueType<T>>[], opts?: FieldOptions<T>) {
   const emit = getCurrentInstance()?.emit as any
   const options = normalizeOptions(unref(name), opts)
+
   // create field value
   const field: FieldField<T> = {
     value: useModelWrapper(getCurrentInstance()?.props, emit, options.modelPropName as string),
@@ -85,8 +89,6 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
     onFocus,
     validate,
   }
-
-
 
   if (!opts?.isSelect) field.onInput = onInput
 
@@ -103,6 +105,9 @@ export function useField<T = unknown>(name: MaybeRef<string>, rules?: RuleExpres
   function onChange() {
     // Handle validation process
     if (options.validateOnValueUpdate) validate(field.value)
+
+    // TODO: Check if the event should be only emited for input radio
+    // if (options.isRadio) emit('change', field.value)
   }
 
   function onBlur(event: Event) {

@@ -1,6 +1,6 @@
 import { configProp, roundedProp, sizeProp, variantProp } from '../../commons/props'
 import { commonsProps } from '../commons.props'
-import { FormGroupProps } from '../group/FormGroup.props'
+import { props as formGroupProps } from '../group/FormGroup.props'
 
 const textAreaProps = {
   /**
@@ -44,7 +44,7 @@ export const props = {
   ...sizeProp,
   ...variantProp,
   ...roundedProp,
-  ...configProp('TextArea'),
-  ...FormGroupProps,
-  ...commonsProps<string>()
+  ...formGroupProps,
+  ...commonsProps<string>(),
+  ...configProp('TextArea')
 }
