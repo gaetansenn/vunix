@@ -9,7 +9,7 @@ const inputProps = {
    * @type {string}
    */
   modelValue: {
-    type: [String, Object, Number],
+    type: [String, Object, Number, Boolean],
     required: true
   },
 }

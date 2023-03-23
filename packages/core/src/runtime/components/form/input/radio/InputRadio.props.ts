@@ -8,7 +8,7 @@ const inputProps = {
    * @type {string}
    */
   modelValue: {
-    type: [String, Object]
+    type: [String, Object, Number, Boolean]
   },
   /**
    * @description description of the input radio
