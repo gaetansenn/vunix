@@ -28,6 +28,11 @@
       <VInputRadio :value="ouiok" label="Oui" />
       <VInputRadio :value="nonok" label="Non" />
     </VInputGroupRadio>
+
+    <VInputGroupCheckbox v-model="checkbox" label="Multiple values" required>
+      <VInputCheckbox value="chien" label="chien" />
+      <VInputCheckbox value="chat" label="chat" />
+    </VInputGroupCheckbox>
   </div>
 </template>
   
@@ -50,4 +55,6 @@ const ouiok = { label: 'oui', value: 12 }
 const nonok = { label: 'non', value: 14 }
 
 const radio = ref('')
+
+const checkbox = ref('')
 </script>

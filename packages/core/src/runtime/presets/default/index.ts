@@ -8,6 +8,9 @@ import TextArea from './TextArea.config'
 import Select from './Select.config';
 import InputRadio from './InputRadio.config'
 import InputGroupRadio from './InputGroupRadio.config'
+import InputGroupCheckbox from './InputGroupCheckbox.config'
+import InputCheckbox from './InputCheckbox.config'
+
 
 export default {
   Button,
@@ -18,5 +21,7 @@ export default {
   TextArea,
   Select,
   InputRadio,
-  InputGroupRadio
+  InputGroupRadio,
+  InputCheckbox,
+  InputGroupCheckbox
 } as Config;

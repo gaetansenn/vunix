@@ -23,3 +23,9 @@ export type { props as InputRadioProps } from './radio/InputRadio.props'
 export type { InputRadioConfig } from './radio/InputRadio.config'
 
 export { default as VInputGroupRadio } from './group-radio/InputGroupRadio.vue'
+
+export { default as VInputCheckbox } from './checkbox/InputCheckbox.vue'
+export type { props as InputCheckboxProps } from './checkbox/InputCheckbox.props'
+export type { InputCheckboxConfig } from './checkbox/InputCheckbox.config'
+
+export { default as VInputGroupCheckbox } from './group-checkbox/InputGroupCheckbox.vue'
