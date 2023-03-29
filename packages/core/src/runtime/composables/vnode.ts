@@ -9,7 +9,7 @@ export function getParentComponentByName(name: string, component: ComponentInter
   if (!component) return null
   if (!component.parent) return null
 
-  if (component.parent?.type.name === name || component.parent?.type.__name) return component.parent
+  if (component.parent?.type.name === name || component.parent?.type.__name === name) return component.parent
   else if (level !== 0) return getParentComponentByName(name, component.parent, level - 1)
 
   return null
