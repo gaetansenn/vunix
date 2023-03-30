@@ -27,7 +27,7 @@
     "deploy": "turbo run deploy",
     "changeset": "changeset",
     "bump": "changset version",
-    "release": "turbo run build --filter=!playground lint test && changeset publish"
+    "release": "turbo run build --filter='./packages/*' lint test && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
