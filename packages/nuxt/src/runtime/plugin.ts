@@ -1,3 +1,6 @@
+
+// @ts-ignore
+import { defineNuxtPlugin } from '#app'
 import { defineConfig, Config } from '@vunix/core/dist/runtime/utils/config';
 
 export default defineNuxtPlugin(async (nuxtApp) => {
