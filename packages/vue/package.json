@@ -2,6 +2,9 @@
   "name": "@vunix/vue",
   "version": "1.0.0",
   "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "volar.d.ts"

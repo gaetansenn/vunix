@@ -10,6 +10,9 @@
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
