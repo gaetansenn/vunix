@@ -1,5 +1,5 @@
 {
-  "name": "vue-example",
+  "name": "@vunix/vue-example",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
