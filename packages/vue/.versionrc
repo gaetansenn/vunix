@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "vue" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "vue" },
+    {"type": "chore", "hidden": true, "scope": "vue" },
+    {"type": "docs", "hidden": true, "scope": "vue" },
+    {"type": "style", "hidden": true, "scope": "vue" },
+    {"type": "refactor", "hidden": true, "scope": "vue" },
+    {"type": "perf", "hidden": true, "scope": "vue" },
+    {"type": "test", "hidden": true, "scope": "vue" }
+  ]
+}

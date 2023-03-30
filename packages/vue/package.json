@@ -30,11 +30,19 @@
   "scripts": {
     "dev": "vite build && vue-tsc --emitDeclarationOnly",
     "build": "vite build && vue-tsc --emitDeclarationOnly",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "changelog": "standard-version"
   },
   "dependencies": {
     "@vunix/core": "*",
     "@vunix/vue-tailwind-plugin": "*",
     "vue": "^3.2.47"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "rules" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "rules" },
+    {"type": "chore", "hidden": true, "scope": "rules" },
+    {"type": "docs", "hidden": true, "scope": "rules" },
+    {"type": "style", "hidden": true, "scope": "rules" },
+    {"type": "refactor", "hidden": true, "scope": "rules" },
+    {"type": "perf", "hidden": true, "scope": "rules" },
+    {"type": "test", "hidden": true, "scope": "rules" }
+  ]
+}

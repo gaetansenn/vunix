@@ -21,7 +21,8 @@
     "dev": "nuxt-module-build --stub",
     "build": "nuxi prepare; nuxt-module-build",
     "test:coverage": "vitest --coverage",
-    "test:types": "tsc --build tsconfig.json"
+    "test:types": "tsc --build tsconfig.json",
+    "changelog": "standard-version"
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
@@ -36,5 +37,12 @@
     "eslint": "latest",
     "nuxt": "^3.2.0",
     "unconfig": "^0.3.7"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

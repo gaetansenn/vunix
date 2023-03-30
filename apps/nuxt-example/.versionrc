@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "nuxt-example" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "nuxt-example" },
+    {"type": "chore", "hidden": true, "scope": "nuxt-example" },
+    {"type": "docs", "hidden": true, "scope": "nuxt-example" },
+    {"type": "style", "hidden": true, "scope": "nuxt-example" },
+    {"type": "refactor", "hidden": true, "scope": "nuxt-example" },
+    {"type": "perf", "hidden": true, "scope": "nuxt-example" },
+    {"type": "test", "hidden": true, "scope": "nuxt-example" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "vue-example" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "vue-example" },
+    {"type": "chore", "hidden": true, "scope": "vue-example" },
+    {"type": "docs", "hidden": true, "scope": "vue-example" },
+    {"type": "style", "hidden": true, "scope": "vue-example" },
+    {"type": "refactor", "hidden": true, "scope": "vue-example" },
+    {"type": "perf", "hidden": true, "scope": "vue-example" },
+    {"type": "test", "hidden": true, "scope": "vue-example" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "vue-tailwind-plugin" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "vue-tailwind-plugin" },
+    {"type": "chore", "hidden": true, "scope": "vue-tailwind-plugin" },
+    {"type": "docs", "hidden": true, "scope": "vue-tailwind-plugin" },
+    {"type": "style", "hidden": true, "scope": "vue-tailwind-plugin" },
+    {"type": "refactor", "hidden": true, "scope": "vue-tailwind-plugin" },
+    {"type": "perf", "hidden": true, "scope": "vue-tailwind-plugin" },
+    {"type": "test", "hidden": true, "scope": "vue-tailwind-plugin" }
+  ]
+}

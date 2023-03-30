@@ -1,0 +1,12 @@
+{
+  "types": [
+    {"type": "feat", "section": "Features", "scope": "nuxt" },
+    {"type": "fix", "section": "Bug Fixes", "scope": "nuxt" },
+    {"type": "chore", "hidden": true, "scope": "nuxt" },
+    {"type": "docs", "hidden": true, "scope": "nuxt" },
+    {"type": "style", "hidden": true, "scope": "nuxt" },
+    {"type": "refactor", "hidden": true, "scope": "nuxt"},
+    {"type": "perf", "hidden": true, "scope": "nuxt"},
+    {"type": "test", "hidden": true, "scope": "nuxt"}
+  ]
+}

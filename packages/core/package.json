@@ -24,7 +24,8 @@
   },
   "scripts": {
     "dev": "unbuild --stub",
-    "build": "unbuild"
+    "build": "unbuild",
+    "changelog": "standard-version"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.11",
@@ -33,5 +34,12 @@
     "@vunix/rules": "*",
     "defu": "^6.1.1",
     "mini-svg-data-uri": "^1.4.4"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

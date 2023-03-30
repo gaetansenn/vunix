@@ -7,12 +7,20 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "changelog": "standard-version"
   },
   "dependencies": {
     "@vunix/nuxt": "*"
   },
   "devDependencies": {
     "nuxt": "^3.2.3"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

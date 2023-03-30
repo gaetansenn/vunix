@@ -6,7 +6,8 @@
     "dev:prepare": "nuxi prepare",
     "dev": "histoire dev",
     "build": "histoire build",
-    "preview": "histoire preview --port 4567"
+    "preview": "histoire preview --port 4567",
+    "changelog": "standard-version"
   },
   "type": "module",
   "dependencies": {
@@ -19,5 +20,12 @@
     "histoire": "^0.15.3",
     "nuxt": "^3.2.0",
     "vue": "^3.2.45"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }
