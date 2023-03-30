@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev",
-    "build": "turbo run build",
+    "build": "turbo run build --filter=!playground",
     "dev:docs": "turbo run dev --filter=docs",
     "dev:playground": "turbo run dev --filter=playground",
     "build:nuxt-example": "turbo run generate --filter=nuxt-example",
