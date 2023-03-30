@@ -22,7 +22,6 @@
   "scripts": {
     "dev": "unbuild --stub",
     "build": "unbuild",
-    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
     "test": "vitest run --config vitest.config.ts --coverage"
   },
   "dependencies": {
