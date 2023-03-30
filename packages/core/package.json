@@ -21,8 +21,7 @@
   },
   "scripts": {
     "dev": "unbuild --stub",
-    "build": "unbuild",
-    "test": "vitest run --config vitest.config.ts --coverage"
+    "build": "unbuild"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.11",
