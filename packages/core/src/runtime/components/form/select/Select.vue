@@ -20,11 +20,11 @@ import { computed, defineComponent, getCurrentInstance, inject } from 'vue';
 
 import FormGroup from '../group/FormGroup.vue'
 import { useConfig } from '../../../composables/config';
-import { injectDefaultValues } from '@core/runtime/components/commons/props';
+import { injectDefaultValues } from '../../../components/commons/props';
 import { props as selectProps } from './Select.props'
 import type { SelectConfig } from './Select.config';
-import { VunixConfigSymbol } from '@core/runtime/symbols';
-import { useField } from '@core/runtime/composables/form/field';
+import { VunixConfigSymbol } from '../../../symbols';
+import { useField } from '../../../composables/form/field';
 import type { Object } from '../../../utils/types'
 import { useCarret } from './Select.composable'
 

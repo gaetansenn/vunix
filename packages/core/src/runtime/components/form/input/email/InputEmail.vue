@@ -21,10 +21,10 @@ import { defineComponent, getCurrentInstance, inject, useAttrs } from 'vue';
 import { email } from '@vunix/rules'
 import InputBase from '../base/InputBase.vue'
 import FormGroup from '../../group/FormGroup.vue'
-import { injectDefaultValues } from '@core/runtime/components/commons/props';
+import { injectDefaultValues } from '../../../../components/commons/props';
 import { props as inputProps } from './InputEmail.props'
-import { VunixConfigSymbol } from '@core/runtime/symbols';
-import { useBindInputField, useField } from '@core/runtime/composables/form/field';
+import { VunixConfigSymbol } from '../../../../symbols';
+import { useBindInputField, useField } from '../../../../composables/form/field';
 import { useId } from '../../composable';
 
 export default defineComponent({

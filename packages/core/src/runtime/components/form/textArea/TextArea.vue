@@ -17,10 +17,10 @@
 import { defineComponent, getCurrentInstance, inject, ref, useAttrs } from 'vue';
 
 import FormGroup from '../input/../group/FormGroup.vue'
-import { injectDefaultValues } from '@core/runtime/components/commons/props';
+import { injectDefaultValues } from '../../../components/commons/props';
 import { props as textAreaProps } from './TextArea.props'
-import { VunixConfigSymbol } from '@core/runtime/symbols';
-import { useBindInputField, useField } from '@core/runtime/composables/form/field';
+import { VunixConfigSymbol } from '../../../symbols';
+import { useBindInputField, useField } from '../../../composables/form/field';
 import { useConfig } from '../../../composables/config';
 import { useFocus } from '@vueuse/core';
 import type { TextAreaConfig } from './TextArea.config';

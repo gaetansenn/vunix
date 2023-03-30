@@ -13,10 +13,10 @@
 <script lang="ts">
 import { inject, defineComponent, getCurrentInstance } from 'vue'
 
-import { injectDefaultValues } from '@core/runtime/components/commons/props';
-import { useField } from '@core/runtime/composables/form/field';
+import { injectDefaultValues } from '../../../../components/commons/props';
+import { useField } from '../../../../composables/form/field';
 import { props as inputProps } from './InputGroupCheckbox.props'
-import { VunixConfigSymbol } from '@core/runtime/symbols';
+import { VunixConfigSymbol } from '../../../../symbols';
 import FormGroup from '../../group/FormGroup.vue'
 import { useConfig } from '../../../../composables/config';
 import type { InputGroupCheckboxConfig } from './InputGroupCheckbox.config';

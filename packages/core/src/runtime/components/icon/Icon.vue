@@ -9,7 +9,8 @@
 <script setup lang="ts">
 
 import { Icon as Iconify } from '@iconify/vue/dist/offline'
-import { computed, getCurrentInstance, inject, Ref, toRef } from 'vue';
+import { computed, getCurrentInstance, inject, toRef } from 'vue';
+import type { ComputedRef, Ref } from 'vue';
 
 import { props as iconProps } from './Icon.props'
 import { injectDefaultValues } from '../commons/props';
@@ -27,8 +28,9 @@ const config = useConfig<IconConfig>({
   props
 }, inject(VunixConfigSymbol))
 
-const sSize = computed(() => {
-  const size = Object.keys(config.sizes).includes(propSize as string) ? config.size : props.size as string
+const sSize: ComputedRef<string> = computed(() => {
+  const size: string = Object.keys(config.sizes).includes(propSize as string) ? config.size as string : props.size as string
+
   if (String(Number(size)) === size) {
     return `${size}px`
   }
