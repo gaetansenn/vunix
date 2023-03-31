@@ -2,7 +2,8 @@ import { Config } from '@vunix/core'
 import { defineNuxtModule, installModule, addComponentsDir, resolvePath, addPlugin, createResolver } from '@nuxt/kit'
 
 export interface ModuleOptions {
-  forms: any
+  forms?: any,
+  darkMode?: any // Selector use to detect dark mode
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -58,6 +59,9 @@ export default defineNuxtModule<ModuleOptions>({
 
       // Inject custom config
       config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
+
+      // Handle dark mode
+      config.darkMode = moduleOptions.darkMode === false ? '' : moduleOptions.darkMode
 
       // Inject @tailwindcss/forms
       // TODO: use dynamic import to inject tailwindcss/forms
