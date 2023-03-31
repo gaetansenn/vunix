@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.1...@vunix/nuxt@1.0.2) (2023-03-31)
+
+
+### Bug Fixes
+
+* **nuxt:** import useAppConfig from plugin ([cb2b9a5](https://github.com/gaetansenn/vunix/commit/cb2b9a5e3562296953f76548c2d3354227b49c60))
+
 ### [1.0.1](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.0...@vunix/nuxt@1.0.1) (2023-03-31)
 
 
