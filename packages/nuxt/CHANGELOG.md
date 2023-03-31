@@ -2,8 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.2](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.1...@vunix/nuxt@1.0.2) (2023-03-31)
+### [1.0.3](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.3...@vunix/nuxt@1.0.3) (2023-03-31)
 
+### Features
+
+* **nuxt:** feat(nuxt): handle dark mode ([9e14d33](https://github.com/gaetansenn/vunix/commit/9e14d33cbafdbfd0845ac8594a668b7cf845c0a4))
+
+### [1.0.2](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.1...@vunix/nuxt@1.0.2) (2023-03-31)
 
 ### Bug Fixes
 
