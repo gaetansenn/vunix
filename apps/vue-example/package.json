@@ -39,6 +39,7 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "vue-example@"
   }
 }

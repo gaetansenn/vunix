@@ -5,9 +5,6 @@
   "type": "module",
   "main": "./dist/index.ts.mjs",
   "types": "./dist/index.ts.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist"
   ],
@@ -40,6 +37,7 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "@vunix/core@"
   }
 }

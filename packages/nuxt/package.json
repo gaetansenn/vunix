@@ -1,6 +1,6 @@
 {
   "name": "@vunix/nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "exports": {
     ".": {
@@ -10,9 +10,6 @@
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist"
   ],
@@ -42,7 +39,8 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "@vunix/nuxt@"
   },
   "peerDependencies": {
     "@nuxtjs/tailwindcss": ">=6.1.3"

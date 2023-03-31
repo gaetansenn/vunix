@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/gaetansenn/vunix/compare/@vunix/nuxt@1.0.0...@vunix/nuxt@1.0.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* **nuxt:** fix package format ([f12c0cd](https://github.com/gaetansenn/vunix/commit/f12c0cdf572eb831476dffb704bcda403f10ca05))
+* **nuxt:** import defineNuxtPlugin from #app ([a947748](https://github.com/gaetansenn/vunix/commit/a9477484b2c05a1a180a25df0a0684f369072d8a))
+
 ## 1.0.0 (2023-03-30)
 
 

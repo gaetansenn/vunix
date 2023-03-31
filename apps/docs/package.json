@@ -22,6 +22,7 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "docs@"
   }
 }

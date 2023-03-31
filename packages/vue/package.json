@@ -2,9 +2,6 @@
   "name": "@vunix/vue",
   "version": "1.0.0",
   "type": "module",
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "dist",
     "volar.d.ts"
@@ -43,6 +40,7 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "@vunix/vue@"
   }
 }

@@ -21,6 +21,7 @@
       "bump": true,
       "commit": true,
       "tag": true
-    }
+    },
+    "tag-prefix": "nuxt-example@"
   }
 }

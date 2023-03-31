@@ -26,10 +26,9 @@
     "dev:prepare": "turbo run dev:prepare",
     "deploy": "turbo run deploy",
     "changeset": "changeset",
-    "bump": "changset version",
-    "release": "turbo run build --filter='./packages/*' lint test && changeset publish && changelog",
+    "bump": "changeset version",
+    "release": "turbo run build --filter='./packages/*' lint test && changeset publish",
     "tag": "changeset tag",
-    "changelog": "turbo run changelog",
     "removechangelogs": "find . -path ./node_modules -prune -o -name CHANGELOG.md -print | xargs rm"
   },
   "devDependencies": {
