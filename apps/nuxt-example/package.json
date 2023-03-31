@@ -11,6 +11,7 @@
     "changelog": "standard-version"
   },
   "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.6.5",
     "@vunix/nuxt": "*"
   },
   "devDependencies": {
