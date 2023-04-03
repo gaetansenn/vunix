@@ -50,3 +50,13 @@ yarn run dev
 ## Release / Publish
 
 https://github.com/changesets/changesets
+
+## Partners
+
+<a href="https://www.useradgents.com/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/partners/ua_white.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/partners/ua_black.svg">
+    <img alt="Useradgents" src="./assets/partners/ua_white.svg" width="200">
+  </picture>
+</a>
