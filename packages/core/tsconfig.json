@@ -15,8 +15,7 @@
       "@core/*": ["*"]
     },
     "lib": ["esnext", "dom"],
-    "skipLibCheck": true,
-    "importsNotUsedAsValues": "error"
+    "skipLibCheck": true
   },
   "include": ["env.d.ts", "vite.config.*", "src/*.d.ts", "src/*.ts", "src/**/*.ts", "src/**/*.vue"],
   "references": [
