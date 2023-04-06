@@ -21,6 +21,8 @@ import type { ButtonConfig } from './Button.config'
 const props = defineProps(buttonProps)
 
 // Inject default values
+// Use fixed string for provider
+// injectDefaultValues(getCurrentInstance()?.props, buttonProps, inject('config')?.Button.defaults)
 injectDefaultValues(getCurrentInstance()?.props, buttonProps, inject(VunixConfigSymbol)?.Button.defaults)
 
 const is = computed<TypeType | ConcreteComponent | string>(() => {
@@ -53,6 +55,11 @@ const attrs = computed(() => {
     }
   }
 })
+
+// Use fixed string for provider
+// const config = useConfig<ButtonConfig>({
+//   props
+// }, inject('config'))
 
 const config = useConfig<ButtonConfig>({
   props

@@ -171,6 +171,7 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
 export function defineConfig(options: defineConfigOptions) {
   const _config = reactive(mergeConfig(options));
 
+  // Use fixed string for provider (options?.app ? options.app.provide : provide)('config', _config)
   (options?.app ? options.app.provide : provide)(VunixConfigSymbol, _config)
 
   return _config
