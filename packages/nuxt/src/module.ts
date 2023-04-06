@@ -32,7 +32,7 @@ export default defineNuxtModule<ModuleOptions>({
     })
 
     const coreRootPath = core.resolve('..') // root dist directory
-    nuxt.options.build.transpile.push('@vunix/core', '@heroicons/vue', '@vunix/rules')
+    nuxt.options.build.transpile.push('@vunix/core', '@heroicons/vue', '@vunix/rules', '@vunix/default-preset-tailwind')
     nuxt.options.build.transpile.push(coreRootPath)
 
     // Add alias of @vunix/core to dist directory

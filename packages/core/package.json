@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/index.ts.mjs",
   "types": "./dist/index.ts.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.ts.mjs"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -20,7 +24,7 @@
     "vue": "^3.2.47"
   },
   "scripts": {
-    "dev": "unbuild --stub",
+    "dev": "unbuild",
     "build": "unbuild",
     "changelog": "standard-version"
   },

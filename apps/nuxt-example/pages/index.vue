@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-2 m-10">
     <VButton :to="{ name: 'test' }">Test update</VButton>
-    <VInputEmail v-model="email" name="email" label="Email" placeholder="Provide email" />
+    <!-- <VInputEmail v-model="email" name="email" label="Email" placeholder="Provide email" />
     <VInputText v-model="name" optional-label description="Ceci est une description" placeholder="Icon input placeholder"
       name="icon" leading="heroicons-solid:search" label="Input text" data-test="toto" required size="sm" />
     <VInputPassword v-model="password" name="password" label="Password" required />
@@ -32,7 +32,7 @@
     <VInputGroupCheckbox v-model="checkbox" label="Multiple values" required>
       <VInputCheckbox value="chien" label="chien" />
       <VInputCheckbox value="chat" label="chat" />
-    </VInputGroupCheckbox>
+    </VInputGroupCheckbox> -->
   </div>
 </template>
   

@@ -5,7 +5,8 @@
   "exports": {
     ".": {
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "types": "./dist/types.d.ts"
     }
   },
   "main": "./dist/module.cjs",
@@ -23,7 +24,8 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
-    "@vunix/core": "*"
+    "@vunix/core": "*",
+    "@vunix/default-preset-tailwind": "*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",

@@ -12,16 +12,12 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "paths": {
-      "@core/*": ["*"]
+      "@/*": ["*"],
+      "@vunix/core": ["../core"]
     },
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
-    "importsNotUsedAsValues": "error"
-  },
-  "include": ["env.d.ts", "vite.config.*", "src/*.d.ts", "src/*.ts", "src/**/*.ts", "src/**/*.vue"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+    "outDir": "dist",
+    "declaration": true
+  }
 }

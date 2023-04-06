@@ -12,7 +12,8 @@
   "exports": {
     ".": {
       "import": "./dist/vunix-vue.js",
-      "require": "./dist/vunix-vue.umd.cjs"
+      "require": "./dist/vunix-vue.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "license": "MIT",
