@@ -11,13 +11,14 @@ import type { FormGroupConfig } from '../components/form/group/FormGroup.config'
 import { VunixConfigSymbol } from '../symbols'
 import type { InputPasswordConfig } from '../components/form/input/password/InputPassword.config'
 import type { InputEmailConfig } from '../components/form/input/email/InputEmail.config'
-import type { TextAreaConfig } from '../components/form/textArea/TextArea.config'
+import type { TextAreaConfig } from '../components/form/textarea/TextArea.config'
 import type { InputNumberConfig } from '../components/form/input/number/InputNumber.config'
 import type { SelectConfig } from '../components/form/select/Select.config'
 import type { InputRadioConfig } from '../components/form/input/radio/InputRadio.config'
 import type { InputGroupRadioConfig } from '../components/form/input/group-radio/InputGroupRadio.config'
 import type { InputGroupCheckboxConfig } from '../components/form/input/group-checkbox/InputGroupCheckbox.config'
 import type { InputCheckboxConfig } from '../components/form/input/checkbox/InputCheckbox.config'
+import type { ConfigTransitionConfig } from '../components/transitions/config/ConfigTransition.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -101,7 +102,10 @@ export declare interface Config {
   InputCheckbox: InputCheckboxConfig,
   Icon: IconConfig,
   TextArea: TextAreaConfig
-  Select: SelectConfig
+  Select: SelectConfig,
+  Transition: {
+    Fade: ConfigTransitionConfig
+  }
 }
 
 export type PresetType = string;

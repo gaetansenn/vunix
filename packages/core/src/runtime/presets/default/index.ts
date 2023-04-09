@@ -10,7 +10,7 @@ import InputRadio from './InputRadio.config'
 import InputGroupRadio from './InputGroupRadio.config'
 import InputGroupCheckbox from './InputGroupCheckbox.config'
 import InputCheckbox from './InputCheckbox.config'
-
+import FadeTransition from './FadeTransition.config'
 
 export default {
   Button,
@@ -23,5 +23,8 @@ export default {
   InputRadio,
   InputGroupRadio,
   InputCheckbox,
-  InputGroupCheckbox
+  InputGroupCheckbox,
+  Transition: {
+    Fade: FadeTransition
+  }
 } as Config;

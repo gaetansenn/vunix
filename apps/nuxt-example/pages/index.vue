@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2 m-10">
+  <div class="flex flex-col gap-2 m-10 dark:text-white">
     <VButton :to="{ name: 'test' }">Test update</VButton>
     <VInputEmail v-model="email" name="email" label="Email" placeholder="Provide email" />
     <VInputText v-model="name" optional-label description="Ceci est une description" placeholder="Icon input placeholder"
@@ -33,10 +33,15 @@
       <VInputCheckbox value="chien" label="chien" />
       <VInputCheckbox value="chat" label="chat" />
     </VInputGroupCheckbox>
+    <VFadeTransition name="test">
+      <div v-if="test">Transition with fade</div>
+    </VFadeTransition>
+    <VButton @click="test = !test">Click to show</VButton>
   </div>
 </template>
   
 <script setup>
+const test = ref(false)
 const name = ref('')
 const password = ref('')
 const email = ref('')
