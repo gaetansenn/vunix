@@ -45,7 +45,7 @@ export const useConfig = <T>(context: any, config: any): T => {
   if (context.props.rootPath) path = `${context.props.rootPath}.${path}`
 
   // Merge custom component config with config path
-  const _config: any = defu({}, context.props.config || {}, merge({}, config[path]))
+  const _config: any = defu({}, context.props.config || {}, merge({}, path.split('.').reduce((value: any, currentKey: string) => value[currentKey], config)))
 
   // Apply reactivity to config
   handleReactiveConfig(_config, context)
