@@ -21,7 +21,15 @@ export default defineComponent({
         'enter-to-class': config?.enter?.to,
         'leave-active-class': config?.leave?.fixed,
         'leave-from-class': config?.leave?.from,
-        'leave-to-class': config?.leave?.to
+        'leave-to-class': config?.leave?.to,
+        'on-before-enter': config?.onAfterEnter,
+        'on-enter': config?.onEnter,
+        'on-after-enter:': config?.onAfterEnter,
+        'on-enter-cancelled': config?.onEnterCancelled,
+        'on-before-leave': config?.onBeforeLeave,
+        'on-leave': config?.onLeave,
+        'on-after-leave': config?.onAfterLeave,
+        'on-leave-cancelled': config?.onLeaveCancelled
       }
     })
 

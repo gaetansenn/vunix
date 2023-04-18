@@ -1,3 +1,5 @@
+import type { TransitionProps } from 'vue'
+
 /**
  * ConfigTransition interface
  *
@@ -7,13 +9,21 @@
  */
 export interface ConfigTransitionConfig {
   enter?: {
-    fixed: String, // enter-active-class vue class
-    from: String, // enter-from-class vue class
-    to: String // enter-to-class vue class
+    fixed: string, // enter-active-class vue class
+    from: string, // enter-from-class vue class
+    to: string // enter-to-class vue class
   },
   leave?: {
-    fixed: String, // leave-active-class vue class
-    from: String, // leave-from-class vue class
-    to: String // leave-to-class vue class
-  }
+    fixed: string, // leave-active-class vue class
+    from: string, // leave-from-class vue class
+    to: string // leave-to-class vue class
+  },
+  onBeforeEnter?: TransitionProps['onBeforeEnter'],
+  onEnter?: TransitionProps['onEnter'],
+  onAfterEnter?: TransitionProps['onAfterEnter'],
+  onEnterCancelled?: TransitionProps['onEnterCancelled'],
+  onBeforeLeave?: TransitionProps['onBeforeLeave'],
+  onLeave?: TransitionProps['onLeave'],
+  onAfterLeave?: TransitionProps['onAfterLeave'],
+  onLeaveCancelled?: TransitionProps['onLeaveCancelled']
 }

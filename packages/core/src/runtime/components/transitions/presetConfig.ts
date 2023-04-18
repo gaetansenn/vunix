@@ -1,0 +1,1 @@
+export const keyConfigToAvoid = ['onBeforeEnter', 'onEnter', 'onAfterEnter', 'onEnterCancelled', 'onBeforeLeave', 'onLeave', 'onAfterLeave', 'onLeaveCancelled']
