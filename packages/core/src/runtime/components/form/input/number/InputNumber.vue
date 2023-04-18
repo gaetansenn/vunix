@@ -25,7 +25,7 @@ import { injectDefaultValues } from '../../../../components/commons/props';
 import { props as inputProps } from './InputNumber.props'
 import { VunixConfigSymbol } from '../../../../symbols';
 import { useBindInputField, useField } from '../../../../composables/form/field';
-import { useId } from '../../composable';
+import { useId } from '../../../../composables/vnode';
 
 export default defineComponent({
   components: {
@@ -43,7 +43,7 @@ export default defineComponent({
       required: props.required
     })
     const boundProps = useBindInputField(field, props, useAttrs())
-    const id = useId(attrs.id as string)
+    const id = useId('v-form-', attrs.id as string)
 
     return { boundProps, props, field, id }
   }

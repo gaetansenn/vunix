@@ -1,4 +1,4 @@
-import type { ComponentInternalInstance } from "vue";
+import { ComponentInternalInstance, getCurrentInstance } from "vue";
 
 /**
  * Return parent component by name
@@ -13,4 +13,13 @@ export function getParentComponentByName(name: string, component: ComponentInter
   else if (level !== 0) return getParentComponentByName(name, component.parent, level - 1)
 
   return null
+}
+
+/**
+ * Get identifier of component
+ * @param id id to return
+ * @param prefix prefix to add if no id provided
+ */
+export const useId = (prefix: string, id?: string | number | undefined) => {
+  return id ? `${id}` : `${prefix}${getCurrentInstance()?.uid}`
 }

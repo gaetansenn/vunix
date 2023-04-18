@@ -39,9 +39,8 @@ import { injectDefaultValues } from '../../../commons/props';
 import { props as inputProps } from './InputCheckbox.props'
 import type { InputCheckboxConfig } from './InputCheckbox.config';
 import { VunixConfigSymbol } from '../../../../symbols';
-import { useId } from '../../composable';
 import { useModelWrapper } from '../../../../composables/form/field';
-import { getParentComponentByName } from '../../../../composables/vnode';
+import { getParentComponentByName, useId } from '../../../../composables/vnode';
 
 export default defineComponent({
   name: 'InputCheckbox',
@@ -64,7 +63,7 @@ export default defineComponent({
 
     // Used to force name of input if wrapped inside InputGroupCheckbox
     const name = formInputCheckbox ? formInputCheckbox.props.name : context.attrs.name
-    const id = useId(context.attrs.id as string)
+    const id = useId('v-form-', context.attrs.id as string)
     const modelValue = formInputCheckbox ? ref(formInputCheckbox?.props?.modelValue) : useModelWrapper(props, context.emit, 'modelValue')
 
     // Checked clicked

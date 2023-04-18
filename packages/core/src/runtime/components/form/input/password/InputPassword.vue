@@ -28,7 +28,7 @@ import { props as inputProps } from './InputPassword.props'
 import { VunixConfigSymbol } from '../../../../symbols';
 import { useBindInputField, useField } from '../../../../composables/form/field';
 import type { InputPasswordConfig } from './InputPassword.config';
-import { useId } from '../../composable';
+import { useId } from '../../../../composables/vnode';
 
 export default defineComponent({
   components: {
@@ -49,7 +49,7 @@ export default defineComponent({
       required: props.required
     })
     const boundProps = useBindInputField(field, props, useAttrs())
-    const id = useId(attrs.id as string)
+    const id = useId('v-form-', attrs.id as string)
     const eyeOff = ref(false)
 
     const onTrailingClick = () => {

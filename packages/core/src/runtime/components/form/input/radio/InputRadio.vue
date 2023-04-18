@@ -22,9 +22,8 @@ import { injectDefaultValues } from '../../../commons/props';
 import { props as inputProps } from './InputRadio.props'
 import type { InputRadioConfig } from './InputRadio.config';
 import { VunixConfigSymbol } from '../../../../symbols';
-import { useId } from '../../composable';
 import { useModelWrapper } from '../../../../composables/form/field';
-import { getParentComponentByName } from '../../../../composables/vnode';
+import { getParentComponentByName, useId } from '../../../../composables/vnode';
 
 export default defineComponent({
   inheritAttrs: false,
@@ -43,7 +42,7 @@ export default defineComponent({
 
     // Used to force name of input if wrapped inside InputGroupRadio
     const name = formInputGroupRadio ? formInputGroupRadio.props.name : context.attrs.name
-    const id = useId(context.attrs.id as string)
+    const id = useId('v-form-', context.attrs.id as string)
     const modelValue = formInputGroupRadio ? ref(formInputGroupRadio?.props?.modelValue) : useModelWrapper(props, context.emit, 'modelValue')
     // Watch for input radio change event
     const onChange = () => {

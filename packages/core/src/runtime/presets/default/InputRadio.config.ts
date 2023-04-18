@@ -1,5 +1,4 @@
-import { SizeEnum } from '@core/runtime/utils/config';
-import type { InputRadioConfig } from '../../components/form/radio/input/InputRadio.config'
+import type { InputRadioConfig } from '../../components/form/input/radio/InputRadio.config'
 
 const config = {
   class: 'flex flex-col',
