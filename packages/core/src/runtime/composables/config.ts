@@ -4,7 +4,7 @@ import merge from 'lodash/merge.js'
 
 import { rounded } from '../utils/config'
 
-function handleReactiveConfig(config: any, context: any) {
+function handleReactiveConfig(config: any, context: any, keyToAvoid: string[]) {
   // Inject default variants / sizes / rounded computed function
   [{ from: 'variants', of: 'variant' }, { from: 'rounded', of: 'rounded', default: rounded }, { from: 'sizes', of: 'size' }].forEach((el) => {
     if (config[el.from]) {
@@ -22,7 +22,7 @@ function handleReactiveConfig(config: any, context: any) {
     }
   });
 
-  Object.keys(config).forEach((key) => {
+  Object.keys(config).filter(k => !(keyToAvoid).includes(k)).forEach((key) => {
     if (key === 'defaults') return
     if (typeof config[key] === 'function') {
       // Mark render function as raw (never be converted to a proxy)
@@ -32,13 +32,13 @@ function handleReactiveConfig(config: any, context: any) {
         markRaw(config[key])
       } else config[key] = computed(config[key].bind(null, context))
     } else if (typeof config[key] === 'object') {
-      handleReactiveConfig(config[key], context)
+      handleReactiveConfig(config[key], context, keyToAvoid)
     }
   })
 }
 
 // Inject library config to component
-export const useConfig = <T>(context: any, config: any): T => {
+export const useConfig = <T>(context: any, config: any, keyToAvoid?: string[]): T => {
   // Handle path of config according to context
   let path = context.props.configPath
 
@@ -48,7 +48,7 @@ export const useConfig = <T>(context: any, config: any): T => {
   const _config: any = defu({}, context.props.config || {}, merge({}, path.split('.').reduce((value: any, currentKey: string) => value[currentKey], config)))
 
   // Apply reactivity to config
-  handleReactiveConfig(_config, context)
+  handleReactiveConfig(_config, context, keyToAvoid || [])
 
   return reactive(_config) as T
 }
