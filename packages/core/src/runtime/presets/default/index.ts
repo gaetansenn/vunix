@@ -11,7 +11,9 @@ import InputGroupRadio from './InputGroupRadio.config'
 import InputGroupCheckbox from './InputGroupCheckbox.config'
 import InputCheckbox from './InputCheckbox.config'
 import FadeTransition from './FadeTransition.config'
+import AccordionItem from './AccordionItem.config'
 import CollapseTransition from './CollapseTransition.config'
+import Accordion from './Accordion.config'
 
 export default {
   Button,
@@ -29,4 +31,6 @@ export default {
     Fade: FadeTransition,
     Collapse: CollapseTransition
   },
+  Accordion,
+  AccordionItem
 } as Config;
