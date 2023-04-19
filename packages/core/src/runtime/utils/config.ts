@@ -19,6 +19,8 @@ import type { InputGroupRadioConfig } from '../components/form/input/group-radio
 import type { InputGroupCheckboxConfig } from '../components/form/input/group-checkbox/InputGroupCheckbox.config'
 import type { InputCheckboxConfig } from '../components/form/input/checkbox/InputCheckbox.config'
 import type { ConfigTransitionConfig } from '../components/transitions/config/ConfigTransition.config'
+import type { AccordionItemConfig } from '../components/disclosure/accordion/item/AccordionItem.config'
+import type { AccordionConfig } from '../components/disclosure/accordion/Accordion.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -79,7 +81,7 @@ export interface SizesConfig {
 export const DEFAULT_SIZE = SizeEnum.md
 
 export declare interface DefaultConfig {
-  class: MethodOrStringType, // style classes of root element
+  class?: MethodOrStringType, // style classes of root element
   variants?: VariantsConfig, // Contain all variants key / value
   variant?: MethodOrStringType,
   sizes?: MethodOrObject, // Contain all sizes key / value
@@ -104,8 +106,11 @@ export declare interface Config {
   TextArea: TextAreaConfig
   Select: SelectConfig,
   Transition: {
-    Fade: ConfigTransitionConfig
-  }
+    Fade: ConfigTransitionConfig,
+    Collapse: ConfigTransitionConfig
+  },
+  Accordion: AccordionConfig,
+  AccordionItem: AccordionItemConfig
 }
 
 export type PresetType = string;
@@ -140,6 +145,9 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
   const inputsComponents = ['InputText', 'InputPassword', 'InputEmail', 'InputNumber']
   // Merge InputBase config with Inputs components
   inputsComponents.forEach(parentPath => mergeClasses(preset.InputBase, parentPath, 'InputBase', preset, newConfig));
+
+  // Merge fade transition to modal
+  mergeClasses(preset.Transition.Fade, 'Modal', 'overlay.transition', preset, newConfig);
 
   // Merge FormGroup config with Inputs components
   [...inputsComponents, 'InputGroupRadio', 'InputGroupCheckbox', 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.FormGroup, parentPath, 'FormGroup', preset, newConfig))
