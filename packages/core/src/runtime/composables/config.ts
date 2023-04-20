@@ -3,10 +3,11 @@ import defu from 'defu'
 import merge from 'lodash/merge.js'
 
 import { rounded } from '../utils/config'
+import { shadows } from '../utils/config'
 
 function handleReactiveConfig(config: any, context: any, keyToAvoid: string[]) {
   // Inject default variants / sizes / rounded computed function
-  [{ from: 'variants', of: 'variant' }, { from: 'rounded', of: 'rounded', default: rounded }, { from: 'sizes', of: 'size' }].forEach((el) => {
+  [{ from: 'variants', of: 'variant' }, { from: 'rounded', of: 'rounded', default: rounded }, { from: 'sizes', of: 'size' }, { from: 'shadows', of: 'shadow', default: shadows }].forEach((el) => {
     if (config[el.from]) {
       if (typeof config[el.of] !== 'function') {
         if (typeof config[el.from][context.props[el.of]] === 'function') config[el.of] = config[el.from][context.props[el.of]]
