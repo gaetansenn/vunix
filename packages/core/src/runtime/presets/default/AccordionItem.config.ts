@@ -3,8 +3,9 @@ import type { AccordionItemConfig } from '../../components/disclosure/accordion/
 
 const config = {
   header: {
+    class: 'border-b border-gray-200',
     button: {
-      class: 'flex items-center justify-between w-full rounded-none border-b border-gray-200',
+      class: 'flex items-center justify-between w-full rounded-none',
       sizes: {
         [SizeEnum.sm]: 'px-2 py-2',
         [SizeEnum.md]: 'px-2 py-2',
