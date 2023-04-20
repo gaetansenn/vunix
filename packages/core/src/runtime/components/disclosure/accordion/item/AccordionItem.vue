@@ -2,29 +2,29 @@
   <div :class="config.class">
     <slot name="header" :toggle="toggle">
       <component :is="tag" :class="[config.header.class, config.header.size]">
-        <Button :class="[config.header.button.class, config.header.button.size]" :aria-expanded="modelValue"
+        <button :class="[config.header.button?.class, config.header.button?.size]" :aria-expanded="modelValue"
           :id="`${id}-button`" :aria-controls="`${id}-region`" @click="toggle"
-          :root-path="$props.rootPath ? `${$props.rootPath}.Button` : 'Button'" :custom-config="$props.config?.Card"
-          block>
-          <span :class="[config.header.button.content.class, config.header.button.content.size]">
+          :root-path="$props.rootPath ? `${$props.rootPath}.AccordionItem` : 'Button'"
+          :custom-config="$props.config?.Button" block>
+          <span :class="[config.header.button?.content?.class, config.header.button?.content?.size]">
             <slot name="header-content">
               {{ $props.header }}
             </slot>
           </span>
           <slot name="icon">
-            <div :class="config.header.button.icon?.class">
-              <Icon v-if="typeof config.header.button.icon?.icon === 'string'" :name="config.header.button.icon?.icon"
+            <div :class="config.header.button?.icon?.class">
+              <Icon v-if="typeof config.header.button?.icon?.icon === 'string'" :name="config.header.button.icon?.icon"
                 :size="config.header.button.icon?.size" />
-              <component v-else :is="config.header.button.icon?.icon" :class="config.header.button.icon?.size" />
+              <component v-else :is="config.header.button?.icon?.icon" :class="config.header.button?.icon?.size" />
             </div>
           </slot>
-        </Button>
+        </button>
       </component>
     </slot>
     <VCollapseTransition>
       <div v-show="modelValue" role="region" :ariaLabelledby="`${id}-button`" :id="`${id}-region`"
         :class="config.content?.wrapper">
-        <div :class="config.content?.class">
+        <div :class="[config.content?.class, config.content?.size]">
           <slot />
         </div>
       </div>
@@ -44,7 +44,6 @@ import { useConfig } from '../../../../composables/config';
 import type { AccordionItemConfig } from './AccordionItem.config';
 import { getParentComponentByName, useId } from '../../../../../runtime/composables/vnode';
 import { useModelWrapper } from '../../../../../runtime/composables/form/field';
-import Button from '../../../elements/button/Button.vue';
 import Icon from '../../../icon/Icon.vue'
 import VCollapseTransition from '../../../transitions/collapse/CollapseTransition.vue'
 import { AccordionProvide, AccordionSymbol } from '../symbol';
@@ -52,7 +51,6 @@ import { AccordionProvide, AccordionSymbol } from '../symbol';
 export default defineComponent({
   inheritAttrs: false,
   components: {
-    Button,
     Icon,
     VCollapseTransition
   },
@@ -85,7 +83,8 @@ export default defineComponent({
 
     const config = useConfig<AccordionItemConfig>({
       props,
-      opened: modelValue
+      opened: modelValue,
+      parent: getCurrentInstance()?.parent
     }, inject(VunixConfigSymbol))
 
     const toggle = () => {

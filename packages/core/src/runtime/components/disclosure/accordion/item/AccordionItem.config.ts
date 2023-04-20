@@ -5,8 +5,8 @@ export interface AccordionItemConfig extends DefaultConfig {
     class?: MethodOrStringType,
     sizes?: MethodOrObject, // Contain all sizes key / value
     size?: MethodOrStringType,
-    button: {
-      class: MethodOrStringType,
+    button?: {
+      class?: MethodOrStringType,
       sizes?: MethodOrObject, // Contain all sizes key / value
       size?: MethodOrStringType,
       icon?: {
@@ -15,8 +15,8 @@ export interface AccordionItemConfig extends DefaultConfig {
         sizes?: MethodOrObject,
         size?: MethodOrStringType,
       },
-      content: { // Header content
-        class: MethodOrStringType,
+      content?: { // Header content
+        class?: MethodOrStringType,
         sizes?: MethodOrObject,
         size?: MethodOrStringType,
       }
@@ -24,6 +24,8 @@ export interface AccordionItemConfig extends DefaultConfig {
   },
   content?: {
     wrapper?: MethodOrStringType, // Wrapper of content element
-    class?: MethodOrStringType
+    class?: MethodOrStringType,
+    sizes?: MethodOrObject,
+    size?: MethodOrStringType,
   }
 }
