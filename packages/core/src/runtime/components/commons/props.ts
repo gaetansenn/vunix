@@ -1,6 +1,6 @@
 import type { PropType } from 'vue'
 
-import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum, KeyValue } from '../../utils/config'
+import { DEFAULT_VARIANT, DEFAULT_ROUNDED, DEFAULT_SIZE, SizeEnum, RoundedEnum, KeyValue, ShadowEnum } from '../../utils/config'
 
 export const sizeProp = {
   /**
@@ -48,6 +48,18 @@ export const variantProp = {
   variant: {
     type: String,
     defaultValue: DEFAULT_VARIANT
+  }
+}
+
+export const shadowProp = {
+  /**
+   * @description Use to specify shadow value
+   * @type {String}
+   * @values string
+   */
+  shadow: {
+    type: String as PropType<ShadowEnum>,
+    defaultValue: ShadowEnum.none
   }
 }
 
