@@ -11,6 +11,7 @@ import InputGroupRadio from './InputGroupRadio.config'
 import InputGroupCheckbox from './InputGroupCheckbox.config'
 import InputCheckbox from './InputCheckbox.config'
 import FadeTransition from './FadeTransition.config'
+import Modal from './Modal.config'
 import AccordionItem from './AccordionItem.config'
 import CollapseTransition from './CollapseTransition.config'
 import Accordion from './Accordion.config'
@@ -31,6 +32,7 @@ export default {
     Fade: FadeTransition,
     Collapse: CollapseTransition
   },
+  Card,
   Accordion,
   AccordionItem
 } as Config;

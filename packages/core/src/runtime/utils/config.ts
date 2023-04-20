@@ -19,6 +19,7 @@ import type { InputGroupRadioConfig } from '../components/form/input/group-radio
 import type { InputGroupCheckboxConfig } from '../components/form/input/group-checkbox/InputGroupCheckbox.config'
 import type { InputCheckboxConfig } from '../components/form/input/checkbox/InputCheckbox.config'
 import type { ConfigTransitionConfig } from '../components/transitions/config/ConfigTransition.config'
+import type { CardConfig } from '../components/others/card/Card.config'
 import type { AccordionItemConfig } from '../components/disclosure/accordion/item/AccordionItem.config'
 import type { AccordionConfig } from '../components/disclosure/accordion/Accordion.config'
 
@@ -63,6 +64,33 @@ export const rounded: ConfigMethodType = ({ props }) => {
   } as any)[props.rounded]
 }
 
+export enum ShadowEnum {
+  none = 'none',
+  xs = 'xs',
+  sm = 'sm',
+  md = 'md',
+  lg = 'lg',
+  xl = 'xl'
+}
+export interface ShadowConfig {
+  [ShadowEnum.none]?: ShadowConfig
+  [ShadowEnum.xs]?: ShadowEnum,
+  [ShadowEnum.sm]?: ShadowEnum,
+  [ShadowEnum.md]?: ShadowEnum,
+  [ShadowEnum.lg]?: ShadowEnum,
+  [ShadowEnum.xl]?: ShadowEnum,
+}
+export const shadows: ConfigMethodType = ({ props }) => {
+  return ({
+    none: 'shadow-none',
+    xs: 'shadow-sm hover:shadow',
+    sm: 'shadow hover:shadow-md',
+    md: 'shadow-md hover:shadow-lg',
+    lg: 'shadow-lg hover:shadow-xl',
+    xl: 'shadow-xl hover:shadow-2xl'
+  } as any)[props.shadow]
+}
+
 export enum SizeEnum {
   xs = 'xs',
   sm = 'sm',
@@ -88,6 +116,8 @@ export declare interface DefaultConfig {
   size?: MethodOrStringType,
   rounded?: MethodOrObject, // Contain all rounded key / value
   defaults?: KeyValue<any> // Overide the default component props
+  shadows?: MethodOrObject, // Contain all shadows key / value
+  shadow?: MethodOrObject
 }
 
 export declare interface Config {
@@ -109,6 +139,7 @@ export declare interface Config {
     Fade: ConfigTransitionConfig,
     Collapse: ConfigTransitionConfig
   },
+  Card: CardConfig,
   Accordion: AccordionConfig,
   AccordionItem: AccordionItemConfig
 }
@@ -148,6 +179,9 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
 
   // Merge fade transition to modal
   mergeClasses(preset.Transition.Fade, 'Modal', 'overlay.transition', preset, newConfig);
+
+  // Merge Accordionitem to Card
+  mergeClasses(preset.AccordionItem, 'Card', 'AccordionItem', preset, newConfig);
 
   // Merge FormGroup config with Inputs components
   [...inputsComponents, 'InputGroupRadio', 'InputGroupCheckbox', 'TextArea', 'Select'].forEach(parentPath => mergeClasses(preset.FormGroup, parentPath, 'FormGroup', preset, newConfig))
