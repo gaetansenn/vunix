@@ -1,4 +1,3 @@
-import { SizeEnum } from '../../utils/config';
 import type { AccordionConfig } from '../../components/disclosure/accordion/Accordion.config'
 
 const config = {
