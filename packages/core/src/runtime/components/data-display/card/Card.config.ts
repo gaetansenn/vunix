@@ -1,5 +1,5 @@
 import type { DefaultConfig, IconType, MethodOrStringType, MethodOrObject } from "../../../utils/config"
-import type { AccordionItemConfig } from "../../disclosure/accordion"
+import type { AccordionItemConfig } from "../../disclosure/accordion/item/AccordionItem.config"
 
 export interface CardConfig extends DefaultConfig {
   AccordionItem?: Partial<AccordionItemConfig>,
