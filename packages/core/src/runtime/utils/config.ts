@@ -19,6 +19,7 @@ import type { InputGroupRadioConfig } from '../components/form/input/group-radio
 import type { InputGroupCheckboxConfig } from '../components/form/input/group-checkbox/InputGroupCheckbox.config'
 import type { InputCheckboxConfig } from '../components/form/input/checkbox/InputCheckbox.config'
 import type { ConfigTransitionConfig } from '../components/transitions/config/ConfigTransition.config'
+import type { ModalConfig } from '../components/others/modal/Modal.config'
 import type { CardConfig } from '../components/data-display/card/Card.config'
 import type { AccordionItemConfig } from '../components/disclosure/accordion/item/AccordionItem.config'
 import type { AccordionConfig } from '../components/disclosure/accordion/Accordion.config'
@@ -139,9 +140,10 @@ export declare interface Config {
     Fade: ConfigTransitionConfig,
     Collapse: ConfigTransitionConfig
   },
+  Modal: ModalConfig,
   Card: CardConfig,
   Accordion: AccordionConfig,
-  AccordionItem: AccordionItemConfig
+  AccordionItem: AccordionItemConfig,
 }
 
 export type PresetType = string;
