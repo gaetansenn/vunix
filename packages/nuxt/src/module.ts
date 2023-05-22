@@ -45,34 +45,10 @@ export default defineNuxtModule<ModuleOptions>({
       href: 'https://rsms.me/inter/inter.css'
     })
 
-    // @ts-ignore - Module might not exist
-    nuxt.hook('tailwindcss:config', function (config) {
-      config.theme.extend.fontFamily = {
-        // TODO: use dynamic import and not require
-        sans: ['Inter var', ...require('tailwindcss/defaultTheme').fontFamily.sans]
-      }
-
-      config.content.push(core.resolve('../runtime/components/**/*.{vue,js,ts,mjs}'))
-      // TODO: Inject selected preset and not all presets
-      config.content.push(core.resolve('../runtime/presets/**/*.{ts,mjs}'))
-      config.content.push(core.resolve('../runtime/utils/config.{ts,mjs}'))
-
-      // Inject custom config
-      config.content.push(`${nuxt.options.srcDir}/app.config.{ts,js}`)
-
-      // Handle dark mode
-      config.darkMode = moduleOptions.darkMode === false ? '' : moduleOptions.darkMode
-
-      // Inject @tailwindcss/forms
-      // TODO: use dynamic import to inject tailwindcss/forms
-      // config.plugins.push(moduleOptions.forms || require('@tailwindcss/forms')({
-      //   strategy: 'base'
-      // }))
-    })
+    // TODO: make this generic according to preset type
+    installModule('@vunix/nuxt-tailwind')
 
     addPlugin(resolve('./runtime/plugin'))
-
-    await installModule('@nuxtjs/tailwindcss')
   }
 })
 

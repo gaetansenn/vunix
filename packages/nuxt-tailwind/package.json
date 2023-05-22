@@ -1,6 +1,6 @@
 {
-  "name": "@vunix/nuxt",
-  "version": "1.0.3",
+  "name": "@vunix/nuxt-tailwind",
+  "version": "1.0.0",
   "license": "MIT",
   "exports": {
     ".": {
@@ -24,7 +24,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
     "@vunix/core": "*",
-    "@vunix/nuxt-tailwind": "*"
+    "@vunix/tailwind-variant-colors": "*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
@@ -41,7 +41,7 @@
       "commit": true,
       "tag": true
     },
-    "tag-prefix": "@vunix/nuxt@"
+    "tag-prefix": "@vunix/nuxt-tailwind@"
   },
   "peerDependencies": {
     "@nuxtjs/tailwindcss": ">=6.1.3"
