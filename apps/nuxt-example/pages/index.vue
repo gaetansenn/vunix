@@ -37,10 +37,18 @@
       <div v-if="test">Transition with fade</div>
     </VFadeTransition>
     <VButton @click="test = !test">Click to show</VButton>
+    <VButton @click="modalOpened = true">Click to open modal</VButton>
+    <VModal v-model="modalOpened" header="Hey header">
+      This is modal content with a long text to test the marging applied between the close button
+      <template #footer>
+        This is the footer content
+      </template>
+    </VModal>
   </div>
 </template>
   
 <script setup>
+const modalOpened = ref(false)
 const test = ref(false)
 const name = ref('')
 const password = ref('')

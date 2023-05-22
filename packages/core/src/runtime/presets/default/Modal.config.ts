@@ -1,4 +1,5 @@
-import type { ModalConfig } from '../../components/others/modal/Modal.config'
+import type { ModalConfig } from '../../components/overlay/modal/Modal.config'
+import { SizeEnum } from '../../utils/config';
 
 const config = {
   overlay: {
@@ -10,7 +11,7 @@ const config = {
   },
   wrapper: 'flex items-center justify-center p-4 min-h-screen',
   modal: {
-    wrapper: 'transform transition-all overflow-hidden sm:w-full sm:max-w-lg flex justify-center',
+    wrapper: 'transform transition-all overflow-hidden sm:w-full sm:max-w-lg flex flex-col justify-center bg-white dark:bg-gray-800 relative',
     transition: {
       enter: {
         fixed: 'ease-out duration-300',
@@ -25,11 +26,22 @@ const config = {
     },
     // Config for default slot injected with title props
     header: {
-      class: 'font-semibold text-2xl sm:text-3xl leading-tight text-left mr-8',
-      icon: {
-        class: 'absolute h-6 w-6 flex-shrink-0 text-black hover:text-gray-700 cursor-pointer right-0 top-0 mt-1',
-        icon: 'heroicons-solid:x'
+      class: 'p-5 font-semibold text-2xl sm:text-3xl leading-tight mr-8 text-black dark:text-white',
+      close: {
+        class: 'absolute top-3 right-4 text-black hover:text-gray-800 dark:text-white dark:hover:text-gray-300 cursor-pointer',
+        icon: 'heroicons-solid:x',
+        sizes: {
+          [SizeEnum.sm]: '1.25rem',
+          [SizeEnum.md]: '1.375rem',
+          [SizeEnum.lg]: '1.5rem',
+        },
       }
+    },
+    content: {
+      class: 'p-5 text-black dark:text-white mr-5'
+    },
+    footer: {
+      class: 'p-5 text-black dark:text-white'
     }
   }
 } as ModalConfig;
