@@ -1,9 +1,8 @@
-import { Config, ColorsVariants } from '@vunix/core'
-import { defineNuxtModule, installModule, addComponentsDir, resolvePath, addPlugin, createResolver } from '@nuxt/kit'
-import colors from 'tailwindcss/colors';
+import { Config } from '@vunix/core'
+import { defineNuxtModule, installModule, resolvePath, createResolver } from '@nuxt/kit'
 
 export interface ModuleOptions {
-  colors: boolean | ColorsVariants,
+  colors: boolean,
   darkMode?: any // Selector use to detect dark mode
 }
 
@@ -47,11 +46,11 @@ export default defineNuxtModule<ModuleOptions>({
       // Handle dark mode
       config.darkMode = moduleOptions.darkMode === false ? '' : moduleOptions.darkMode
 
-      // Handle tailwind colors injection
-      if (moduleOptions.colors) {
-        // Inject dynamic colors plugin
-        config.plugins.push(require('@vunix/tailwind-variant-colors').plugin(moduleOptions.colors !== true ? moduleOptions.colors : []))
-      }
+      // // Handle tailwind colors injection
+      // if (moduleOptions.colors) {
+      //   // Inject dynamic colors plugin
+      //   config.plugins.push(require('@vunix/tailwind-variant-colors').plugin(moduleOptions.colors !== true ? moduleOptions.colors : []))
+      // }
 
       // Inject @tailwindcss/forms
       // TODO: use dynamic import to inject tailwindcss/forms
