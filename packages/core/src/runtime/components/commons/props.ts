@@ -21,7 +21,7 @@ export const roundedProp = {
    * @values string
    */
   rounded: {
-    type: String as PropType<RoundedEnum>,
+    type: String as PropType<RoundedEnum | string>,
     defaultValue: DEFAULT_ROUNDED
   }
 }

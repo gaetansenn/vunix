@@ -1,3 +1,4 @@
+import type { DeepPartial } from '../../utils/types';
 import type { ModalConfig } from '../../components/overlay/modal/Modal.config'
 import { SizeEnum } from '../../utils/config';
 
@@ -44,6 +45,6 @@ const config = {
       class: 'p-5 text-black dark:text-white'
     }
   }
-} as ModalConfig;
+} as DeepPartial<ModalConfig>;
 
 export default config;
