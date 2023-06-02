@@ -23,8 +23,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^3.2.0",
-    "@vunix/core": "*",
-    "@vunix/tailwind-variant-colors": "*"
+    "@vunix/core": "*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "latest",
