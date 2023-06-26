@@ -11,7 +11,7 @@ export const defaultPlugins: PluginList = {
 }
 
 export const pluginPaths = {
-  dialog: 'overlay/dialog/plugin.mjs'
+  dialog: 'overlay/dialog'
 }
 
 export default function (config: Config, app: App) {

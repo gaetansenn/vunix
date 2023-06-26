@@ -39,7 +39,7 @@
     <VButton @click="test = !test">Click to show</VButton>
     <VButton @click="modalOpened = true">Click to open modal</VButton>
     <VButton @click="dialogOpened = true">Click to open dialog</VButton>
-    <!-- <VModal v-model="modalOpened" header="Hey header" rounded="lg">
+    <VModal v-model="modalOpened" header="Hey header" rounded="lg">
       This is modal content with a long text to test the marging applied between the close button
       <template #footer>
         This is the footer content
@@ -47,7 +47,7 @@
     </VModal>
     <VDialog v-model="dialogOpened" title="Remove user" cancel="Annuler" submit="Valider" :on-submit="dialogSubmit">
       Are you sure ? You can't undo this action afterwards.
-    </VDialog> -->
+    </VDialog>
   </div>
 </template>
   

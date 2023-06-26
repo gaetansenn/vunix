@@ -47,8 +47,6 @@ export default defineComponent({
     // Inject default values
     injectDefaultValues(getCurrentInstance()?.props, dialogProps, inject(VunixConfigSymbol)?.Dialog.defaults)
 
-    console.log('dialog exist')
-
     const modelValue = useModelWrapper(props, emit, 'modelValue')
     const config = useConfig<DialogConfig>({
       props

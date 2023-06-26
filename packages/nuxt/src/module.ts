@@ -37,7 +37,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     const pluginOptions: PluginList = { ...defaultPlugins, ...nuxt.options.vunix?.disabledPlugins }
     const keysWithTrueValue = Object.keys(pluginOptions).filter(key => (pluginOptions as any)[key] === true);
-    const paths = keysWithTrueValue.map(key => core.resolve(`../runtime/components/${(pluginPaths as any)[key]}`));
+    const paths = keysWithTrueValue.map(key => core.resolve(`../runtime/components/${(pluginPaths as any)[key]}/plugin.${nuxt.options.dev ? 'ts' : 'mjs'}`));
 
     addPluginTemplate({
       filename: 'vunix-plugins.mjs',
