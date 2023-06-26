@@ -12,5 +12,10 @@ export default defineNuxtConfig({
   modules: [
     '@vunix/nuxt'
   ],
+  // vunix: {
+  //   disabledPlugins: {
+  //     dialog: false
+  //   }
+  // },
   ssr: false,
 })

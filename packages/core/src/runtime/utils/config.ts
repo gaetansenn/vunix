@@ -23,6 +23,7 @@ import type { ModalConfig } from '../components/overlay/modal/Modal.config'
 import type { CardConfig } from '../components/data-display/card/Card.config'
 import type { AccordionItemConfig } from '../components/disclosure/accordion/item/AccordionItem.config'
 import type { AccordionConfig } from '../components/disclosure/accordion/Accordion.config'
+import type { DialogConfig } from '../components/overlay/dialog/Dialog.config'
 
 export type KeyValue<T> = { [key: string]: T }
 export type ConfigMethodType = (...any: any[]) => string
@@ -118,7 +119,7 @@ export declare interface DefaultConfig {
   rounded?: MethodOrObject, // Contain all rounded key / value
   defaults?: KeyValue<any> // Overide the default component props
   shadows?: MethodOrObject, // Contain all shadows key / value
-  shadow?: MethodOrObject
+  shadow?: MethodOrObject,
 }
 
 export declare interface Config {
@@ -141,6 +142,7 @@ export declare interface Config {
     Collapse: ConfigTransitionConfig
   },
   Modal: ModalConfig,
+  Dialog: DialogConfig,
   Card: CardConfig,
   Accordion: AccordionConfig,
   AccordionItem: AccordionItemConfig,
@@ -181,6 +183,9 @@ function mergeConfig(options: Omit<defineConfigOptions, 'app'>) {
 
   // Merge fade transition to modal
   mergeClasses(preset.Transition.Fade, 'Modal', 'overlay.transition', preset, newConfig);
+
+  // Merge Modal to Dialog
+  mergeClasses(preset.Modal, 'Dialog', 'Modal', preset, newConfig);
 
   // Merge Accordionitem to Card
   mergeClasses(preset.AccordionItem, 'Card', 'AccordionItem', preset, newConfig);

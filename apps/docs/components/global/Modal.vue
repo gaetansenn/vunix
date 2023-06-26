@@ -1,5 +1,5 @@
 <template>
-  <VModal v-model="opened" :header="header" rounded="lg">
+  <VModal v-model="opened" :header="header">
     <template v-if="$slots.header" #header>
       <ContentSlot :use="$slots.header" unwrap="p" />
     </template>

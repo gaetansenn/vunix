@@ -1,9 +1,13 @@
-import { Config } from '@vunix/core'
-import { defineNuxtModule, installModule, addComponentsDir, resolvePath, addPlugin, createResolver } from '@nuxt/kit'
+import { Config, PluginList, pluginPaths, defaultPlugins } from '@vunix/core'
+import { defineNuxtModule, installModule, addComponentsDir, resolvePath, addPlugin, createResolver, addPluginTemplate } from '@nuxt/kit'
 
 export interface ModuleOptions {
   forms?: any,
   darkMode?: any // Selector use to detect dark mode
+}
+
+export interface NuxtConfigModuleOptions extends ModuleOptions {
+  disabledPlugins: PluginList
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -22,13 +26,43 @@ export default defineNuxtModule<ModuleOptions>({
     const core = createResolver(await resolvePath('@vunix/core', { cwd: import.meta.url }))
 
     // Register components
-    addComponentsDir({
+    await addComponentsDir({
       path: core.resolve('../runtime/components'),
       ignore: ['index*'],
       global: true,
       prefix: 'V',
       extensions: ['.vue'],
       pathPrefix: false
+    })
+
+    const pluginOptions: PluginList = { ...defaultPlugins, ...nuxt.options.vunix?.disabledPlugins }
+    const keysWithTrueValue = Object.keys(pluginOptions).filter(key => (pluginOptions as any)[key] === true);
+    const paths = keysWithTrueValue.map(key => core.resolve(`../runtime/components/${(pluginPaths as any)[key]}`));
+
+    nuxt.options.build.transpile.push(...paths)
+
+    addPluginTemplate({
+      filename: 'vunix-plugins.mjs',
+      mode: 'client',
+      getContents: () => {
+        // Import all plugin files from the same directories as components
+        const importStatements = paths.map((path, i) => {
+          // Replace the filename at the end of the path with plugin.ts
+          return `import plugin${i} from '${path}'`
+        }).join('\n')
+
+        // Use plugins in app:created hook
+        const useStatements = paths.map((_, i) => `vueApp.use(plugin${i})`).join('\n')
+
+        return `
+          ${importStatements}
+          export default function (nuxtApp) {
+            nuxtApp.hook('app:created', (vueApp) => {
+              ${useStatements}
+            })
+          }
+        `
+      }
     })
 
     const coreRootPath = core.resolve('..') // root dist directory
@@ -54,10 +88,10 @@ export default defineNuxtModule<ModuleOptions>({
 
 declare module '@nuxt/schema' {
   interface NuxtConfig {
-    vunix?: ModuleOptions
+    vunix?: NuxtConfigModuleOptions
   }
   interface NuxtOptions {
-    vunix?: ModuleOptions
+    vunix?: NuxtConfigModuleOptions
   }
 
   interface AppConfig {

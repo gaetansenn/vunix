@@ -1,5 +1,6 @@
 <template>
   <Teleport to="body" :disabed="!appendToBody">
+    <!-- <Suspense> -->
     <ConfigTransition :config="config.overlay.transition" appear>
       <div v-show="open" :class="config.overlay.class" tabindex="0">
         <div :class="config.wrapper">
@@ -30,6 +31,7 @@
         </div>
       </div>
     </ConfigTransition>
+    <!-- </Suspense> -->
   </Teleport>
 </template>
 
@@ -51,6 +53,7 @@ export default defineComponent({
     Icon
   },
   props: modalProps,
+  emits: ['close', 'update:modelValue'],
   setup(props, { emit }) {
     // Inject default values
     injectDefaultValues(getCurrentInstance()?.props, modalProps, inject(VunixConfigSymbol)?.Modal.defaults)

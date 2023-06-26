@@ -8,7 +8,7 @@ import { shadows } from '../utils/config'
 function handleReactiveConfig(config: any, context: any, keyToAvoid: string[]) {
   // Inject default variants / sizes / rounded computed function
   [{ from: 'variants', of: 'variant' }, { from: 'rounded', of: 'rounded', default: rounded }, { from: 'sizes', of: 'size' }, { from: 'shadows', of: 'shadow', default: shadows }].forEach((el) => {
-    if (config[el.from]) {
+    if (config[el.from] && typeof config[el.from] !== 'boolean') {
       if (typeof config[el.of] !== 'function') {
         if (typeof config[el.from][context.props[el.of]] === 'function') config[el.of] = config[el.from][context.props[el.of]]
         else config[el.of] = (context: any) => {
@@ -18,7 +18,7 @@ function handleReactiveConfig(config: any, context: any, keyToAvoid: string[]) {
     }
 
     // Inject default helper
-    if (!config[el.of] && el.default && context.props[el.of]) {
+    if (!config[el.of] || config[el.of] === true && el.default && context.props[el.of]) {
       config[el.of] = el.default
     }
   });

@@ -38,16 +38,21 @@
     </VFadeTransition>
     <VButton @click="test = !test">Click to show</VButton>
     <VButton @click="modalOpened = true">Click to open modal</VButton>
-    <VModal v-model="modalOpened" header="Hey header">
+    <VButton @click="dialogOpened = true">Click to open dialog</VButton>
+    <!-- <VModal v-model="modalOpened" header="Hey header" rounded="lg">
       This is modal content with a long text to test the marging applied between the close button
       <template #footer>
         This is the footer content
       </template>
     </VModal>
+    <VDialog v-model="dialogOpened" title="Remove user" cancel="Annuler" submit="Valider" :on-submit="dialogSubmit">
+      Are you sure ? You can't undo this action afterwards.
+    </VDialog> -->
   </div>
 </template>
   
 <script setup>
+const dialogOpened = ref(false)
 const modalOpened = ref(false)
 const test = ref(false)
 const name = ref('')
@@ -70,4 +75,8 @@ const nonok = { label: 'non', value: 14 }
 const radio = ref('')
 
 const checkbox = ref('')
+
+const dialogSubmit = async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+}
 </script>

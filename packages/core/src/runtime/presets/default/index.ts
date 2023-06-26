@@ -16,6 +16,7 @@ import AccordionItem from './AccordionItem.config'
 import CollapseTransition from './CollapseTransition.config'
 import Accordion from './Accordion.config'
 import Modal from './Modal.config'
+import Dialog from './Dialog.config'
 
 export default {
   Button,
@@ -36,5 +37,6 @@ export default {
   Card,
   Accordion,
   AccordionItem,
-  Modal
+  Modal,
+  Dialog
 } as Config;

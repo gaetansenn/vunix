@@ -11,6 +11,8 @@ const config = {
   },
   variants: {
     default: 'bg-blue-100 text-blue-900 font-medium hover:bg-blue-200 focus:outline-none focus:ring focus:ring-blue-300 disabled:text-gray-400 disabled:bg-gray-200',
+    'blue-500': 'bg-blue-500 text-white border-blue-500 font-medium hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-700 disabled:text-gray-400 disabled:border-gray-400 disabled:bg-gray-200',
+    'outline-blue-500': 'bg-transparent text-blue-500 border-blue-500 font-medium hover:text-blue-600 focus:outline-none focus:ring focus:ring-blue-700 disabled:text-gray-400 disabled:border-gray-400',
     outline: 'border border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600 focus:outline-none focus:ring focus:ring-blue-300 font-medium',
     text: ''
   },
