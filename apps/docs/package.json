@@ -14,8 +14,8 @@
     "@vunix/nuxt": "*"
   },
   "devDependencies": {
-    "@nuxt-themes/docus": "^1.1.4",
-    "nuxt": "^3.2.0"
+    "@nuxt-themes/docus": "^1.15.0",
+    "nuxt": "^3.9.1"
   },
   "standard-version": {
     "skip": {
