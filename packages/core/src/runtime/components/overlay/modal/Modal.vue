@@ -65,7 +65,7 @@ export default defineComponent({
     const open = computed({
       get() {
         // disable-next-line
-        if (process.server) return props.modelValue
+        if (import.meta.server) return props.modelValue
         // // Change body attr
         if (!props.scrollBody) {
           if (props.modelValue) document.body.classList.add('overflow-hidden')
